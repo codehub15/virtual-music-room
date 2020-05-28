@@ -8,8 +8,6 @@
  
  The code was wrapped in a function and the canvas is passed now as an argument.
  
-
-
 */
 
 export default (canvas) => {
@@ -101,7 +99,7 @@ export default (canvas) => {
                 if (distance < area) {
                     opacity = 1 - distance / 40000;
                     ctx.strokeStyle = `rgba(255,255,255, ${opacity})`;
-                    ctx.lineWidth = 1;
+                    ctx.lineWidth = 3;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].pointX, particlesArray[a].pointY);
                     ctx.lineTo(particlesArray[b].pointX, particlesArray[b].pointY);
