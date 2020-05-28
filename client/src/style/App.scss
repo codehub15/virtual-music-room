@@ -11,13 +11,36 @@ body {
 }
 
 // home components
-// particles text
-.particles-map {
-    width: 100vw;
-    height: 100vh;
-    background-image: url(../img/world-1920x1200.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
+.home-component {
+    // particles text
+    .particles-map {
+        width: 100vw;
+        height: 100vh;
+        background-image: url(../img/world-1920x1200.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    // audioRoom-control 
+    .audioRoom-control {
+        height: 30vh;
+    }
+    .audioRoom-control__knob {
+        background-color: #61dafb;
+    }
+    .audioRoom-control {
+        width: 230px;
+        height: 230px;
+        margin: 30px auto;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .audioRoom-control__knob {
+        width: 30px;
+        height: 30px;
+        background: orange;
+    }
 }
 
 // logo
