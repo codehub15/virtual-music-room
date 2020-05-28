@@ -3,9 +3,11 @@ import TextParticles from './TextParticles'
 
 function Homepage() {
     return (
-        <div>
+        <div className="home-component">
 
-            <TextParticles />
+            <div className="particles-map">
+                <TextParticles />
+            </div>
         </div>
     )
 }
