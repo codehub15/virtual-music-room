@@ -1,12 +1,12 @@
 import React from 'react';
 
-import textParticles from '../textParticles';
+import textParticles from '../js/textParticles';
 
 export default class TextParticles extends React.Component {
     constructor(props) {
         super(props);
 
-        this.canvas = React.createRef(); // https://reactjs.org/docs/refs-and-the-dom.html
+        this.canvas = React.createRef();
     }
 
     componentDidMount() {
