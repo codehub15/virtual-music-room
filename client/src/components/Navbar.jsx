@@ -9,29 +9,29 @@ export default function Navbar() {
     return (
         <nav>
             <ul>
-                <li>
-                    <NavLink className="main-nav-link" to="/" exact activeClassName="active">Home</NavLink>
+                <li className="link-background">
+                    <NavLink className="main-nav-link middle" to="/" exact activeClassName="active">Home</NavLink>
                 </li>
-                <li>
-                    <NavLink className="main-nav-link" to="/musicians" exact activeClassName="active">Musicians</NavLink>
+                <li className="link-background">
+                    <NavLink className="main-nav-link middle" to="/musicians" exact activeClassName="active">Musicians</NavLink>
                 </li>
                 {!isLoggedIn ? (
                     <div className="nav-li-div">
-                        <li>
-                            <NavLink className="main-nav-link" to="/signup" exact activeClassName="active">Sign up</NavLink>
+                        <li className="link-background">
+                            <NavLink className="main-nav-link middle" to="/signup" exact activeClassName="active">Sign up</NavLink>
                         </li>
-                        <li>
-                            <NavLink className="main-nav-link" to="/login" exact activeClassName="active">Login</NavLink>
+                        <li className="link-background">
+                            <NavLink className="main-nav-link middle" to="/login" exact activeClassName="active">Login</NavLink>
                         </li>
                     </div>
                 ) : (
                         <div className="nav-li-div">
-                            <li>
-                                <NavLink className="main-nav-link" to="/musicianAccount" exact activeClassName="active">My Account</NavLink>
+                            <li className="link-background">
+                                <NavLink className="main-nav-link middle" to="/musicianAccount" exact activeClassName="active">My Account</NavLink>
                             </li>
 
-                            <li>
-                                <NavLink className="main-nav-link" to="/logout" exact activeClassName="active">Logout</NavLink>
+                            <li className="link-background">
+                                <NavLink className="main-nav-link middle" to="/logout" exact activeClassName="active">Logout</NavLink>
                             </li>
                         </div>
                     )
