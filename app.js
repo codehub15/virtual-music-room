@@ -2,23 +2,32 @@ const express = require("express")
 const mongoose = require("mongoose")
 const httpError = require("http-errors")
 const env = require("./config/config")
-// const { setCors } = require("./middleware/security")
+    // const { setCors } = require("./middleware/security")
+const indexRoute = require("./routes/indexRoute")
+
 
 
 const app = express()
-app.use(express.json({ extended: true }))
+app.use(express.json({
+    extended: true
+}))
 
 
 // mongoDB
-mongoose.connect(env.db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(env.db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 mongoose.connection.on("error", (err) => console.log(err))
 mongoose.connection.on("open", () => console.log("database connected"))
 
 
+app.use("/", indexRoute)
+
 // for testing
-app.get('/', function (req, res) {
-    res.send("hello from server")
-})
+// app.get('/', function(req, res) {
+//     res.send("hello from server")
+// })
 
 
 // http errors
@@ -26,7 +35,10 @@ app.use((req, res, next) => {
     next(httpError(404))
 })
 app.use((err, req, res, next) => {
-    res.json({ status: err.status, err: err.message })
+    res.json({
+        status: err.status,
+        err: err.message
+    })
 })
 
 
