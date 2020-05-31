@@ -59,7 +59,7 @@ export default (canvas) => {
         options.particleColor = opt.particleColor || "orange"; //string
         options.particleSize = opt.particleSize || 0; // number: particle size, default=0 (not shown)
         options.textColor = opt.textColor || "#dddddd"; // string
-        options.textList = (opt.textList || "Marty: Keyboard, Juan: Drums, Thomas: Chello, Natalia: Piano, Ferenc: Bass, Nicholas: Guitar, Mary: Violin").split(', '); // string: list of strings separated with a comma and a space
+        options.textList = (opt.textList || "Marty: Keyboard, Juan: Drums, Thomas: Chello, Natasha: Piano, Alex: Bass, Nicholas: Guitar, Mary: Violin").split(', '); // string: list of strings separated with a comma and a space
         options.textSize = opt.textSize || 24; // number: positive
         reset(options);
         window.requestAnimationFrame(animateFrameLoop);
@@ -97,7 +97,7 @@ export default (canvas) => {
                 let distance = ((particlesArray[a].pointX - particlesArray[b].pointX) * (particlesArray[a].pointX - particlesArray[b].pointX) +
                     (particlesArray[a].pointY - particlesArray[b].pointY) * (particlesArray[a].pointY - particlesArray[b].pointY));
                 if (distance < area) {
-                    opacity = 1 - distance / 40000;
+                    opacity = 1 - distance / 50000;
                     ctx.strokeStyle = `rgba(255,255,255, ${opacity})`;
                     ctx.lineWidth = 3;
                     ctx.beginPath();
