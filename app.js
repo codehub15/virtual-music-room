@@ -2,8 +2,9 @@ const express = require("express")
 const mongoose = require("mongoose")
 const httpError = require("http-errors")
 const env = require("./config/config")
-    // const { setCors } = require("./middleware/security")
+const { setCors } = require("./middleware/security")
 const indexRoute = require("./routes/indexRoute")
+const musicianRoute = require("./routes/musicianRoute")
 
 
 
@@ -11,6 +12,8 @@ const app = express()
 app.use(express.json({
     extended: true
 }))
+
+app.use(setCors)
 
 
 // mongoDB
@@ -23,11 +26,7 @@ mongoose.connection.on("open", () => console.log("database connected"))
 
 
 app.use("/", indexRoute)
-
-// for testing
-// app.get('/', function(req, res) {
-//     res.send("hello from server")
-// })
+app.use("/users", musicianRoute)
 
 
 // http errors
