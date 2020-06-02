@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import AuthContext from './context/authContext'
 import ErrorPage from './components/ErrorPage'
 import Home from './components/Homepage'
-import Signup from './components/Signup'
+import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Musicians from './components/Musicians'
@@ -19,7 +19,7 @@ export default function Routes() {
 
             <Route path="/signup"
                 render={(props) =>
-                    <Signup
+                    <Register
                         {...props} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
                     />}
             />

@@ -10,6 +10,7 @@ function App() {
   const [token, setToken] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [cookies, setCookies] = useState(false)
+  const [userId, setUserId] = useState(null)
   const [name, setName] = useState(null)
   const [userEmail, setUserEmail] = useState(null)
   const [isAdmin, setIsAdmin] = useState(false)
@@ -19,6 +20,7 @@ function App() {
     <AuthContext.Provider value={{
       token, setToken,
       isLoggedIn, setIsLoggedIn,
+      userId, setUserId,
       name, setName,
       userEmail, setUserEmail,
       isAdmin, setIsAdmin
