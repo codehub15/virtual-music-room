@@ -21,9 +21,9 @@ export default function MusicianAccount(props) {
         return (
             <div key={i} className="musician">
                 <h3>{musician.name}</h3>
-                <p>{musician._id} </p>
                 <p>{musician.email} </p>
                 <p>Level: {musician.level} </p>
+                <p>Role: {musician.role} </p>
             </div>
         )
     })
