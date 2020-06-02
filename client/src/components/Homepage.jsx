@@ -6,7 +6,7 @@ import Title from './Title';
 function Homepage() {
     return (
         <div className="home-component">
-            <Title />
+            {/** <Title /> */}
             <div className="slogan">
                 <h1>The Musicians Community</h1>
                 {/* <h2>The Musicians Community</h2> */}
