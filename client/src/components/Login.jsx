@@ -28,11 +28,11 @@ export default function Login(props) {
         // console.log('data response:', data);
         // setToken(data.token)
 
-        // store user id
-        let musicianId = data.user._id;
-        setUserId(musicianId)
 
         if (data.success) {
+            // store user id
+            let musicianId = data.user._id;
+            setUserId(musicianId)
             setIsLoggedIn(true)
             // setToken(data.token)
         } else {

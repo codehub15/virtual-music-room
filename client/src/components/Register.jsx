@@ -35,14 +35,13 @@ export default function Register(props) {
         const data = await response.json();
         // console.log(response.headers.get("x-auth"))
 
-        // store user id
-        let musicianId = data.user._id;
-        setUserId(musicianId)
-        console.log("register id:", userId)
 
         // show message with the register status to the user
         if (data.success) {
             alert("Your account was created successful.")
+            // store user id
+            let musicianId = data.user._id;
+            setUserId(musicianId)
             setIsLoggedIn(true)
         }
         else {
