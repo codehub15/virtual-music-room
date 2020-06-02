@@ -11,11 +11,10 @@ const MusicianSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     level: { type: String, required: true },
-    // level: ["Beginner", "Skilled", "Specialist", "Expert"],
     // musicStyle: [],
     // instruments: [],
     tracks: [{ type: Types.ObjectId, ref: 'Track' }],
-    role: { type: String, enum: ["Admin", "User", "Musician"], required: true },
+    role: { type: String, enum: ["Admin", "User", "Musician", "Producer", "Sound Engineer"], required: true },
     accountCreatedOn: { type: Date, default: Date.now },
     tokens: [{ token: { type: String, required: true } }]
 })

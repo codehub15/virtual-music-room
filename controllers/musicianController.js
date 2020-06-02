@@ -35,6 +35,7 @@ exports.postUser = async (req, res, next) => {
         await user.save()
         const data = user.getPublicFields()
 
+        console.log("server user:", user)
         // setup session
         // req.session.token = token;
         // req.session.user = user;
