@@ -5,7 +5,7 @@ export default (canvas) => {
     const ctx = c.getContext('2d')
     let mask;
 
-    let pointCount = 1700;
+    let pointCount = 1500;
     let str = "Virtual Music Room";
     let fontStr = "bold 70pt Helvetica Neue, Helvetica, Arial, sans-serif";
 
@@ -16,13 +16,13 @@ export default (canvas) => {
 
     let whitePixels = [];
     let points = [];
-    let point = function(x, y, vx, vy) {
+    let point = function (x, y, vx, vy) {
         this.x = x;
         this.y = y;
         this.vx = vx || 1;
         this.vy = vy || 1;
     }
-    point.prototype.update = function() {
+    point.prototype.update = function () {
         ctx.beginPath();
         ctx.fillStyle = "#3c3d3d"; // "#95a5a6"
         ctx.arc(this.x, this.y, 1, 0, 2 * Math.PI);
