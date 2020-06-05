@@ -14,6 +14,8 @@ function App() {
   const [name, setName] = useState(null)
   const [userEmail, setUserEmail] = useState(null)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [allMusicians, setAllMusicians] = useState([])
+  const [clickProfile, setClickProfile] = useState(false)
 
 
   return (
@@ -23,6 +25,8 @@ function App() {
       userId, setUserId,
       name, setName,
       userEmail, setUserEmail,
+      allMusicians, setAllMusicians,
+      clickProfile, setClickProfile,
       isAdmin, setIsAdmin
     }}
     >

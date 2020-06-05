@@ -8,10 +8,11 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Musicians from './components/Musicians'
 import MusicianAccount from './components/MusicianAccount'
+import MusicianProfile from './components/MusicianProfile'
 
 
 export default function Routes() {
-    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+    const { isLoggedIn, setIsLoggedIn, clickProfile } = useContext(AuthContext)
 
     return (
         <Switch>
@@ -43,6 +44,11 @@ export default function Routes() {
             />
 
             <Route exact path="/musicians" component={Musicians} />
+
+            {clickProfile ?
+                <Route exact path="/profile" component={MusicianProfile} />
+                : null
+            }
 
             <Route component={ErrorPage} />
         </Switch>
