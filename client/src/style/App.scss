@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -41,7 +40,6 @@ nav {
     .nav-li-div {
         display: flex;
     }
-
     // link hover effect
     a.middle {
         position: relative;
@@ -64,20 +62,18 @@ nav {
     }
 }
 
-
 // components
 // .App {
 //     text-align: center;
 // }
-
 // app container
 .app-container {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(241, 236, 236, 0.5);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(241, 236, 236, 0.5);
 }
 
 // home components
@@ -89,7 +85,6 @@ nav {
         // background-repeat: no-repeat;
         // background-position: center;
         box-shadow: inset 1px 200px 35px -195px rgba(2, 9, 27, 0.75);
-        
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.7em;
@@ -107,7 +102,6 @@ nav {
             text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
     }
-
     // particles text
     .particles-map {
         width: 100vw;
@@ -117,18 +111,18 @@ nav {
         background-position: center;
         box-shadow: 0px -7px 14px 1px rgba(3, 11, 32, 0.75);
     }
-
     // audioRoom-control 
     .audioRoom-control {
         height: 30vh;
+        position: relative;
     }
     .audioRoom-control__knob {
         background-color: #61dafb;
     }
     .audioRoom-control {
-        width: 230px;
-        height: 230px;
-        margin: 30px auto;
+        width: 250px;
+        height: 250px;
+        margin: 10rem auto;
         background: black;
         display: flex;
         justify-content: center;
@@ -138,6 +132,77 @@ nav {
         width: 30px;
         height: 30px;
         background: orange;
+        z-index: 1;
+        // color: #b92393;
+    }
+    .audioRoom-control__avatar {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        border-radius: 50%;
+        border: 5px solid black;
+    }
+    .audioRoom-control__avatar--1 {
+        right: 100%;
+        bottom: 100%;
+        background-image: url(../img/bass.jpg);
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid black;
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .audioRoom-control__avatar--2 {
+        left: 100%;
+        bottom: 100%;
+        background-image: url(../img/drums.jpg);
+    }
+    .audioRoom-control__avatar--3 {
+        left: 100%;
+        top: 100%;
+        background-image: url(../img/guitar.jpg);
+    }
+    .audioRoom-control__avatar--4 {
+        right: 100%;
+        top: 100%;
+        background-image: url(../img/piano.JPG);
+    }
+    #audio-canvas {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+    }
+    #audio-canvas2 {
+        position: absolute;
+        left: 100%;
+        bottom: 100%;
+        transform-origin: bottom left;
+        transform: rotate(90deg);
+    }
+    #audio-canvas3 {
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        transform-origin: bottom left;
+        transform: rotate(180deg);
+    }
+    #audio-canvas4 {
+        position: absolute;
+        bottom: 100%;
+        right: 100%;
+        transform-origin: bottom right;
+        transform: rotate(-90deg);
+    }
+    .title-container {
+        text-align: center;
     }
 }
 
@@ -150,8 +215,7 @@ nav {
     width: 30rem;
     padding: 1rem 0rem;
     background-color: rgba(233, 233, 235, 0.5);
-    box-shadow: 0px 2px 12px 0px rgba(1,9,26,1);
-
+    box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
     form {
         display: flex;
         flex-direction: column;
@@ -160,19 +224,16 @@ nav {
         padding: 1rem;
         background-color: rgba(22, 22, 22, 0.7);
         // border-top: 1px solid color(primary);
-
         input {
             margin: 0.5rem;
         }
-
         span {
-          text-align: right;
-          color: rgb(221, 217, 217);
+            text-align: right;
+            color: rgb(221, 217, 217);
         }
     }
-
     h2 {
-      text-align: center;
+        text-align: center;
     }
 }
 
@@ -182,7 +243,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     .musician-profile {
         width: 90vw;
         display: flex;
@@ -193,16 +253,13 @@ nav {
         margin: 0.5rem;
         padding: 1rem 1rem 1.5rem 1rem;
         box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
-
         h3 {
             font-size: 1.35em;
         }
-
         a {
             color: rgb(70, 149, 172);
             font-weight: bold;
-
-            &:hover{
+            &:hover {
                 color: #000;
             }
         }
@@ -216,13 +273,10 @@ nav {
 //     position: absolute;
 //     top: 7.5rem;
 //     box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
-
 //     h2 {
 //         margin-bottom: 3rem;
 //     }
 // }
-
-
 // logo
 .App-logo {
     height: 10vmin;
