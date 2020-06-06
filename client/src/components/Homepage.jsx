@@ -1,8 +1,10 @@
 import React from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
-import Title from './Title';
-import SpectrumAudio from './SpectrumAudio';
+import Title from './Title'
+import MultiTracks from './MultiTracks'
+import CheckWave from './CheckWave'
+
 
 function Homepage() {
     return (
@@ -16,7 +18,9 @@ function Homepage() {
                 <TextParticles />
             </div>
             <AudioRoom />
-            <SpectrumAudio />
+
+
+            <CheckWave />
         </div>
     )
 }

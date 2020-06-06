@@ -9,10 +9,12 @@
         "node-sass": "^4.14.1",
         "react": "^16.13.1",
         "react-audio-spectrum": "^0.1.0",
+        "react-audio-waveform": "0.0.5",
         "react-dom": "^16.13.1",
         "react-draggable": "^4.2.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1"
+        "react-scripts": "3.4.1",
+        "react-wavesurfer": "^0.8.6"
     },
     "scripts": {
         "start": "react-scripts start",
