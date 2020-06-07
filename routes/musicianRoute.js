@@ -11,6 +11,7 @@ Route.get("/:id", getUser)
 // Route.get("/:id", auth, getUser)
 Route.post("/", validateInputs(), postUser)
 Route.put("/:id", auth, putUser)
-Route.delete("/:id", auth, deleteUser)
+// Route.delete("/:id", auth, deleteUser)
+Route.delete("/:id", deleteUser)
 
 module.exports = Route

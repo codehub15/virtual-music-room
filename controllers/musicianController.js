@@ -67,11 +67,13 @@ exports.putUser = async (req, res, next) => {
     }
 }
 
+
 // delete a user
 exports.deleteUser = async (req, res, next) => {
     const { id } = req.params
     try {
         const user = await User.findByIdAndDelete(id)
+        user.save()
         if (!user) throw httpError(500)
         res.json({ success: true, user: user })
     }
