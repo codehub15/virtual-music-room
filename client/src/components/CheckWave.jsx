@@ -2,8 +2,8 @@
 
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import Wavesurfer from 'react-wavesurfer';
-import ws from '../js/react-wavesurfer'
+// import Wavesurfer from 'react-wavesurfer';
+// import ws from '../js/react-wavesurfer'
 import piano from '../assets/piano-quartet.wav'
 
 
