@@ -1,11 +1,17 @@
 import React from 'react';
 import Draggable from 'react-draggable'
 import AudioSpectrum from 'react-audio-spectrum'
-// import Piano from '../assets/piano quartet principal clip 07 03 2012.wav'
+//Piano Oscuro song
 import violin from '../assets/Violin-pizzicatto.wav'
 import longDrum from '../assets/LongDrum.wav'
 import bass from '../assets/pick-bass.wav'
 import piano from '../assets/piano-quartet.wav'
+//guitarCannon song
+import drums from '../assets/GuitarCannonDrums.mp3'
+import guitars from '../assets/guitarCannonGuitars.mp3'
+import keybass from '../assets/guitarCannonBasskeys.mp3'
+import hammond from '../assets/guitarCannonHammond.mp3'
+
 
 
 class AudioRoom extends React.Component {
@@ -93,22 +99,23 @@ class AudioRoom extends React.Component {
 
 
                 <audio ref={this.a1} preload="true" loop id="a1">
-                    <source src={violin} type="audio/wav" />
+                    {/* <source src={violin} type="audio/wav" /> */}
+                    <source src={drums} type="audio/mpeg" />
                 </audio>
 
                 <audio ref={this.a2} preload="true" loop id="a2">
-                    {/**  <source src="audios/Long Drum beat police clip 07 03 2012.wav" type="audio/wav" /> */}
-                    <source src={longDrum} type="audio/wav" />
+                    {/* <source src={longDrum} type="audio/wav" /> */}
+                    <source src={guitars} type="audio/mpeg" />
                 </audio>
 
                 <audio ref={this.a3} preload="true" loop id="a3">
-                    {/**  <source src="audios/Pick bass clip 07 03 2012.wav" type="audio/wav" /> */}
-                    <source src={bass} type="audio/wav" />
+                    {/* <source src={bass} type="audio/wav" /> */}
+                    <source src={keybass} type="audio/mpeg" />
                 </audio>
 
                 <audio ref={this.a4} preload="true" loop id="a4">
-                    {/**  <source src="audios/piano quartet principal clip 07 03 2012.wav" type="audio/wav" /> */}
-                    <source src={piano} type="audio/wav" />
+                    {/* <source src={piano} type="audio/wav" /> */}
+                    <source src={hammond} type="audio/mpeg" />
                 </audio>
 
 
@@ -120,9 +127,9 @@ class AudioRoom extends React.Component {
                     height={200}
                     width={250}
                     audioId={'a1'}
-                    capColor={'red'}
-                    capHeight={2}
-                    meterWidth={2}
+                    capColor={'#222'}
+                    capHeight={3}
+                    meterWidth={3}
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: 'blue' },
@@ -138,9 +145,9 @@ class AudioRoom extends React.Component {
                     height={200}
                     width={250}
                     audioId={'a2'}
-                    capColor={'red'}
-                    capHeight={2}
-                    meterWidth={2}
+                    capColor={'#222'}
+                    capHeight={3}
+                    meterWidth={3}
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: '#7523b9' },
@@ -156,9 +163,9 @@ class AudioRoom extends React.Component {
                     height={200}
                     width={250}
                     audioId={'a3'}
-                    capColor={'red'}
-                    capHeight={2}
-                    meterWidth={2}
+                    capColor={'#222'}
+                    capHeight={3}
+                    meterWidth={3}
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: '#28b923' },
@@ -175,9 +182,9 @@ class AudioRoom extends React.Component {
                     height={200}
                     width={250}
                     audioId={'a4'}
-                    capColor={'red'}
-                    capHeight={2}
-                    meterWidth={2}
+                    capColor={'#222'}
+                    capHeight={3}
+                    meterWidth={3}
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: '#b92393' },
