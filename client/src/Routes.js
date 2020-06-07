@@ -9,6 +9,7 @@ import Logout from './components/Logout'
 import Musicians from './components/Musicians'
 import MusicianAccount from './components/MusicianAccount'
 import MusicianProfile from './components/MusicianProfile'
+import DeleteAccount from './components/DeleteAccount'
 
 
 export default function Routes() {
@@ -49,6 +50,15 @@ export default function Routes() {
                 <Route exact path="/profile" component={MusicianProfile} />
                 : null
             }
+
+            <Route path="/delete-account"
+                render={(props) =>
+                    <DeleteAccount
+                        {...props}
+                        isLoggedIn={isLoggedIn}
+                        setIsLoggedIn={setIsLoggedIn}
+                    />}
+            />
 
             <Route component={ErrorPage} />
         </Switch>
