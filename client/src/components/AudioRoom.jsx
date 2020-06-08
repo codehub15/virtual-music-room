@@ -93,7 +93,7 @@ class AudioRoom extends React.Component {
                     onStop={this.handleStop}
                 >
                     <div className="audioRoom-control__knob">
-                        {isPlaying ? 'pause' : 'play'}
+                        {isPlaying ? <i class="far fa-pause-circle audio-icon"></i> : <i class="far fa-play-circle audio-icon"></i>}
                     </div>
                 </Draggable>
 

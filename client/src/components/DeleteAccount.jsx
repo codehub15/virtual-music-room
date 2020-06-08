@@ -12,7 +12,7 @@ export default function DeleteAccount() {
         let confirmation = window.confirm("Do you really want to delete your account for ever?")
 
         if (confirmation) {
-            setMsg(`Your account has been deleted now. \nThanks for being part of our musician community.`)
+            setMsg(`Your account has been deleted. \nThank you for have been part of our community and you are welcome back any time!`)
 
             fetch("http://localhost:5000/users/" + userId, {
                 method: 'DELETE'
