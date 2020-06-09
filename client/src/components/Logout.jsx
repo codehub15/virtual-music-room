@@ -8,7 +8,7 @@ export default function Logout() {
 
     return (
         <div className="component-container">
-            <p>You are logged out.</p>
+            <p>You have successfully logged out.</p>
         </div>
     )
 }

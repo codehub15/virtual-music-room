@@ -12,12 +12,11 @@ body {
 nav {
     padding: 0.5rem 0.3rem;
     background-color: #050505;
-    box-shadow: 0px 10px 16px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+    z-index: 1;
     ul {
         display: flex;
         flex-direction: row;
-        // justify-content: flex-end;
-        // align-items: flex-end;
         list-style: none;
         li {
             margin: 0rem 0.5rem;
@@ -62,11 +61,6 @@ nav {
     }
 }
 
-// components
-// .App {
-//     text-align: center;
-// }
-// app container
 .app-container {
     min-height: 90vh;
     display: flex;
@@ -81,10 +75,8 @@ nav {
     .slogan {
         padding: 0.3rem;
         background-color: rgb(38, 37, 59);
-        // background-image: url(../img/guitar-strings.png);
-        // background-repeat: no-repeat;
-        // background-position: center;
-        box-shadow: inset 1px 200px 35px -195px rgba(2, 9, 27, 0.75);
+        // box-shadow: inset 1px 200px 35px -195px rgba(2, 9, 27, 0.75);
+        box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.7em;
@@ -111,18 +103,21 @@ nav {
         background-position: center;
         box-shadow: 0px -7px 14px 1px rgba(3, 11, 32, 0.75);
     }
+    .gif-logo-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        //padding-top: 0.8rem;
+    }
     // audioRoom-control 
     .audioRoom-control {
         height: 30vh;
         position: relative;
-    }
-    .audioRoom-control__knob {
-        background-color: #61dafb;
-    }
-    .audioRoom-control {
         width: 250px;
         height: 250px;
         margin: 10rem auto;
+        margin-top: 15rem;
         background: black;
         display: flex;
         justify-content: center;
@@ -131,9 +126,10 @@ nav {
     .audioRoom-control__knob {
         width: 30px;
         height: 30px;
-        background: orange;
+        background: rgb(122, 107, 189);
         z-index: 1;
-        // color: #b92393;
+        border-radius: 15px;
+        padding: 0.2rem;
     }
     .audioRoom-control__avatar {
         position: absolute;
@@ -146,7 +142,7 @@ nav {
     .audioRoom-control__avatar--1 {
         right: 100%;
         bottom: 100%;
-        background-image: url(../img/bass.jpg);
+        background-image: url(../img/drums.jpg);
         &:after {
             content: '';
             width: 0;
@@ -163,17 +159,57 @@ nav {
     .audioRoom-control__avatar--2 {
         left: 100%;
         bottom: 100%;
-        background-image: url(../img/drums.jpg);
+        background-image: url(../img/guitar.jpg);
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            margin-left: 1.4rem;
+            margin-top: 0.45rem;
+            border-style: solid;
+            border-width: 13px 13px 0 13px;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 100%;
+            bottom: 50%;
+            transform: translateY(-50%);
+        }
     }
     .audioRoom-control__avatar--3 {
         left: 100%;
         top: 100%;
-        background-image: url(../img/guitar.jpg);
+        background-image: url(../img/bass.jpg);
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 15px solid black;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     .audioRoom-control__avatar--4 {
         right: 100%;
         top: 100%;
-        background-image: url(../img/piano.JPG);
+        background-image: url(../img/pianoJuanRoom.png);
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            margin-left: 1.65rem;
+            margin-top: -2.7rem;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent black transparent;
+            position: absolute;
+            top: 50%;
+            bottom: 100%;
+            transform: translateY(-50%);
+        }
     }
     #audio-canvas {
         position: absolute;
@@ -200,6 +236,11 @@ nav {
         right: 100%;
         transform-origin: bottom right;
         transform: rotate(-90deg);
+    }
+    .audio-icon {
+        font-size: 1.8rem;
+        padding-top: 0.1rem;
+        padding-right: 0.1rem;
     }
     .title-container {
         text-align: center;
@@ -263,37 +304,5 @@ nav {
                 color: #000;
             }
         }
-    }
-}
-
-// profile
-// .profile {
-//     // align-self: flex-start;
-//     padding: 0.5rem 2.5rem 1.5rem 2.5rem;
-//     position: absolute;
-//     top: 7.5rem;
-//     box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
-//     h2 {
-//         margin-bottom: 3rem;
-//     }
-// }
-// logo
-.App-logo {
-    height: 10vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
     }
 }

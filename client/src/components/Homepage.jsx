@@ -1,19 +1,17 @@
 import React from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
-import Title from './Title'
 import MultiTracks from './MultiTracks'
 // import CheckWave from './CheckWave'
-// import VideoLogo from './VideoLogo'
-// import newlogo from '../assets/newlogo.gif'
+import gifLogo from '../assets/gifLogo.gif'
 
 
 function Homepage() {
     return (
         <div className="home-component">
-            {/** <Title /> 
-            <VideoLogo />*/}
-            {/* <img src={newlogo} alt="" /> */}
+            <div className="gif-logo-div">
+                <img src={gifLogo} alt="Title Logo" className="gif-logo" width="600" height="55" />
+            </div>
             <div className="slogan">
                 <h1>The Musicians Community</h1>
                 {/* <h2>The Musicians Community</h2> */}
@@ -22,8 +20,6 @@ function Homepage() {
                 <TextParticles />
             </div>
             <AudioRoom />
-
-
             {/* <CheckWave /> */}
         </div>
     )
