@@ -8,6 +8,13 @@ body {
     overflow-x: hidden;
 }
 
+.body-background {
+    //background-image: url(../img/negativeDrum.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 // navbar
 nav {
     padding: 0.5rem 0.3rem;
