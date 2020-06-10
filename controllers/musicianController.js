@@ -57,8 +57,10 @@ exports.postUser = async (req, res, next) => {
 exports.putUser = async (req, res, next) => {
     const { id } = req.params
     const user = req.body
+    console.log("user:", user)
     try {
         const updateUser = await User.findByIdAndUpdate(id, user, { new: true })
+        console.log("updateUser:", updateUser)
         if (!updateUser) throw httpError(500)
         res.json({ success: true, user: updateUser })
     }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom'
-import './style/App.scss';
+import './style/App.scss'
 import Routes from './Routes'
 import Navbar from './components/Navbar'
 import AuthContext from './context/authContext'
@@ -16,6 +16,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [allMusicians, setAllMusicians] = useState([])
   const [clickProfile, setClickProfile] = useState(false)
+  const [userData, setUserData] = useState({})
 
 
   return (
@@ -25,6 +26,7 @@ function App() {
       userId, setUserId,
       name, setName,
       userEmail, setUserEmail,
+      userData, setUserData,
       allMusicians, setAllMusicians,
       clickProfile, setClickProfile,
       isAdmin, setIsAdmin

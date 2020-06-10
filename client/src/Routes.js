@@ -10,6 +10,7 @@ import Musicians from './components/Musicians'
 import MusicianAccount from './components/MusicianAccount'
 import MusicianProfile from './components/MusicianProfile'
 import DeleteAccount from './components/DeleteAccount'
+import EditAccount from './components/EditAccount'
 
 
 export default function Routes() {
@@ -50,6 +51,15 @@ export default function Routes() {
                 <Route exact path="/profile" component={MusicianProfile} />
                 : null
             }
+
+            <Route path="/edit-account"
+                render={(props) =>
+                    <EditAccount
+                        {...props}
+                        isLoggedIn={isLoggedIn}
+                        setIsLoggedIn={setIsLoggedIn}
+                    />}
+            />
 
             <Route path="/delete-account"
                 render={(props) =>

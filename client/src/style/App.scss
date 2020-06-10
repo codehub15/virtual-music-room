@@ -280,12 +280,13 @@ nav {
 
 // musician container
 .musician-container {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .musician-profile {
-        width: 90vw;
         display: flex;
         flex-wrap: wrap;
     }
@@ -303,6 +304,55 @@ nav {
             &:hover {
                 color: #000;
             }
+        }
+    }
+}
+
+// account
+.musician-container-account{
+    .musician-account-container{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .account{
+        width: 55vw;
+    }
+     .account-manager{
+        width: 15vw;
+
+        a {
+            font-weight: 500;
+            color: #000;
+            line-height: 1.3em;
+
+            &:hover{
+                color: rgb(70, 149, 172);
+            }
+        }
+    }
+
+    // .profile-img-container{
+    //     // width: 35vw;
+    // }
+}
+
+// edit account
+.edit-account{
+    padding: 1.5rem;
+    box-shadow: 1px 2px 10px 1px rgb(68, 68, 68);
+
+    h2{
+        text-align: center;
+    }
+
+    form {
+        margin: 2rem 0rem;
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            margin: 0.3rem;
         }
     }
 }
