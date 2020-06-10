@@ -26,13 +26,20 @@ export default function MusicianAccount() {
     return (
         <div className="musician-container">
             {isLoggedIn ? (<div className="musician-account-container">
-                <h2>My Account</h2>
-                <div>
-                    <div className="musician-account">
-                        {<h3>{musicianData.name}</h3>}
-                        {<p>Email: {musicianData.email}</p>}
-                        {<p>Level: {musicianData.level}</p>}
-                        {<p>Id: {musicianData._id}</p>}
+                <div className="account">
+                    <h2>My Account</h2>
+                    <div>
+                        <div className="musician-account">
+                            {<h3>{musicianData.name}</h3>}
+                            {<p>Email: {musicianData.email}</p>}
+                            {<p>Level: {musicianData.level}</p>}
+                            {<p>Id: {musicianData._id}</p>}
+                        </div>
+
+                        <div>
+                            <h3>Upload Profile Image</h3>
+
+                        </div>
                     </div>
                     <div>
                         <h3>Account Manager</h3>

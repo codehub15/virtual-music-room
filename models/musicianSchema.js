@@ -7,7 +7,9 @@ const env = require("../config/config")
 
 const MusicianSchema = new Schema({
     name: { type: String, required: true, unique: true },
-    picture: { type: String },
+    profileImgName: { type: String },
+    profileImgType: { type: String },
+    img: { data: Buffer, contentType: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     level: { type: String, required: true },
