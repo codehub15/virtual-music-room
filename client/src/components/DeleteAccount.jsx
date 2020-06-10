@@ -35,6 +35,7 @@ export default function DeleteAccount() {
         <div>
             {!deleted ? (<div>
                 <h4>Delete Account</h4>
+                <p>Deleting your account is permanent and will remove all content including tracks!</p>
                 <button onClick={deleteAccount}>delete</button>
 
                 <div className="msg"><p>{msg}</p></div>
