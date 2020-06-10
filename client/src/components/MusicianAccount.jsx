@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { Link } from 'react-router-dom'
 import AuthContext from '../context/authContext'
-
+import ProfileImg from './ProfileImg'
 
 export default function MusicianAccount() {
     const { isLoggedIn, userId, name, setName, setUserEmail } = useContext(AuthContext)
@@ -41,7 +41,7 @@ export default function MusicianAccount() {
 
                         <div className="profile-img-container">
                             <h3>Upload Profile Image</h3>
-
+                            <ProfileImg />
                         </div>
                     </div>
                 </div>
