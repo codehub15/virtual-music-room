@@ -1,7 +1,16 @@
 const httpError = require("http-errors")
 const User = require("../models/musicianSchema")
-const jwt = require("jsonwebtoken")
+// const jwt = require("jsonwebtoken")
+const fileUpload = require('express-fileupload')
+const http = require('http')
+const path = require("path")
+const fs = require('fs');
+const formidable = require('formidable')
+// const Busboy = require('busboy')
+const multer = require('multer')
 
+
+// app.use(fileUpload());
 
 // get all users
 exports.getUsers = async (req, res, next) => {
@@ -57,10 +66,8 @@ exports.postUser = async (req, res, next) => {
 exports.putUser = async (req, res, next) => {
     const { id } = req.params
     const user = req.body
-    console.log("user:", user)
     try {
         const updateUser = await User.findByIdAndUpdate(id, user, { new: true })
-        console.log("updateUser:", updateUser)
         if (!updateUser) throw httpError(500)
         res.json({ success: true, user: updateUser })
     }
@@ -68,6 +75,77 @@ exports.putUser = async (req, res, next) => {
         next(err)
     }
 }
+
+
+exports.uploadProfileImg = async (req, res, next) => {
+    const data = req.body
+    console.log("data:", data)
+    const id = data.userId;
+    // console.log("id:", id)
+
+    console.log("req.files", req.files)
+
+    const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
+    console.log("uploadPath:", uploadPath)
+
+    let path = './uploads/'
+    let newProfileImgName = path + data.imgName;
+    let newProfileImgType = data.imgType;
+
+    let newValues = {
+        $set: {
+            profileImgName: newProfileImgName,
+            profileImgType: newProfileImgType
+        }
+    };
+
+    var storeFile = uploadPath + data.imgName
+    console.log("storeFile:", storeFile)
+
+
+    // multer -------------------------
+    // const storage = multer.diskStorage({
+    //     destination: function (req, file, cb) {
+    //         // cb(null, 'uploads/');
+    //         cb(null, uploadPath);
+    //     },
+    //     filename: function (req, file, cb) {
+    //         // cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    //         cb(null, data.imgName + '-' + Date.now() + path.extname(data.imgName));
+    //     }
+    // });
+
+
+    // let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('profile');
+    // upload(req, res, function (err) {
+    //     if (req.fileValidationError) {
+    //         return res.send(req.fileValidationError);
+    //     }
+    //     else if (!req.file) {
+    //         return res.send('Please select an image to upload');
+    //     }
+    //     else if (err instanceof multer.MulterError) {
+    //         return res.send(err);
+    //     }
+    //     else if (err) {
+    //         return res.send(err);
+    //     }
+    // })
+    // -------------------------------
+
+    try {
+        const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
+        console.log("newValues:", newValues)
+        // console.log("updateProfileImg img:", updateProfileImg.name)
+        // if (!updateProfileImg) throw httpError(500)
+        // res.json({ success: true, user: updateProfileImg })
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
+
 
 
 // delete a user
