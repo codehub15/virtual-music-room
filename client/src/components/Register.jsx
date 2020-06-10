@@ -13,11 +13,14 @@ export default function Register(props) {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null)
     const [role, setRole] = useState(null)
+    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2018/05/31/23/57/cranium-3445434_960_720.png")
+
 
     const signUpHandler = async (e) => {
         e.preventDefault();
         const userData = {
             name,
+            profileImgName: profileImg,
             email,
             password,
             level,
