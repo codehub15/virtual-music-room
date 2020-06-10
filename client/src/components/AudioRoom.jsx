@@ -132,9 +132,9 @@ class AudioRoom extends React.Component {
                     meterWidth={3}
                     meterCount={512}
                     meterColor={[
-                        { stop: 0, color: 'blue' },
-                        { stop: 0.5, color: 'blue' },
-                        { stop: 1, color: 'red' }
+                        { stop: 0, color: 'red' },
+                        { stop: 0.5, color: 'gray' },
+                        { stop: 1, color: 'blue' }
                     ]}
                     gap={4}
                 />
@@ -150,9 +150,9 @@ class AudioRoom extends React.Component {
                     meterWidth={3}
                     meterCount={512}
                     meterColor={[
-                        { stop: 0, color: '#7523b9' },
+                        { stop: 0, color: 'red' },
                         { stop: 0.5, color: '#7523b9' },
-                        { stop: 1, color: 'red' }
+                        { stop: 1, color: 'blue' }
                     ]}
                     gap={4}
                 />
@@ -169,7 +169,7 @@ class AudioRoom extends React.Component {
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: '#28b923' },
-                        { stop: 0.5, color: '#28b923' },
+                        { stop: 0.5, color: 'rgb(29, 95, 20)' },
                         { stop: 1, color: 'red' }
                     ]}
                     gap={4}
@@ -187,9 +187,9 @@ class AudioRoom extends React.Component {
                     meterWidth={3}
                     meterCount={512}
                     meterColor={[
-                        { stop: 0, color: '#b92393' },
-                        { stop: 0.5, color: '#b92393' },
-                        { stop: 1, color: 'red' }
+                        { stop: 0, color: 'rgba(63, 16, 16, 0.75)' },
+                        { stop: 0.5, color: 'rgb(206, 206, 5)' },
+                        { stop: 1, color: 'black' }
                     ]}
                     gap={4}
                 />
