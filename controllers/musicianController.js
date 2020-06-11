@@ -1,15 +1,18 @@
 const httpError = require("http-errors")
 const User = require("../models/musicianSchema")
 // const jwt = require("jsonwebtoken")
-const fileUpload = require('express-fileupload')
+// const fileUpload = require('express-fileupload')
 const http = require('http')
 const path = require("path")
 const fs = require('fs');
-const formidable = require('formidable')
+// const formidable = require('formidable')
 // const Busboy = require('busboy')
-const multer = require('multer')
+// const multer = require('multer')
+// const express = require("express")
+const Jimp = require('jimp');
 
 
+// const app = express()
 // app.use(fileUpload());
 
 // get all users
@@ -132,10 +135,22 @@ exports.uploadProfileImg = async (req, res, next) => {
     //     }
     // })
     // -------------------------------
+    // app.use(function (req, res, ) {
+    //     console.log("app - data:", data.imgName)
+    //     res.download(uploadPath + data.imgName)
+    // });
+    // const image = await Jimp.read(profileImgName);
+    // console.log("image:", Jimp.read(profileImgName))
+    // res.download(uploadPath + data.imgName)
 
     try {
         const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
         console.log("newValues:", newValues)
+
+
+
+        // await image.writeAsync(`${uploadPath + data.imgName}${Date.now()}_150x150.png`);
+
         // console.log("updateProfileImg img:", updateProfileImg.name)
         // if (!updateProfileImg) throw httpError(500)
         // res.json({ success: true, user: updateProfileImg })

@@ -50,8 +50,8 @@ export default function ProfileImgUploader() {
         const options = {
             method: 'POST',
             headers: {
-                // 'Content-Type': 'application/json'
-                "Content-Type": "multipart/form-data"
+                'Content-Type': 'application/json'
+                // "Content-Type": "multipart/form-data"
             },
             body: JSON.stringify(userData)
         };
@@ -86,7 +86,7 @@ export default function ProfileImgUploader() {
 
     return (
         <div className="profile-img-upload">
-            {/** 
+            {/** */}
             <form encType="multipart/form-data" onSubmit={uploadHandler}>
                 <input type="file"
                     name="profile"
@@ -96,18 +96,19 @@ export default function ProfileImgUploader() {
                 <br />
                 <button type="submit">upload image</button>
             </form>
-        */}
 
 
+            {/** 
 
             <FilePond
                 name="profile"
                 files={profileImg}
                 onupdatefiles={setProfileImg}
-                server="http://localhost:5000/users/upload"
+                server={"http://localhost:5000/users/upload/" + userId}
                 maxFiles={1}
                 className="filepath"
             />
+            */}
 
             {/** 
             ref={myPondRef}
