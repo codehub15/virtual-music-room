@@ -284,6 +284,10 @@ nav {
         text-align: center;
     }
 }
+// register form
+// .register-form {
+
+// }
 
 // musician container
 .musician-container {
@@ -324,11 +328,18 @@ nav {
     
     .account{
         width: 55vw;
+
+        h2 {
+            font-size: 1.7rem;
+        }
     }
      .account-manager{
         width: 15vw;
+        padding-left: 1.5rem;
+        border-left: 1px solid rgb(182, 179, 179);
 
         a {
+            font-size: 1.2em;
             font-weight: 500;
             color: #000;
             line-height: 1.3em;
@@ -339,15 +350,15 @@ nav {
         }
     }
 
-    // .profile-img-container{
-    //     // width: 35vw;
-    // }
+    .profile-img-container{
+       margin-top: 2rem;
+    }
 }
 
 // edit account
 .edit-account{
     padding: 1.5rem;
-    box-shadow: 1px 2px 10px 1px rgb(68, 68, 68);
+    // box-shadow: 1px 2px 10px 1px rgb(68, 68, 68);
 
     h2{
         text-align: center;
@@ -357,9 +368,30 @@ nav {
         margin: 2rem 0rem;
         display: flex;
         flex-direction: column;
-        
-        input{
-            margin: 0.3rem;
+
+        label {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            text-align: right;
+            width: 400px;
+            line-height: 26px;
+            margin-bottom: 10px;
         }
+
+        input {
+            height: 20px;
+            flex: 0 0 200px;
+            margin-left: 10px;
+        }
+
+        // .edit-data{
+        //    align-self: flex-start;
+        // }
+
+        // input{
+        //     margin: 0.3rem;
+        //     margin-left: 1rem;
+        // }
     }
 }

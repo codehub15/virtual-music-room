@@ -62,7 +62,7 @@ export default function Register(props) {
             ) : (
                     <div>
                         <h2>Sign up</h2>
-                        <form onSubmit={signUpHandler}>
+                        <form onSubmit={signUpHandler} className="register-form">
                             <input type="text" name="name" placeholder="* Enter Your First name or Nickname" required minLength="2" maxLength="25" onChange={(e) => { setName(e.target.value) }} />
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
                             <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
