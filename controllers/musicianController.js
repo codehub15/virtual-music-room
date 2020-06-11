@@ -135,10 +135,14 @@ exports.uploadProfileImg = async (req, res, next) => {
     //     }
     // })
     // -------------------------------
+
+
     // app.use(function (req, res, ) {
     //     console.log("app - data:", data.imgName)
     //     res.download(uploadPath + data.imgName)
     // });
+
+
     // const image = await Jimp.read(profileImgName);
     // console.log("image:", Jimp.read(profileImgName))
     // res.download(uploadPath + data.imgName)
