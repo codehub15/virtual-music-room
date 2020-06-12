@@ -1,19 +1,8 @@
 const httpError = require("http-errors")
 const User = require("../models/musicianSchema")
 // const jwt = require("jsonwebtoken")
-// const fileUpload = require('express-fileupload')
-const http = require('http')
-const path = require("path")
-const fs = require('fs');
-// const formidable = require('formidable')
-// const Busboy = require('busboy')
-// const multer = require('multer')
-// const express = require("express")
-const Jimp = require('jimp');
+const multer = require('multer')
 
-
-// const app = express()
-// app.use(fileUpload());
 
 // get all users
 exports.getUsers = async (req, res, next) => {
@@ -46,7 +35,6 @@ exports.postUser = async (req, res, next) => {
         const token = user.generateAuthToken()
         await user.save()
         const data = user.getPublicFields()
-
         console.log("server user:", user)
         // setup session
         // req.session.token = token;
@@ -57,7 +45,6 @@ exports.postUser = async (req, res, next) => {
         // response
         res.header("x-auth", token).json({ success: true, user: data })
         // res.cookie("x-auth", token, { secure: true }).json({ success: true, user: data }
-
     }
     catch (err) {
         next(err)
@@ -80,90 +67,67 @@ exports.putUser = async (req, res, next) => {
 }
 
 
-exports.uploadProfileImg = async (req, res, next) => {
-    const data = req.body
-    console.log("data:", data)
-    const id = data.userId;
-    // console.log("id:", id)
-
-    console.log("req.files", req.files)
-
-    const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
-    console.log("uploadPath:", uploadPath)
-
-    let path = './uploads/'
-    let newProfileImgName = path + data.imgName;
-    let newProfileImgType = data.imgType;
-
-    let newValues = {
-        $set: {
-            profileImgName: newProfileImgName,
-            profileImgType: newProfileImgType
-        }
-    };
-
-    var storeFile = uploadPath + data.imgName
-    console.log("storeFile:", storeFile)
-
-
-    // multer -------------------------
-    // const storage = multer.diskStorage({
-    //     destination: function (req, file, cb) {
-    //         // cb(null, 'uploads/');
-    //         cb(null, uploadPath);
-    //     },
-    //     filename: function (req, file, cb) {
-    //         // cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    //         cb(null, data.imgName + '-' + Date.now() + path.extname(data.imgName));
-    //     }
-    // });
+// ----- upload profile image ---------------
+// const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
+// const upload = multer({
+//     dest: uploadPath
+// })
+// // Route.post("/uploadtest", upload.single("profile"), (req, res, next) => {
+// exports.uploadProfileImg = (upload.single("profile"), (req, res, next) => {
+//     console.log(req.file)
+//     // res.send("Received file")
+//     let newValues = {
+//         $set: {
+//             profileImgName: req.file.originalname,
+//             profileImgType: req.file.mimetype
+//         }
+//     };
+//     try {
+//         const updateProfileImg = User.findByIdAndUpdate(id, newValues, { new: true })
+//         console.log("newValues:", newValues)
+//         if (!updateProfileImg) throw httpError(500)
+//         res.json({ success: true, user: updateProfileImg })
+//     }
+//     catch (err) {
+//         next(err)
+//     }
+// })
 
 
-    // let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('profile');
-    // upload(req, res, function (err) {
-    //     if (req.fileValidationError) {
-    //         return res.send(req.fileValidationError);
-    //     }
-    //     else if (!req.file) {
-    //         return res.send('Please select an image to upload');
-    //     }
-    //     else if (err instanceof multer.MulterError) {
-    //         return res.send(err);
-    //     }
-    //     else if (err) {
-    //         return res.send(err);
-    //     }
-    // })
-    // -------------------------------
+// ----- old version of upload profile image -------------
+// exports.uploadProfileImg = async (req, res, next) => {
+//     console.log("req.files", req.files)
+//     const data = req.body
+//     console.log("data:", data)
+//     const id = data.userId;
 
+//     const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
+//     console.log("uploadPath:", uploadPath)
 
-    // app.use(function (req, res, ) {
-    //     console.log("app - data:", data.imgName)
-    //     res.download(uploadPath + data.imgName)
-    // });
+//     let path = './uploads/'
+//     let newProfileImgName = path + data.imgName;
+//     let newProfileImgType = data.imgType;
 
+//     let newValues = {
+//         $set: {
+//             profileImgName: newProfileImgName,
+//             profileImgType: newProfileImgType
+//         }
+//     };
 
-    // const image = await Jimp.read(profileImgName);
-    // console.log("image:", Jimp.read(profileImgName))
-    // res.download(uploadPath + data.imgName)
+//     var storeFile = uploadPath + data.imgName
+//     console.log("storeFile:", storeFile)
 
-    try {
-        const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
-        console.log("newValues:", newValues)
-
-
-
-        // await image.writeAsync(`${uploadPath + data.imgName}${Date.now()}_150x150.png`);
-
-        // console.log("updateProfileImg img:", updateProfileImg.name)
-        // if (!updateProfileImg) throw httpError(500)
-        // res.json({ success: true, user: updateProfileImg })
-    }
-    catch (err) {
-        next(err)
-    }
-}
-
+//     try {
+//         const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
+//         console.log("newValues:", newValues)
+//         // if (!updateProfileImg) throw httpError(500)
+//         // res.json({ success: true, user: updateProfileImg })
+//     }
+//     catch (err) {
+//         next(err)
+//     }
+// }
 
 
 

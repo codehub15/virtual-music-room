@@ -14,79 +14,50 @@ registerPlugin(
 
 export default function ProfileImgUploader() {
     const { userId } = useContext(AuthContext)
+    console.log("user id:", userId)
 
     const [profileImg, setProfileImg] = useState([])
     console.log("profileImg:", profileImg)
 
-    // const [profile, setProfile] = useState([])
-    // console.log("profile:", profile)
-
-    const [image, setImage] = useState({ img: '' })
-    // const [loading, setLoading] = useState(false)
-
-    // const [imgName, setImgName] = useState(null)
-    // console.log("imgName:", imgName)
-
-    // const myPondRef = useRef(null);
-    // const [files, setFiles] = useState([]);
-
-
-    const arrayBufferToBase64 = (buffer) => {
-        let binary = '';
-        let bytes = [].slice.call(new Uint8Array(buffer));
-        bytes.forEach((b) => binary += String.fromCharCode(b));
-        return window.btoa(binary);
-    };
-
 
     const uploadHandler = async (e) => {
         e.preventDefault();
-        const userData = {
-            profileImg: profileImg,
-            imgName: profileImg.name,
-            imgType: profileImg.type,
-            userId: userId
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-                // "Content-Type": "multipart/form-data"
-            },
-            body: JSON.stringify(userData)
-        };
-        console.log("user data:", userData)
-        const response = await fetch('http://localhost:5000/users/upload', options);
-        const data = await response.json();
+        // const userData = {
+        //     // profileImg: file,
+        //     imgName: profileImg.name,
+        //     imgType: profileImg.type,
+        //     userId: userId
+        // };
+        // const options = {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //         // "Content-Type": "multipart/form-data"
+        //     },
+        //     body: JSON.stringify(userData)
+        //     // body: userData
+        // };
+        // console.log("user data:", userData)
+        // const response = await fetch('http://localhost:5000/users/upload', options);
+        // const data = await response.json();
 
-        if (data.success) {
-            alert("Profile image has been uploaded.")
-        } else {
-            alert("something went wrong")
-        }
+        // if (data.success) {
+        //     alert("Profile image has been uploaded.")
+        // } else {
+        //     alert("something went wrong")
+        // }
 
-        // fetch('http://localhost:5000/users/upload',{ method: 'POST'})
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log("data:", data)
-        //         let base64Flag = 'data:image/jpeg;base64,';
-        //         let imageStr = arrayBufferToBase64(data.img.data.data);
-        //         setImage({ img: base64Flag + imageStr })
-        //     })
+        fetch('http://localhost:5000/users/upload', { method: 'POST' })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("data:", data)
+            })
     }
-
-
-    // useEffect(function () {
-    //     // calling setOptions
-    //     console.log(myPondRef.current._pond.setOptions);
-    // });
-
-
 
 
     return (
         <div className="profile-img-upload">
-            {/** */}
+            {/**
             <form encType="multipart/form-data" onSubmit={uploadHandler}>
                 <input type="file"
                     name="profile"
@@ -96,31 +67,18 @@ export default function ProfileImgUploader() {
                 <br />
                 <button type="submit">upload image</button>
             </form>
+ */}
 
-
-            {/** 
-
+            {/**   */}
             <FilePond
                 name="profile"
                 files={profileImg}
                 onupdatefiles={setProfileImg}
-                server={"http://localhost:5000/users/upload/" + userId}
+                server={"http://localhost:5000/users/upload"}
                 maxFiles={1}
                 className="filepath"
             />
-            */}
 
-            {/** 
-            ref={myPondRef}
-    
-            {
-                loading ? (
-                    <h3>Loading...</h3>
-                ) : (
-                        <img src={profileImg} style={{ width: '300px' }} />
-                    )
-            }
-            */}
         </div>
     )
 }

@@ -48,7 +48,7 @@ export default function MusicianAccount() {
                     <h2>Account Manager</h2>
                     <Link to="/delete-account"><i class="fas fa-user-times"></i> delete account</Link>
                     <br />
-                    <Link to="/edit-account" isLoggedIn={isLoggedIn}><i class="fas fa-user-edit"></i> edit account</Link>
+                    <Link to="/edit-account"><i class="fas fa-user-edit"></i> edit account</Link>
 
                     <div className="profile-img-container">
                         <h3>Upload Profile Image</h3>
