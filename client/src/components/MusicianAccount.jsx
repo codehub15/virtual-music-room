@@ -5,25 +5,19 @@ import ProfileImg from './ProfileImg'
 
 export default function MusicianAccount() {
     const { isLoggedIn, token } = useContext(AuthContext)
-    const [musicianData, setMusicianData] = useState([])
-    const [msg, setMsg] = useState("")
+    const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/" + token)
+        fetch("http://localhost:5000/users/" + token, {
+                headers: {
+                    'x-auth': token,
+                },
+            })
             .then(res => res.json())
             .then(data => {
-                if (data.user) {
-                    setMusicianData(data.user)
-                }
-                else {
-                    setMsg("Loading...")
-                }
+                setMusicianData(data.user)
             })
-    })
-
-    if (!isLoggedIn) {
-        return <Redirect to="/login" />;
-    }
+    }, [])
 
     if (!musicianData) {
         return "loading"
@@ -34,7 +28,6 @@ export default function MusicianAccount() {
             {isLoggedIn ? (<div className="musician-account-container">
                 <div className="account">
                     <h2>My Account</h2>
-                    <div className="msg"><p>{msg}</p></div>
                     <div className="musician-account">
                         {<img src={musicianData.profileImage} alt="Profile" width="150" height="150" />}
                         {<h3>{musicianData.name}</h3>}

@@ -4,11 +4,15 @@ import AuthContext from '../context/authContext'
 
 
 export default function MusicianAccount(props) {
-    const { isLoggedIn, setUserId, setClickProfile } = useContext(AuthContext)
+    const { isLoggedIn, token, setUserId, setClickProfile } = useContext(AuthContext)
     const [allMusicians, setAllMusicians] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/users")
+        fetch("http://localhost:5000/users", {
+            headers: {
+                'x-auth': token,
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setAllMusicians(data.users)

@@ -48,7 +48,11 @@ export default class SingleProject extends React.Component {
     } 
     
     fetchProject = () => {
-        fetch("http://localhost:5000/projects/" + this.props.match.params.id)
+        fetch("http://localhost:5000/projects/" + this.props.match.params.id, {
+            headers: {
+                'x-auth': this.props.token,
+            },
+        })
         .then(res => res.json())
         .then(data => {
             this.setProject(data.project)

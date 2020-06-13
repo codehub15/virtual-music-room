@@ -3,15 +3,19 @@ import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 
 export default function Projects(props) {
-    const { isLoggedIn } = useContext(AuthContext)
+    const { isLoggedIn, token } = useContext(AuthContext)
     const [name, setName] = useState("");
     const [projects, setProjects] = useState([]);
     const fetchProjects = () => {
-         fetch("http://localhost:5000/projects")
-            .then(res => res.json())
-            .then(data => {
-                setProjects(data.projects)
-            });
+        fetch("http://localhost:5000/projects", {
+            headers: {
+                'x-auth': token,
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            setProjects(data.projects)
+        });
     }
     
     useEffect(() => {

@@ -16,7 +16,7 @@ import EditAccount from './components/EditAccount'
 
 
 export default function Routes() {
-    const { isLoggedIn, setIsLoggedIn, clickProfile } = useContext(AuthContext)
+    const { isLoggedIn, setIsLoggedIn, clickProfile, token } = useContext(AuthContext)
 
     return (
         <Switch>
@@ -48,13 +48,15 @@ export default function Routes() {
                 path="/projects/:id"
                 render={(props) => (
                     <SingleProject
-                        {...props} isLoggedIn={isLoggedIn}
+                        {...props}
+                        isLoggedIn={isLoggedIn}
+                        token={token}
                     />
                 )}
             />
 
             {clickProfile ?
-                <Route exact path="/profile" component={MusicianProfile} />
+                <Route exact path="/profile/" component={MusicianProfile} />
                 : null
             }
 

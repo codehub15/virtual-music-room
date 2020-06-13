@@ -8,12 +8,13 @@ const {
     postTrack,
 } = require("../controllers/projectController")
 const uploadTrack = require("../middleware/uploadTrack")
+const auth = require("../middleware/authenticator")
 
-Route.get("/", getProjects)
-Route.get("/:id", getProject)
-Route.post("/", postProject)
-Route.put("/:id", putProject)
-Route.post("/:id/upload", uploadTrack, postTrack)
-Route.delete("/:id", deleteProject)
+Route.get("/", auth, getProjects)
+Route.get("/:id", auth, getProject)
+Route.post("/", auth, postProject)
+Route.put("/:id", auth, putProject)
+Route.post("/:id/upload", auth, uploadTrack, postTrack)
+Route.delete("/:id", auth, deleteProject)
 
 module.exports = Route
