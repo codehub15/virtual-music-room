@@ -32,7 +32,8 @@ export default function Projects(props) {
         await fetch('http://localhost:5000/projects', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-auth': token,
             },
             body: JSON.stringify({ name })
         });
