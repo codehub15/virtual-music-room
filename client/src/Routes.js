@@ -44,7 +44,14 @@ export default function Routes() {
 
             <Route exact path="/projects" component={Projects} />
 
-            <Route path="/projects/:id" component={SingleProject} />
+            <Route
+                path="/projects/:id"
+                render={(props) => (
+                    <SingleProject
+                        {...props} isLoggedIn={isLoggedIn}
+                    />
+                )}
+            />
 
             {clickProfile ?
                 <Route exact path="/profile" component={MusicianProfile} />

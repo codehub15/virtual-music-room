@@ -1,18 +1,11 @@
-import React, { useState, useContext, useEffect, useRef } from 'react'
-import AuthContext from '../context/authContext'
-import { FilePond, File, registerPlugin } from "react-filepond"
+import React, { useState } from 'react'
+import { FilePond } from "react-filepond"
 
 import "filepond/dist/filepond.min.css"
 
 export default function TrackUpload(props) {
-    const { userId } = useContext(AuthContext)
     const [file, setFile] = useState(null);
-    const [uploadedFile, setUploadedFile] = useState({})
 
-    const handleUpload = (e) => {
-        setFile(e.target.files[0]);
-        // setFileName(e.target.files[0].name);
-    }
 
     return (
         <div className="track-upload-container">

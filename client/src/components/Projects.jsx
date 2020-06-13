@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 
 export default function Projects(props) {
+    const { isLoggedIn } = useContext(AuthContext)
     const [name, setName] = useState("");
     const [projects, setProjects] = useState([]);
-
     const fetchProjects = () => {
          fetch("http://localhost:5000/projects")
             .then(res => res.json())
@@ -17,6 +17,10 @@ export default function Projects(props) {
     useEffect(() => {
        fetchProjects();
     }, []);
+
+    if (!isLoggedIn) {
+        return <Redirect to="/login" />;
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();

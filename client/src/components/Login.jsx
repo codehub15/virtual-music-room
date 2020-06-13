@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 
 export default function Login(props) {
-    const { setIsLoggedIn, token, setToken, userId, setUserId } = useContext(AuthContext)
+    const { setIsLoggedIn, setToken, userId, setUserId } = useContext(AuthContext)
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);

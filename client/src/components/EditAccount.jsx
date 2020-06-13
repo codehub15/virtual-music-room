@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { Redirect } from "react-router-dom"
 import AuthContext from '../context/authContext'
 
-
 export default function EditAccount() {
-    const { isLoggedIn, setIsLoggedIn, userId, name, setName, userEmail, setUserEmail } = useContext(AuthContext)
+    const { isLoggedIn, userId, name, userEmail } = useContext(AuthContext)
 
     const [newUserName, setNewUserName] = useState("")
     const [newUserEmail, setNewUserEmail] = useState("")

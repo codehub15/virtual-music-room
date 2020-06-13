@@ -25,7 +25,6 @@ function App() {
     const [name, setName] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
     const [isAdmin, setIsAdmin] = useState(false)
-    const [allMusicians, setAllMusicians] = useState([])
     const [clickProfile, setClickProfile] = useState(false)
     const [userData, setUserData] = useState({})
 
@@ -56,8 +55,6 @@ function App() {
                 setUserEmail,
                 userData,
                 setUserData,
-                allMusicians,
-                setAllMusicians,
                 clickProfile,
                 setClickProfile,
                 isAdmin,

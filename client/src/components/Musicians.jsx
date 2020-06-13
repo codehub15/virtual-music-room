@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 
 
 export default function MusicianAccount(props) {
-    const { isLoggedIn, userId, setUserId, setClickProfile,
-        allMusicians, setAllMusicians
-    } = useContext(AuthContext)
-
+    const { isLoggedIn, setUserId, setClickProfile } = useContext(AuthContext)
+    const [allMusicians, setAllMusicians] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:5000/users")
@@ -17,20 +15,22 @@ export default function MusicianAccount(props) {
             })
     }, [])
 
+    if (!isLoggedIn) {
+        return <Redirect to="/login" />;
+    }
 
     if (!allMusicians) {
         return "loading"
     }
 
-
     const openProfile = (id) => {
-        console.log(id)
-        let mid = allMusicians && allMusicians.map((musician, i) => {
+        let mid = allMusicians && allMusicians.forEach((musician, i) => {
             if (id === musician._id) {
                 setClickProfile(true)
                 setUserId(musician._id)
             }
         })
+
         return mid
     }
 

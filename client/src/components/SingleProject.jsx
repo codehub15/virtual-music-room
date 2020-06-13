@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React from 'react'
 import WaveformPlaylist from 'waveform-playlist'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import TrackUpload from "./TrackUpload"
 
 export default class SingleProject extends React.Component {
@@ -69,6 +69,10 @@ export default class SingleProject extends React.Component {
 
     render() {
         const { project } = this.state;
+
+        if (!this.props.isLoggedIn) {
+            return <Redirect to="/login" />;
+        }
 
         if (!project) {
             return "Loading";

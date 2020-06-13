@@ -4,7 +4,7 @@ import AuthContext from '../context/authContext'
 import ProfileImg from './ProfileImg'
 
 export default function MusicianAccount() {
-    const { isLoggedIn, token, name, setName, setUserEmail } = useContext(AuthContext)
+    const { isLoggedIn, token } = useContext(AuthContext)
     const [musicianData, setMusicianData] = useState([])
     const [msg, setMsg] = useState("")
 
@@ -14,14 +14,12 @@ export default function MusicianAccount() {
             .then(data => {
                 if (data.user) {
                     setMusicianData(data.user)
-                    setName(data.user.name)
-                    setUserEmail(data.user.email)
                 }
                 else {
                     setMsg("Loading...")
                 }
             })
-    }, [])
+    })
 
     if (!isLoggedIn) {
         return <Redirect to="/login" />;
@@ -31,8 +29,6 @@ export default function MusicianAccount() {
         return "loading"
     }
 
-    console.log(musicianData);
-
     return (
         <div className="musician-container-account">
             {isLoggedIn ? (<div className="musician-account-container">
@@ -40,7 +36,7 @@ export default function MusicianAccount() {
                     <h2>My Account</h2>
                     <div className="msg"><p>{msg}</p></div>
                     <div className="musician-account">
-                        {<img src={musicianData.profileImage} alt="Profile Image" width="150" height="150" />}
+                        {<img src={musicianData.profileImage} alt="Profile" width="150" height="150" />}
                         {<h3>{musicianData.name}</h3>}
                         {<p>Email: {musicianData.email}</p>}
                         {<p>Level: {musicianData.level}</p>}
