@@ -2,9 +2,9 @@ import React, { useState, useContext, useEffect, useRef } from 'react'
 import AuthContext from '../context/authContext'
 import { FilePond, File, registerPlugin } from "react-filepond"
 import FilePondPluginImagePreview from "filepond-plugin-image-preview"
-// import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation"
-// import FilePondPluginImageResize from 'filepond-plugin-image-resize'
-// import FilePondPluginFileEncode from 'filepond-plugin-file-encode'
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation"
+import FilePondPluginImageResize from 'filepond-plugin-image-resize'
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode'
 import "filepond/dist/filepond.min.css"
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
 
@@ -41,8 +41,8 @@ export default function ProfileImgUploader() {
                 maxFiles={1}
                 className="filepath"
             />
-
             {/**
+
             <form encType="multipart/form-data" onSubmit={uploadHandler}>
                 <input type="file"
                     name="profile"

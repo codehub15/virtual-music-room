@@ -1,6 +1,7 @@
 const multer = require("multer")
 
-const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
+//here was hard coded to the local and the dirname works for anyone's computer 
+const uploadPath = __dirname + "/../client/public/uploads/"
 
 const upload = multer({
     dest: uploadPath

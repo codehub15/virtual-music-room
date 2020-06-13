@@ -7,6 +7,8 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Musicians from './components/Musicians'
+import Projects from './components/Projects'
+import SingleProject from './components/SingleProject'
 import MusicianAccount from './components/MusicianAccount'
 import MusicianProfile from './components/MusicianProfile'
 import DeleteAccount from './components/DeleteAccount'
@@ -46,6 +48,10 @@ export default function Routes() {
             />
 
             <Route exact path="/musicians" component={Musicians} />
+
+            <Route exact path="/projects" component={Projects} />
+
+            <Route path="/projects/:id" component={SingleProject} />
 
             {clickProfile ?
                 <Route exact path="/profile" component={MusicianProfile} />

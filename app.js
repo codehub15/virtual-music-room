@@ -5,8 +5,7 @@ const env = require("./config/config")
 const { setCors } = require("./middleware/security")
 const indexRoute = require("./routes/indexRoute")
 const musicianRoute = require("./routes/musicianRoute")
-
-
+const projectRoutes = require("./routes/projectRoutes")
 
 const app = express()
 app.use(express.json({
@@ -14,7 +13,6 @@ app.use(express.json({
 }))
 
 app.use(setCors)
-
 
 // mongoDB
 mongoose.connect(env.db, {
@@ -24,10 +22,9 @@ mongoose.connect(env.db, {
 mongoose.connection.on("error", (err) => console.log(err))
 mongoose.connection.on("open", () => console.log("database connected"))
 
-
 app.use("/", indexRoute)
 app.use("/users", musicianRoute)
-
+app.use("/projects", projectRoutes)
 
 // http errors
 app.use((req, res, next) => {
