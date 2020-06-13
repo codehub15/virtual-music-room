@@ -1,9 +1,10 @@
 import React from 'react'
 import WaveformPlaylist from 'waveform-playlist'
+import { withRouter } from 'react-router';
 import { Link, Redirect } from 'react-router-dom'
 import TrackUpload from "./TrackUpload"
 
-export default class SingleProject extends React.Component {
+class SingleProject extends React.Component {
     constructor(props) {
         super(props);
 
@@ -14,6 +15,10 @@ export default class SingleProject extends React.Component {
 
     componentDidMount() {
         this.fetchProject();
+    }
+
+    componentWillUnmount() {
+        this.stop();
     }
 
     initWaveformPlaylist = () => {
@@ -71,6 +76,19 @@ export default class SingleProject extends React.Component {
 
     pause = () => this.emit("pause");
 
+    delete = () => {
+        if (window.confirm("Delete project?")) {
+            fetch("http://localhost:5000/projects/" + this.props.match.params.id, {
+                method: 'DELETE',
+                headers: {
+                    'x-auth': this.props.token,
+                },
+            }).then(() => {
+                this.props.history.push("/projects");
+            });
+        }
+    };
+
     render() {
         const { project } = this.state;
 
@@ -86,6 +104,11 @@ export default class SingleProject extends React.Component {
             <div style={{ flex: "1 1", width: "90%" }}>
                 <h2>{project.name}</h2>
                 <Link to="/projects">Back</Link>
+                <br/>
+                <br/>
+                <button onClick={this.delete} className="btn btn-warning" type="button">
+                    Delete
+                </button>
                 <br/><br/><br/>
                 {
                     this.state.playlist && (
@@ -102,3 +125,5 @@ export default class SingleProject extends React.Component {
         )
     }
 }
+
+export default withRouter(SingleProject);
