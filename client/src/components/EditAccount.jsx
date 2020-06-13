@@ -1,35 +1,37 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import AuthContext from '../context/authContext'
 
 export default function EditAccount() {
-    const { isLoggedIn, userId, name, userEmail } = useContext(AuthContext)
-
-    const [newUserName, setNewUserName] = useState("")
-    const [newUserEmail, setNewUserEmail] = useState("")
-    console.log("newUserName:", newUserName)
-    console.log("newUserEmail:", newUserEmail)
+    const { isLoggedIn, userId, name, userEmail, token } = useContext(AuthContext)
+    const [user, setUser] = useState()
     const [isEdit, setIsEdit] = useState(false)
     const [msg, setMsg] = useState("")
 
+    useEffect(() => {
+        fetch("http://localhost:5000/users/currentUser", {
+                headers: {
+                    'x-auth': token,
+                },
+            })
+            .then(res => res.json())
+            .then(data => {
+                setUser(data.user)
+            })
+    }, [token])
 
     const submitHandler = async (e) => {
-        e.preDefault()
-        const userData = {
-            name: newUserName,
-            email: newUserEmail
-        };
+        e.preventDefault()
         const options = {
             method: "PUT",
-            credentials: "include",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-auth': token,
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify(user)
         };
-        const response = await fetch('http://localhost:5000/users/' + userId, options);
+        const response = await fetch('http://localhost:5000/users/' + user._id, options);
         const data = await response.json();
-        console.log("data:", data)
 
         if (data.success) {
             // alert("Your account data was edit successful.")
@@ -43,6 +45,15 @@ export default function EditAccount() {
         }
     }
 
+    // overwrite the passed values on the user
+    const setUserField = (values) => setUser({
+        ...user,
+        ...values,
+    });
+
+    if (!user) {
+        return "Loading";
+    }
 
     return (
         <div className="edit-account-container">
@@ -52,25 +63,24 @@ export default function EditAccount() {
                     {!isEdit ?
                         (<form onSubmit={submitHandler}>
                             <label>
-                                <span className="edit-data">{name}:</span>
+                                <span className="edit-data">Name:</span>
                                 <input type="text"
                                     name="name"
                                     placeholder="Update first name/nickname"
                                     minLength="2"
                                     maxLength="25"
-                                    id="name"
-                                    value={newUserName}
-                                    onChange={(e) => { setNewUserName(e.target.value) }}
+                                    value={user.name}
+                                    onChange={(e) => setUserField({ name: e.target.value })}
                                 />
                             </label>
                             <label>
-                                <span className="edit-data">{userEmail}:</span>
+                                <span className="edit-data">Email:</span>
                                 <input type="email"
                                     name="email"
                                     placeholder="Update email"
                                     id="email"
-                                    value={newUserEmail}
-                                    onChange={(e) => { setNewUserEmail(e.target.value) }}
+                                    value={user.email}
+                                    onChange={(e) => setUserField({ email: e.target.value })}
                                 />
                             </label>
                             <button type="submit">Edit</button>
