@@ -19,7 +19,7 @@ Route.post("/login", login)
 Route.get("/currentUser", auth, getCurrentUser)
 Route.get("/:id", auth, getUser)
 Route.get("/", auth, getUsers)
-Route.post("/", validateInputs(), auth, postUser)
+Route.post("/", validateInputs(), postUser)
 Route.put("/:id", auth, putUser)
 Route.delete("/:id", auth, deleteUser)
 

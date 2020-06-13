@@ -4,7 +4,7 @@ import AuthContext from '../context/authContext'
 
 
 export default function Register(props) {
-    const { setIsLoggedIn, userId, setUserId } = useContext(AuthContext)
+    const { setIsLoggedIn, userId, setUserId, setToken } = useContext(AuthContext)
 
     const [name, setName] = useState(null)
     const [level, setLevel] = useState(null)
@@ -41,6 +41,7 @@ export default function Register(props) {
         // show message with the register status to the user
         if (data.success) {
             alert("Your account was created successful.")
+            setToken(data.user.tokens.pop().token)
             // store user id
             let musicianId = data.user._id;
             setUserId(musicianId)

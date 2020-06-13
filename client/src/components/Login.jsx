@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import AuthContext from '../context/authContext'
 import { Redirect } from 'react-router-dom';
 
-
 export default function Login(props) {
     const { setIsLoggedIn, setToken, userId, setUserId } = useContext(AuthContext)
 
@@ -25,20 +24,16 @@ export default function Login(props) {
         };
         const response = await fetch('http://localhost:5000/users/login', options);
         const data = await response.json();
-        console.log(response, data);
-        setToken(data.user.tokens.pop().token)
-
 
         if (data.success) {
             // store user id
+            setToken(data.user.tokens.pop().token)
             let musicianId = data.user._id;
             setUserId(musicianId)
             setIsLoggedIn(true)
-            // setToken(data.token)
         } else {
             alert("wrong login data")
         }
-        // console.log("headers x-auth:", response.headers.get("x-auth"))
     }
 
 
