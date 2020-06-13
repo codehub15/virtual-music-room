@@ -4,7 +4,7 @@ import AuthContext from '../context/authContext'
 
 
 export default function MusicianAccount(props) {
-    const { isLoggedIn, token, setUserId, setClickProfile } = useContext(AuthContext)
+    const { isLoggedIn, token } = useContext(AuthContext)
     const [allMusicians, setAllMusicians] = useState([])
 
     useEffect(() => {
@@ -17,7 +17,9 @@ export default function MusicianAccount(props) {
             .then(data => {
                 setAllMusicians(data.users)
             })
-    }, [])
+    }, [token])
+
+    console.log(allMusicians);
 
     if (!isLoggedIn) {
         return <Redirect to="/login" />;
@@ -27,18 +29,6 @@ export default function MusicianAccount(props) {
         return "loading"
     }
 
-    const openProfile = (id) => {
-        let mid = allMusicians && allMusicians.forEach((musician, i) => {
-            if (id === musician._id) {
-                setClickProfile(true)
-                setUserId(musician._id)
-            }
-        })
-
-        return mid
-    }
-
-
     const allMusiciansData = allMusicians && allMusicians.map((musician, i) => {
         return (
             <div key={i} className="musician">
@@ -47,7 +37,7 @@ export default function MusicianAccount(props) {
                 <p>Level: {musician.level} </p>
                 <p>Role: {musician.role} </p>
 
-                <Link to="/profile" onClick={() => { openProfile(musician._id) }}>view</Link>
+                <Link to={"/profile/" + musician._id}>view</Link>
             </div>
         )
     })

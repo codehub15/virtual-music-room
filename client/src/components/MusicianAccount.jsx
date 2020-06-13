@@ -8,7 +8,7 @@ export default function MusicianAccount() {
     const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/" + token, {
+        fetch("http://localhost:5000/users/currentUser", {
                 headers: {
                     'x-auth': token,
                 },
@@ -17,7 +17,7 @@ export default function MusicianAccount() {
             .then(data => {
                 setMusicianData(data.user)
             })
-    }, [])
+    }, [token])
 
     if (!musicianData) {
         return "loading"

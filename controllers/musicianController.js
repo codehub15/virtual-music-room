@@ -14,9 +14,19 @@ exports.getUsers = async(req, res, next) => {
 
 // get single user
 exports.getUser = async(req, res, next) => {
-    const { token } = req.params
+    const { id } = req.params
     try {
-        const user = await User.findByToken(token)
+        const user = await User.findById(id)
+        if (!user) throw httpError(404)
+        res.json({ success: true, user: user })
+    } catch (err) {
+        next(err)
+    }
+}
+
+exports.getCurrentUser= async(req, res, next) => {
+    try {
+        const user = await User.findByToken(req.header("x-auth"))
         if (!user) throw httpError(404)
         res.json({ success: true, user: user })
     } catch (err) {

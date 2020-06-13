@@ -25,7 +25,6 @@ function App() {
     const [name, setName] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
     const [isAdmin, setIsAdmin] = useState(false)
-    const [clickProfile, setClickProfile] = useState(false)
     const [userData, setUserData] = useState({})
 
     const setIsLoggedIn = (value) => {
@@ -55,8 +54,6 @@ function App() {
                 setUserEmail,
                 userData,
                 setUserData,
-                clickProfile,
-                setClickProfile,
                 isAdmin,
                 setIsAdmin
             }
