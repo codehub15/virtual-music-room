@@ -1,16 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Redirect } from "react-router-dom"
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 import ProfileImg from './ProfileImg'
 
 export default function MusicianAccount() {
-    const { isLoggedIn, userId, name, setName, setUserEmail } = useContext(AuthContext)
+    const { isLoggedIn, token, name, setName, setUserEmail } = useContext(AuthContext)
     const [musicianData, setMusicianData] = useState([])
     const [msg, setMsg] = useState("")
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/" + userId)
+        fetch("http://localhost:5000/users/" + token)
             .then(res => res.json())
             .then(data => {
                 if (data.user) {
@@ -24,11 +23,15 @@ export default function MusicianAccount() {
             })
     }, [])
 
+    console.log({ isLoggedIn });
+
+    if (!isLoggedIn) {
+        return <Redirect to="/login" />;
+    }
 
     if (!musicianData) {
         return "loading"
     }
-
 
     return (
         <div className="musician-container-account">
@@ -46,9 +49,9 @@ export default function MusicianAccount() {
                 </div>
                 <div className="account-manager">
                     <h2>Account Manager</h2>
-                    <Link to="/delete-account"><i class="fas fa-user-times"></i> delete account</Link>
+                    <Link to="/delete-account"><i className="fas fa-user-times"></i> delete account</Link>
                     <br />
-                    <Link to="/edit-account"><i class="fas fa-user-edit"></i> edit account</Link>
+                    <Link to="/edit-account"><i className="fas fa-user-edit"></i> edit account</Link>
 
                     <div className="profile-img-container">
                         <h3>Upload Profile Image</h3>

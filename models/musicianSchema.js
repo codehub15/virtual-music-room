@@ -23,7 +23,7 @@ const MusicianSchema = new Schema({
 
 
 
-MusicianSchema.methods.generateAuthToken = function () {
+MusicianSchema.methods.generateAuthToken = function() {
     const user = this;
     const token = jwt.sign({ _id: user._id }, env.jwt_key).toString()
     user.tokens.push({ token })
@@ -31,37 +31,37 @@ MusicianSchema.methods.generateAuthToken = function () {
 }
 
 
-MusicianSchema.methods.getPublicFields = function () {
+MusicianSchema.methods.getPublicFields = function() {
     let returnObject = {
         name: this.name,
         level: this.level,
         email: this.email,
+        tokens: this.tokens,
         _id: this._id
     }
     return returnObject
 }
 
 
-MusicianSchema.pre("save", async function (next) {
+MusicianSchema.pre("save", async function(next) {
     this.password = await encrypt(this.password)
     next()
 })
 
 
-MusicianSchema.methods.checkPassword = async function (password) {
+MusicianSchema.methods.checkPassword = async function(password) {
     const user = this;
     return await compare(password, user.password)
 }
 
 
-MusicianSchema.statics.findByToken = function (token) {
+MusicianSchema.statics.findByToken = function(token) {
     const User = this;
     let decoded;
     try {
         decoded = jwt.verify(token, env.jwt_key)
         console.log(decoded)
-    }
-    catch (e) {
+    } catch (e) {
         return;
     }
 

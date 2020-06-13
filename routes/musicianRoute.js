@@ -1,12 +1,17 @@
 const Route = require("express").Router()
-// const multer = require("multer")
+    // const multer = require("multer")
 const imgMulter = require("../middleware/imgMulter")
-const { getUsers, getUser, postUser, putUser, deleteUser,
+const {
+    getUsers,
+    getUser,
+    postUser,
+    putUser,
+    deleteUser,
     login,
     uploadProfileImg
 } = require("../controllers/musicianController")
 const { validateInputs } = require("../middleware/validator")
-// const auth = require("../middleware/authenticator")
+    // const auth = require("../middleware/authenticator")
 
 
 // move to the middleware
@@ -21,13 +26,13 @@ const { validateInputs } = require("../middleware/validator")
 // })
 
 Route.post("/upload/", imgMulter, uploadProfileImg)
-// Route.post("/upload/:id", imgMulter, uploadProfileImg)
+    // Route.post("/upload/:id", imgMulter, uploadProfileImg)
 Route.post("/login", login)
 Route.get("/", getUsers)
-Route.get("/:id", getUser)
+Route.get("/:token", getUser)
 Route.post("/", validateInputs(), postUser)
 Route.put("/:id", putUser)
-// Route.delete("/:id", auth, deleteUser)
+    // Route.delete("/:id", auth, deleteUser)
 Route.delete("/:id", deleteUser)
 
 module.exports = Route

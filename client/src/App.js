@@ -6,12 +6,21 @@ import './style/Playlist.scss'
 import Routes from './Routes'
 import Navbar from './components/Navbar'
 import AuthContext from './context/authContext'
+import Cookies from 'js-cookie'
 
+const getIsLoggedIn = () => {
+    const isLoggedIn = Cookies.get('isLoggedIn');
+
+    if (!isLoggedIn || isLoggedIn === 'false') {
+        return false;
+    }
+
+    return true;
+}
 
 function App() {
-    const [token, setToken] = useState(null)
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // const [cookies, setCookies] = useState(false)
+    const [token, saveToken] = useState(Cookies.get('token'))
+    const [isLoggedIn, saveIsLoggedIn] = useState(getIsLoggedIn());
     const [userId, setUserId] = useState(null)
     const [name, setName] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
@@ -20,9 +29,20 @@ function App() {
     const [clickProfile, setClickProfile] = useState(false)
     const [userData, setUserData] = useState({})
 
+    const setIsLoggedIn = (value) => {
+        Cookies.set('isLoggedIn', value);
 
-    return ( <
-        AuthContext.Provider value = {
+        saveIsLoggedIn(value);
+    };
+
+    const setToken = (value) => {
+        Cookies.set('token', value);
+
+        saveToken(value);
+    };
+
+    return ( 
+        <AuthContext.Provider value = {
             {
                 token,
                 setToken,
@@ -44,21 +64,14 @@ function App() {
                 setIsAdmin
             }
         } >
-        <
-        BrowserRouter >
-        <
-        div className = "App" >
-        <
-        Navbar / >
-        <
-        div className = "app-container" >
-        <
-        Routes / >
-        <
-        /div> < /
-        div > <
-        /BrowserRouter> < /
-        AuthContext.Provider >
+        <BrowserRouter >
+        <div className = "App" >
+        <Navbar />
+        <div className = "app-container" >
+        <Routes />
+        </div> </div>
+         </BrowserRouter> 
+         </AuthContext.Provider >
     );
 }
 

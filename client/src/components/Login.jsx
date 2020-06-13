@@ -25,8 +25,8 @@ export default function Login(props) {
         };
         const response = await fetch('http://localhost:5000/users/login', options);
         const data = await response.json();
-        // console.log('data response:', data);
-        // setToken(data.token)
+        console.log(response, data);
+        setToken(data.user.tokens.pop().token)
 
 
         if (data.success) {

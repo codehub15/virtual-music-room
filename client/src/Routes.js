@@ -38,14 +38,7 @@ export default function Routes() {
 
             <Route exact path="/logout" component={Logout} />
 
-            <Route path="/musicianAccount"
-                render={(props) =>
-                    <MusicianAccount
-                        {...props}
-                        isLoggedIn={isLoggedIn}
-                        setIsLoggedIn={setIsLoggedIn}
-                    />}
-            />
+            <Route path="/musicianAccount" render={(props) => <MusicianAccount {...props} />} />
 
             <Route exact path="/musicians" component={Musicians} />
 
