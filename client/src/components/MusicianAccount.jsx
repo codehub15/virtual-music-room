@@ -23,8 +23,6 @@ export default function MusicianAccount() {
             })
     }, [])
 
-    console.log({ isLoggedIn });
-
     if (!isLoggedIn) {
         return <Redirect to="/login" />;
     }
@@ -33,6 +31,8 @@ export default function MusicianAccount() {
         return "loading"
     }
 
+    console.log(musicianData);
+
     return (
         <div className="musician-container-account">
             {isLoggedIn ? (<div className="musician-account-container">
@@ -40,7 +40,7 @@ export default function MusicianAccount() {
                     <h2>My Account</h2>
                     <div className="msg"><p>{msg}</p></div>
                     <div className="musician-account">
-                        {<img src={musicianData.profileImgName} alt="Profile Image" width="150" height="150" />}
+                        {<img src={musicianData.profileImage} alt="Profile Image" width="150" height="150" />}
                         {<h3>{musicianData.name}</h3>}
                         {<p>Email: {musicianData.email}</p>}
                         {<p>Level: {musicianData.level}</p>}
@@ -55,7 +55,7 @@ export default function MusicianAccount() {
 
                     <div className="profile-img-container">
                         <h3>Upload Profile Image</h3>
-                        <ProfileImg />
+                        <ProfileImg userId={musicianData._id} />
                     </div>
                 </div>
             </div>) : (<Redirect to="/" />)

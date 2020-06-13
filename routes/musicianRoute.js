@@ -25,7 +25,7 @@ const { validateInputs } = require("../middleware/validator")
 //     res.send("Received file")
 // })
 
-Route.post("/upload/", imgMulter, uploadProfileImg)
+Route.post("/:id/upload", imgMulter, uploadProfileImg)
     // Route.post("/upload/:id", imgMulter, uploadProfileImg)
 Route.post("/login", login)
 Route.get("/", getUsers)

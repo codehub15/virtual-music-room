@@ -12,23 +12,12 @@ registerPlugin(
     FilePondPluginImagePreview
 )
 
-export default function ProfileImgUploader() {
-    const { userId } = useContext(AuthContext)
-    console.log("user id:", userId)
+export default function ProfileImgUploader(props) {
+    const { token } = useContext(AuthContext)
 
     const [profileImg, setProfileImg] = useState([])
-    console.log("profileImg:", profileImg)
 
-
-    // const uploadHandler = async (e) => {
-    //     e.preventDefault();
-    //     fetch('http://localhost:5000/users/upload', { method: 'POST' })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log("data:", data)
-    //         })
-    // }
-
+    console.log(props.userId);
 
     return (
         <div className="profile-img-upload">
@@ -36,23 +25,10 @@ export default function ProfileImgUploader() {
                 name="profile"
                 files={profileImg}
                 onupdatefiles={setProfileImg}
-                // server={"http://localhost:5000/users/upload/" + userId}
-                server={"http://localhost:5000/users/upload"}
+                server={"http://localhost:5000/users/" + props.userId + "/upload"}
                 maxFiles={1}
                 className="filepath"
             />
-            {/**
-
-            <form encType="multipart/form-data" onSubmit={uploadHandler}>
-                <input type="file"
-                    name="profile"
-                    className="filepath"
-                    onChange={(e) => setProfileImg(e.target.files[0])}
-                />
-                <br />
-                <button type="submit">upload image</button>
-            </form>
-            */}
         </div>
     )
 }

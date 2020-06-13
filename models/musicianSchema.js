@@ -7,8 +7,7 @@ const env = require("../config/config")
 
 const MusicianSchema = new Schema({
     name: { type: String, required: true, unique: true },
-    profileImgName: { type: String },
-    profileImgType: { type: String },
+    profileImage: { type: String },
     img: { data: Buffer, contentType: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -37,6 +36,7 @@ MusicianSchema.methods.getPublicFields = function() {
         level: this.level,
         email: this.email,
         tokens: this.tokens,
+        profileImage: this.profileImage,
         _id: this._id
     }
     return returnObject

@@ -64,31 +64,15 @@ exports.putUser = async(req, res, next) => {
 // upload profile image
 exports.uploadProfileImg = async(req, res, next) => {
     const { id } = req.params
-    console.log("id:", id)
-    console.log("req.files:", req.file)
-    const data = req.body
-    console.log("data:", data)
-        // const id = data.userId;
-
-    var img = req.file.originalname;
-    var imgParts = img.split(".");
-    var imgType = imgParts[imgParts.length - 1];
-    console.log("imgType:", imgType);
-
-    let path = './uploads/'
-    let newProfileImgName = path + req.file.filename + '.' + imgType;
-    let newProfileImgType = req.file.mimetype;
-
-    let newValues = {
-        $set: {
-            profileImgName: newProfileImgName,
-            profileImgType: newProfileImgType
-        }
+    const newValues = {
+        profileImage: "/uploads/profile/" + req.file.filename,
     };
 
+    console.log({ id })
+
     try {
-        const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
-        console.log("newValues:", newValues)
+        const updateProfileImg = await User.update({ _id: id }, newValues, { new: true })
+        console.log(updateProfileImg);
         if (!updateProfileImg) throw httpError(500)
         res.json({ success: true, user: updateProfileImg })
     } catch (err) {
