@@ -14,7 +14,7 @@ Route.get("/", auth, getProjects)
 Route.get("/:id", auth, getProject)
 Route.post("/", auth, postProject)
 Route.put("/:id", auth, putProject)
-Route.post("/:id/upload", auth, uploadTrack, postTrack)
+Route.post("/:id/upload", uploadTrack, postTrack)
 Route.delete("/:id", auth, deleteProject)
 
 module.exports = Route

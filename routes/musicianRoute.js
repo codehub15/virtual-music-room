@@ -14,7 +14,7 @@ const {
 const { validateInputs } = require("../middleware/validator")
 const auth = require("../middleware/authenticator")
 
-Route.post("/:id/upload/", imgMulter, auth, uploadProfileImg)
+Route.post("/:id/upload/", imgMulter, uploadProfileImg)
 Route.post("/login", login)
 Route.get("/currentUser", auth, getCurrentUser)
 Route.get("/:id", auth, getUser)
