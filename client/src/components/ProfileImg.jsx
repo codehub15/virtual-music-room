@@ -20,43 +20,28 @@ export default function ProfileImgUploader() {
     console.log("profileImg:", profileImg)
 
 
-    const uploadHandler = async (e) => {
-        e.preventDefault();
-        // const userData = {
-        //     // profileImg: file,
-        //     imgName: profileImg.name,
-        //     imgType: profileImg.type,
-        //     userId: userId
-        // };
-        // const options = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //         // "Content-Type": "multipart/form-data"
-        //     },
-        //     body: JSON.stringify(userData)
-        //     // body: userData
-        // };
-        // console.log("user data:", userData)
-        // const response = await fetch('http://localhost:5000/users/upload', options);
-        // const data = await response.json();
-
-        // if (data.success) {
-        //     alert("Profile image has been uploaded.")
-        // } else {
-        //     alert("something went wrong")
-        // }
-
-        fetch('http://localhost:5000/users/upload', { method: 'POST' })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("data:", data)
-            })
-    }
+    // const uploadHandler = async (e) => {
+    //     e.preventDefault();
+    //     fetch('http://localhost:5000/users/upload', { method: 'POST' })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             console.log("data:", data)
+    //         })
+    // }
 
 
     return (
         <div className="profile-img-upload">
+            <FilePond
+                name="profile"
+                files={profileImg}
+                onupdatefiles={setProfileImg}
+                // server={"http://localhost:5000/users/upload/" + userId}
+                server={"http://localhost:5000/users/upload"}
+                maxFiles={1}
+                className="filepath"
+            />
+
             {/**
             <form encType="multipart/form-data" onSubmit={uploadHandler}>
                 <input type="file"
@@ -67,18 +52,7 @@ export default function ProfileImgUploader() {
                 <br />
                 <button type="submit">upload image</button>
             </form>
- */}
-
-            {/**   */}
-            <FilePond
-                name="profile"
-                files={profileImg}
-                onupdatefiles={setProfileImg}
-                server={"http://localhost:5000/users/upload"}
-                maxFiles={1}
-                className="filepath"
-            />
-
+            */}
         </div>
     )
 }

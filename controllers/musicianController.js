@@ -1,7 +1,5 @@
 const httpError = require("http-errors")
 const User = require("../models/musicianSchema")
-// const jwt = require("jsonwebtoken")
-const multer = require('multer')
 
 
 // get all users
@@ -67,68 +65,41 @@ exports.putUser = async (req, res, next) => {
 }
 
 
-// ----- upload profile image ---------------
-// const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
-// const upload = multer({
-//     dest: uploadPath
-// })
-// // Route.post("/uploadtest", upload.single("profile"), (req, res, next) => {
-// exports.uploadProfileImg = (upload.single("profile"), (req, res, next) => {
-//     console.log(req.file)
-//     // res.send("Received file")
-//     let newValues = {
-//         $set: {
-//             profileImgName: req.file.originalname,
-//             profileImgType: req.file.mimetype
-//         }
-//     };
-//     try {
-//         const updateProfileImg = User.findByIdAndUpdate(id, newValues, { new: true })
-//         console.log("newValues:", newValues)
-//         if (!updateProfileImg) throw httpError(500)
-//         res.json({ success: true, user: updateProfileImg })
-//     }
-//     catch (err) {
-//         next(err)
-//     }
-// })
+// upload profile image
+exports.uploadProfileImg = async (req, res, next) => {
+    const { id } = req.params
+    console.log("id:", id)
+    console.log("req.files:", req.file)
+    const data = req.body
+    console.log("data:", data)
+    // const id = data.userId;
 
+    var img = req.file.originalname;
+    var imgParts = img.split(".");
+    var imgType = imgParts[imgParts.length - 1];
+    console.log("imgType:", imgType);
 
-// ----- old version of upload profile image -------------
-// exports.uploadProfileImg = async (req, res, next) => {
-//     console.log("req.files", req.files)
-//     const data = req.body
-//     console.log("data:", data)
-//     const id = data.userId;
+    let path = './uploads/'
+    let newProfileImgName = path + req.file.filename + '.' + imgType;
+    let newProfileImgType = req.file.mimetype;
 
-//     const uploadPath = "/home/dci-l222/Class/Projects/virtual-music-room/client/public/uploads/"
-//     console.log("uploadPath:", uploadPath)
+    let newValues = {
+        $set: {
+            profileImgName: newProfileImgName,
+            profileImgType: newProfileImgType
+        }
+    };
 
-//     let path = './uploads/'
-//     let newProfileImgName = path + data.imgName;
-//     let newProfileImgType = data.imgType;
-
-//     let newValues = {
-//         $set: {
-//             profileImgName: newProfileImgName,
-//             profileImgType: newProfileImgType
-//         }
-//     };
-
-//     var storeFile = uploadPath + data.imgName
-//     console.log("storeFile:", storeFile)
-
-//     try {
-//         const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
-//         console.log("newValues:", newValues)
-//         // if (!updateProfileImg) throw httpError(500)
-//         // res.json({ success: true, user: updateProfileImg })
-//     }
-//     catch (err) {
-//         next(err)
-//     }
-// }
-
+    try {
+        const updateProfileImg = await User.findByIdAndUpdate(id, newValues, { new: true })
+        console.log("newValues:", newValues)
+        if (!updateProfileImg) throw httpError(500)
+        res.json({ success: true, user: updateProfileImg })
+    }
+    catch (err) {
+        next(err)
+    }
+}
 
 
 // delete a user
