@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom"
 import AuthContext from '../context/authContext'
 
 export default function EditAccount() {
-    const { isLoggedIn, userId, name, userEmail, token } = useContext(AuthContext)
+    const { isLoggedIn, token } = useContext(AuthContext)
     const [user, setUser] = useState()
     const [isEdit, setIsEdit] = useState(false)
     const [msg, setMsg] = useState("")
