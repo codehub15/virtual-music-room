@@ -1,39 +1,33 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 
 
 export default function MusicianAccount(props) {
-    const { isLoggedIn, userId, setUserId, setClickProfile,
-        allMusicians, setAllMusicians
-    } = useContext(AuthContext)
-
+    const { isLoggedIn, token } = useContext(AuthContext)
+    const [allMusicians, setAllMusicians] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/users")
+        fetch("http://localhost:5000/users", {
+            headers: {
+                'x-auth': token,
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setAllMusicians(data.users)
             })
-    }, [])
+    }, [token])
 
+    console.log(allMusicians);
+
+    if (!isLoggedIn) {
+        return <Redirect to="/login" />;
+    }
 
     if (!allMusicians) {
         return "loading"
     }
-
-
-    const openProfile = (id) => {
-        console.log(id)
-        let mid = allMusicians && allMusicians.map((musician, i) => {
-            if (id === musician._id) {
-                setClickProfile(true)
-                setUserId(musician._id)
-            }
-        })
-        return mid
-    }
-
 
     const allMusiciansData = allMusicians && allMusicians.map((musician, i) => {
         return (
@@ -43,7 +37,7 @@ export default function MusicianAccount(props) {
                 <p>Level: {musician.level} </p>
                 <p>Role: {musician.role} </p>
 
-                <Link to="/profile" onClick={() => { openProfile(musician._id) }}>view</Link>
+                <Link to={"/profile/" + musician._id}>view</Link>
             </div>
         )
     })

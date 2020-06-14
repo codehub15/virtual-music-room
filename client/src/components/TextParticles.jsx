@@ -9,20 +9,27 @@ export default class TextParticles extends React.Component {
         this.canvas = React.createRef();
     }
 
-    componentDidMount() {
+
+setSize = () => {
         const reset = textParticles(this.canvas.current);
 
-        const setSize = () => {
-            this.canvas.current.width = window.innerWidth;
-            this.canvas.current.height = window.innerHeight;
+    this.canvas.current.width = window.innerWidth;
+    this.canvas.current.height = window.innerHeight;
 
-            reset();
-        }
+    reset();
+}
 
-        setSize();
+    componentDidMount() {
+
+
+        this.setSize();
 
         // This was in the textParticles, but window events should be attached in the componentDidMount
-        window.addEventListener('resize', setSize);
+        window.addEventListener('resize', this.setSize);
+    }
+
+    componentWillUnmount () {
+        window.removeEventListener('resize', this.setSize);
     }
 
     render() {

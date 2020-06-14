@@ -12,10 +12,6 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    file: {
-        type: Buffer,
-        required: true
-    },
     mimetype: {
         type: String,
         required: true
@@ -24,10 +20,6 @@ const schema = new Schema({
         type: Date,
         default: Date.now
     },
-    owner: [{
-        type: Types.ObjectId,
-        ref: 'Musician'
-    }],
     likes: {
         type: Number
     }

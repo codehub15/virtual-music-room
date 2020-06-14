@@ -3,9 +3,10 @@ import AuthContext from '../context/authContext'
 
 
 export default function Logout() {
-    const { setIsLoggedIn } = useContext(AuthContext)
+    const { setIsLoggedIn, setToken } = useContext(AuthContext)
     setIsLoggedIn(false)
-
+    setToken()
+    
     return (
         <div className="component-container">
             <p>You have successfully logged out.</p>

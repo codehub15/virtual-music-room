@@ -1,7 +1,6 @@
 import React from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
-//import Wavesurfer from './Wavesurfer'
 import gifLogo from '../assets/gifLogo.gif'
 
 
@@ -18,8 +17,8 @@ function Homepage() {
                 <div className="particles-map">
                     <TextParticles />
                 </div>
+                <div></div>
                 <AudioRoom />
-                {/* <WaveSurfer /> */}
             </div>
         </div>
     )

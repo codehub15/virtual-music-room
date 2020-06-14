@@ -1,11 +1,10 @@
-// In my bundle config this is setup to export to window.WaveSurfer
-require('wavesurfer.js');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Wavesurfer from 'react-wavesurfer';
+import WaveSurfer from 'react-wavesurfer';
 
-class MyComponent extends React.Component {
+require('wavesurfer.js');
+
+class WaveSurfer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -29,7 +28,7 @@ class MyComponent extends React.Component {
     render() {
         return (
             <div>
-                <Wavesurfer
+                <WaveSurfer
                     audioFile={'path/to/audio/file.mp3'}
                     pos={this.state.pos}
                     onPosChange={this.handlePosChange}
@@ -39,3 +38,5 @@ class MyComponent extends React.Component {
         );
     }
 }
+
+export default WaveSurfer;

@@ -1,12 +1,12 @@
 import React from 'react';
 import Draggable from 'react-draggable'
 import AudioSpectrum from 'react-audio-spectrum'
-//Piano Oscuro song
-import violin from '../assets/Violin-pizzicatto.wav'
-import longDrum from '../assets/LongDrum.wav'
-import bass from '../assets/pick-bass.wav'
-import piano from '../assets/piano-quartet.wav'
-//guitarCannon song
+// Piano Oscuro song
+// import violin from '../assets/Violin-pizzicatto.wav'
+// import longDrum from '../assets/LongDrum.wav'
+// import bass from '../assets/pick-bass.wav'
+// import piano from '../assets/piano-quartet.wav'
+// guitarCannon song
 import drums from '../assets/GuitarCannonDrums.mp3'
 import guitars from '../assets/guitarCannonGuitars.mp3'
 import keybass from '../assets/guitarCannonBasskeys.mp3'
@@ -93,7 +93,7 @@ class AudioRoom extends React.Component {
                     onStop={this.handleStop}
                 >
                     <div className="audioRoom-control__knob">
-                        {isPlaying ? <i class="far fa-pause-circle audio-icon"></i> : <i class="far fa-play-circle audio-icon"></i>}
+                        {isPlaying ? <i className="far fa-pause-circle audio-icon"></i> : <i className="far fa-play-circle audio-icon"></i>}
                     </div>
                 </Draggable>
 

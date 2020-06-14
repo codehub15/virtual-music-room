@@ -1,47 +1,72 @@
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import './style/App.scss'
+import './style/Bootstrap.scss'
+import './style/Playlist.scss'
 import Routes from './Routes'
 import Navbar from './components/Navbar'
 import AuthContext from './context/authContext'
+import Cookies from 'js-cookie'
 
+const getIsLoggedIn = () => {
+    const isLoggedIn = Cookies.get('isLoggedIn');
+
+    if (!isLoggedIn || isLoggedIn === 'false') {
+        return false;
+    }
+
+    return true;
+}
 
 function App() {
-  const [token, setToken] = useState(null)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [cookies, setCookies] = useState(false)
-  const [userId, setUserId] = useState(null)
-  const [name, setName] = useState(null)
-  const [userEmail, setUserEmail] = useState(null)
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [allMusicians, setAllMusicians] = useState([])
-  const [clickProfile, setClickProfile] = useState(false)
-  const [userData, setUserData] = useState({})
+    const [token, saveToken] = useState(Cookies.get('token'))
+    const [isLoggedIn, saveIsLoggedIn] = useState(getIsLoggedIn());
+    const [userId, setUserId] = useState(null)
+    const [name, setName] = useState(null)
+    const [userEmail, setUserEmail] = useState(null)
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [userData, setUserData] = useState({})
 
+    const setIsLoggedIn = (value) => {
+        Cookies.set('isLoggedIn', value);
 
-  return (
-    <AuthContext.Provider value={{
-      token, setToken,
-      isLoggedIn, setIsLoggedIn,
-      userId, setUserId,
-      name, setName,
-      userEmail, setUserEmail,
-      userData, setUserData,
-      allMusicians, setAllMusicians,
-      clickProfile, setClickProfile,
-      isAdmin, setIsAdmin
-    }}
-    >
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <div className="app-container">
-            <Routes />
-          </div>
-        </div>
-      </BrowserRouter>
-    </AuthContext.Provider>
-  );
+        saveIsLoggedIn(value);
+    };
+
+    const setToken = (value) => {
+        Cookies.set('token', value);
+
+        saveToken(value);
+    };
+
+    return ( 
+        <AuthContext.Provider value = {
+            {
+                token,
+                setToken,
+                isLoggedIn,
+                setIsLoggedIn,
+                userId,
+                setUserId,
+                name,
+                setName,
+                userEmail,
+                setUserEmail,
+                userData,
+                setUserData,
+                isAdmin,
+                setIsAdmin
+            }
+        } >
+        <BrowserRouter >
+        <div className = "App" >
+        <Navbar />
+        <div className = "app-container" >
+        <Routes />
+        </div> </div>
+         </BrowserRouter> 
+         </AuthContext.Provider >
+    );
 }
 
 export default App;

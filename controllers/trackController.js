@@ -2,7 +2,7 @@ const httpError = require("http-errors")
 const Track = require("../models/trackSchema")
 
 // get all Tracks
-exports.getTracks = async(req, res, next) => {
+exports.getTracks = async (req, res, next) => {
     try {
         const tracks = await Track.find()
         res.json({
@@ -15,7 +15,7 @@ exports.getTracks = async(req, res, next) => {
 }
 
 // get single track
-exports.getTrack = async(req, res, next) => {
+exports.getTrack = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -32,26 +32,15 @@ exports.getTrack = async(req, res, next) => {
 }
 
 // add new track
-exports.postTrack = async(req, res, next) => {
+exports.postTrack = async (req, res, next) => {
     try {
         const track = new Track(req.body)
         await track.save()
-
         console.log("server track:", track)
-            // setup session
-            // req.session.token = token;
-            // req.session.track = track
         res.json({
             success: true,
             track: track
         })
-
-        // response
-        // res.header("x-auth", token).json({
-        //     success: true,
-        //     track: data
-        // })
-        // res.cookie("x-auth", token, { secure: true }).json({ success: true, track: data }
 
     } catch (err) {
         next(err)
@@ -60,7 +49,7 @@ exports.postTrack = async(req, res, next) => {
 
 
 // update a track
-exports.putTrack = async(req, res, next) => {
+exports.putTrack = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -80,7 +69,7 @@ exports.putTrack = async(req, res, next) => {
 }
 
 // delete a track
-exports.deleteTrack = async(req, res, next) => {
+exports.deleteTrack = async (req, res, next) => {
     const {
         id
     } = req.params

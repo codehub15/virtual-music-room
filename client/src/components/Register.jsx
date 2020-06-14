@@ -4,7 +4,7 @@ import AuthContext from '../context/authContext'
 
 
 export default function Register(props) {
-    const { setIsLoggedIn, userId, setUserId } = useContext(AuthContext)
+    const { setIsLoggedIn, userId, setUserId, setToken } = useContext(AuthContext)
 
     const [name, setName] = useState(null)
     const [level, setLevel] = useState(null)
@@ -13,14 +13,13 @@ export default function Register(props) {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null)
     const [role, setRole] = useState(null)
-    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2018/05/31/23/57/cranium-3445434_960_720.png")
 
 
     const signUpHandler = async (e) => {
         e.preventDefault();
         const userData = {
             name,
-            profileImgName: profileImg,
+            profileImgName: "https://cdn.pixabay.com/photo/2018/05/31/23/57/cranium-3445434_960_720.png",
             email,
             password,
             level,
@@ -42,6 +41,7 @@ export default function Register(props) {
         // show message with the register status to the user
         if (data.success) {
             alert("Your account was created successful.")
+            setToken(data.user.tokens.pop().token)
             // store user id
             let musicianId = data.user._id;
             setUserId(musicianId)
@@ -62,7 +62,7 @@ export default function Register(props) {
             ) : (
                     <div>
                         <h2>Sign up</h2>
-                        <form onSubmit={signUpHandler}>
+                        <form onSubmit={signUpHandler} className="register-form">
                             <input type="text" name="name" placeholder="* Enter Your First name or Nickname" required minLength="2" maxLength="25" onChange={(e) => { setName(e.target.value) }} />
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
                             <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />

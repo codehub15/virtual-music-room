@@ -1,18 +1,26 @@
 const Route = require("express").Router()
-const { getUsers, getUser, postUser, putUser, deleteUser, login } = require("../controllers/musicianController")
+    // const multer = require("multer")
+const imgMulter = require("../middleware/imgMulter")
+const {
+    getUsers,
+    getUser,
+    getCurrentUser,
+    postUser,
+    putUser,
+    deleteUser,
+    login,
+    uploadProfileImg
+} = require("../controllers/musicianController")
 const { validateInputs } = require("../middleware/validator")
 const auth = require("../middleware/authenticator")
-const isAdmin = require("../middleware/rolesAuth")
 
+Route.post("/:id/upload/", imgMulter, uploadProfileImg)
 Route.post("/login", login)
-Route.get("/", getUsers)
-Route.get("/:id", getUser)
-// Route.get("/", auth, isAdmin, getUsers)
-// Route.get("/:id", auth, getUser)
+Route.get("/currentUser", auth, getCurrentUser)
+Route.get("/:id", auth, getUser)
+Route.get("/", auth, getUsers)
 Route.post("/", validateInputs(), postUser)
-// Route.put("/:id", auth, putUser)
-Route.put("/:id", putUser)
-// Route.delete("/:id", auth, deleteUser)
-Route.delete("/:id", deleteUser)
+Route.put("/:id", auth, putUser)
+Route.delete("/:id", auth, deleteUser)
 
 module.exports = Route
