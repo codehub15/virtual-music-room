@@ -3,7 +3,7 @@ import AuthContext from '../context/authContext'
 
 
 export default function DeleteAccount() {
-    const { setIsLoggedIn, userId } = useContext(AuthContext)
+    const { setIsLoggedIn, userId, token } = useContext(AuthContext)
 
     const [msg, setMsg] = useState("")
     const [deleted, setDeleted] = useState(false)
@@ -15,11 +15,14 @@ export default function DeleteAccount() {
             setMsg(`Your account has been deleted. \nThank you for have been part of our community and you are welcome back any time!`)
 
             fetch("http://localhost:5000/users/" + userId, {
+                headers: {
+                    'x-auth': token,
+                },
                 method: 'DELETE'
             })
                 .then(res => res.json())
-                .then(() => {
-                    console.log('deleted');
+                .then((res) => {
+                    console.log('deleted', res);
                 })
 
             setIsLoggedIn(false)
