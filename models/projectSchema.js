@@ -9,10 +9,10 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    owner: [{
+    owner: {
         type: Types.ObjectId,
         ref: 'Musician'
-    }],
+    },
     tracks: [{
         type: Types.ObjectId,
         ref: 'Track'

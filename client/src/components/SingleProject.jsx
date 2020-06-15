@@ -100,6 +100,7 @@ class SingleProject extends React.Component {
             return "Loading";
         }
 
+        console.log(project);
         return (
             <div style={{ flex: "1 1", width: "90%" }}>
                 <h2>{project.name}</h2>
