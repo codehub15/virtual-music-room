@@ -19,7 +19,7 @@ export default function Register(props) {
         e.preventDefault();
         const userData = {
             name,
-            profileImgName: "https://cdn.pixabay.com/photo/2018/05/31/23/57/cranium-3445434_960_720.png",
+            profileImage: "https://cdn.pixabay.com/photo/2018/05/31/23/57/cranium-3445434_960_720.png",
             email,
             password,
             level,

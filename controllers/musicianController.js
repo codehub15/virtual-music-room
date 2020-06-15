@@ -3,7 +3,7 @@ const User = require("../models/musicianSchema")
 
 
 // get all users
-exports.getUsers = async(req, res, next) => {
+exports.getUsers = async (req, res, next) => {
     try {
         const users = await User.find()
         res.json({ success: true, users: users })
@@ -13,7 +13,7 @@ exports.getUsers = async(req, res, next) => {
 }
 
 // get single user
-exports.getUser = async(req, res, next) => {
+exports.getUser = async (req, res, next) => {
     const { id } = req.params
     try {
         const user = await User.findById(id)
@@ -24,7 +24,7 @@ exports.getUser = async(req, res, next) => {
     }
 }
 
-exports.getCurrentUser= async(req, res, next) => {
+exports.getCurrentUser = async (req, res, next) => {
     try {
         const user = await User.findByToken(req.header("x-auth"))
         if (!user) throw httpError(404)
@@ -35,22 +35,22 @@ exports.getCurrentUser= async(req, res, next) => {
 }
 
 // add new user
-exports.postUser = async(req, res, next) => {
+exports.postUser = async (req, res, next) => {
     try {
         const user = new User(req.body)
         const token = user.generateAuthToken()
         await user.save()
         const data = user.getPublicFields()
         console.log("server user:", user)
-            // setup session
-            // req.session.token = token;
-            // req.session.user = user;
-            // res.cookie("login", true)
-            // res.json({ success: true, user: data, token: token })
+        // setup session
+        // req.session.token = token;
+        // req.session.user = user;
+        // res.cookie("login", true)
+        // res.json({ success: true, user: data, token: token })
 
         // response
         res.header("x-auth", token).json({ success: true, user: data })
-            // res.cookie("x-auth", token, { secure: true }).json({ success: true, user: data }
+        // res.cookie("x-auth", token, { secure: true }).json({ success: true, user: data }
     } catch (err) {
         next(err)
     }
@@ -58,7 +58,7 @@ exports.postUser = async(req, res, next) => {
 
 
 // update an user
-exports.putUser = async(req, res, next) => {
+exports.putUser = async (req, res, next) => {
     const { id } = req.params
     const user = req.body
     try {
@@ -72,7 +72,7 @@ exports.putUser = async(req, res, next) => {
 
 
 // upload profile image
-exports.uploadProfileImg = async(req, res, next) => {
+exports.uploadProfileImg = async (req, res, next) => {
     const { id } = req.params
     const newValues = {
         profileImage: "/uploads/profile/" + req.file.filename,
@@ -82,7 +82,7 @@ exports.uploadProfileImg = async(req, res, next) => {
 
     try {
         const updateProfileImg = await User.update({ _id: id }, newValues, { new: true })
-        console.log(updateProfileImg);
+        // console.log(updateProfileImg);
         if (!updateProfileImg) throw httpError(500)
         res.json({ success: true, user: updateProfileImg })
     } catch (err) {
@@ -92,8 +92,9 @@ exports.uploadProfileImg = async(req, res, next) => {
 
 
 // delete a user
-exports.deleteUser = async(req, res, next) => {
+exports.deleteUser = async (req, res, next) => {
     const { id } = req.params
+    console.log("----- id from delete:", id)
     try {
         const user = await User.findByIdAndDelete(id)
         user.save()
@@ -106,7 +107,7 @@ exports.deleteUser = async(req, res, next) => {
 
 
 // login
-exports.login = async(req, res, next) => {
+exports.login = async (req, res, next) => {
     const { email, password } = req.body
 
     try {
@@ -121,9 +122,9 @@ exports.login = async(req, res, next) => {
         // req.session.user = user;
 
         res.header("x-auth", token).json({ success: true, user: data })
-            // res.json({ success: true, user: data, token: token })
-            // res.cookie("x-auth", token).json({ success: true, user: data })
-            // res.json({ success: true, user: data, token: token })
+        // res.json({ success: true, user: data, token: token })
+        // res.cookie("x-auth", token).json({ success: true, user: data })
+        // res.json({ success: true, user: data, token: token })
     } catch (err) {
         next(err)
     }
