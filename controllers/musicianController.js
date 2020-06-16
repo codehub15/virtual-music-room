@@ -27,6 +27,7 @@ exports.getUser = async (req, res, next) => {
 exports.getCurrentUser = async (req, res, next) => {
     try {
         const user = await User.findByToken(req.header("x-auth"))
+        console.log("user:", user)
         if (!user) throw httpError(404)
         res.json({ success: true, user: user })
     } catch (err) {
@@ -41,7 +42,7 @@ exports.postUser = async (req, res, next) => {
         const token = user.generateAuthToken()
         await user.save()
         const data = user.getPublicFields()
-        console.log("server user:", user)
+        // console.log("server user:", user)
         // setup session
         // req.session.token = token;
         // req.session.user = user;
@@ -78,7 +79,7 @@ exports.uploadProfileImg = async (req, res, next) => {
         profileImage: "/uploads/profile/" + req.file.filename,
     };
 
-    console.log({ id })
+    // console.log({ id })
 
     try {
         const updateProfileImg = await User.update({ _id: id }, newValues, { new: true })

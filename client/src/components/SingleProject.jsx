@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import WaveformPlaylist from 'waveform-playlist'
 import { withRouter } from 'react-router';
 import { Link, Redirect } from 'react-router-dom'
 import TrackUpload from "./TrackUpload"
+import AuthContext from '../context/authContext'
 
 class SingleProject extends React.Component {
     constructor(props) {
@@ -46,10 +47,6 @@ class SingleProject extends React.Component {
                 gain: 0.8,
             };
         });
-
-
-        console.log("track list:", this.playlist)
-
 
         playlist.load(tracks).then(() => {
             this.setPlaylist(playlist.getEventEmitter());
@@ -105,10 +102,15 @@ class SingleProject extends React.Component {
             return "Loading";
         }
 
-        console.log(project);
+        console.log("project:", project);
+
+
         return (
             <div style={{ flex: "1 1", width: "90%" }}>
-                <h2>{project.name}</h2>
+                <div className="project-title">
+                    Project: <h2>{project.name} </h2>
+                    <h3> by {project.owner.name}</h3>
+                </div>
                 <Link to="/projects">Back</Link>
                 <br />
                 <br />

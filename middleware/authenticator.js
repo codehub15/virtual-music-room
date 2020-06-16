@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
 
     try {
         const user = await User.findByToken(token)
-        console.log("auth - user token", user)
+        // console.log("auth - user token", user)
 
         // req.user = user;
         // req.user = req.session.user;
