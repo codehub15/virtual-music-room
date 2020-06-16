@@ -7,11 +7,10 @@ const auth = async (req, res, next) => {
     // const token = req.cookies["x-auth"]
     // console.log("req.cookies:", req.cookies)
     // const token = req.session.token;
-    console.log("auth token:", token)
 
     try {
         const user = await User.findByToken(token)
-        console.log(user)
+        console.log("auth - user token", user)
 
         // req.user = user;
         // req.user = req.session.user;

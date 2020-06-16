@@ -1,5 +1,4 @@
 const Route = require("express").Router()
-    // const multer = require("multer")
 const imgMulter = require("../middleware/imgMulter")
 const {
     getUsers,

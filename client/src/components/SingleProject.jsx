@@ -22,21 +22,21 @@ class SingleProject extends React.Component {
     }
 
     initWaveformPlaylist = () => {
-       const playlist = WaveformPlaylist({
-           samplesPerPixel: 1000,
-           waveHeight: 100,
-           container: this.playlist.current,
-           timescale: true,
-           state: 'cursor',
-           isAutomaticScroll: true,
-           colors: {
-               waveOutlineColor: '#E0EFF1'
-           },
-           controls: {
-               show: true, //whether or not to include the track controls
-               width: 200 //width of controls in pixels
-           },
-           zoomLevels: [500, 1000, 3000, 5000]
+        const playlist = WaveformPlaylist({
+            samplesPerPixel: 1000,
+            waveHeight: 100,
+            container: this.playlist.current,
+            timescale: true,
+            state: 'cursor',
+            isAutomaticScroll: true,
+            colors: {
+                waveOutlineColor: '#E0EFF1'
+            },
+            controls: {
+                show: true, //whether or not to include the track controls
+                width: 200 //width of controls in pixels
+            },
+            zoomLevels: [500, 1000, 3000, 5000]
         });
 
         const tracks = this.state.project.tracks.map((track) => {
@@ -46,22 +46,26 @@ class SingleProject extends React.Component {
                 gain: 0.8,
             };
         });
-        
-        playlist.load(tracks).then(()=>{
+
+
+        console.log("track list:", this.playlist)
+
+
+        playlist.load(tracks).then(() => {
             this.setPlaylist(playlist.getEventEmitter());
         });
-    } 
-    
+    }
+
     fetchProject = () => {
         fetch("http://localhost:5000/projects/" + this.props.match.params.id, {
             headers: {
                 'x-auth': this.props.token,
             },
         })
-        .then(res => res.json())
-        .then(data => {
-            this.setProject(data.project)
-        });
+            .then(res => res.json())
+            .then(data => {
+                this.setProject(data.project)
+            });
     }
 
     setProject = (project) => this.setState({ project }, this.initWaveformPlaylist);
@@ -89,6 +93,7 @@ class SingleProject extends React.Component {
         }
     };
 
+
     render() {
         const { project } = this.state;
 
@@ -104,12 +109,12 @@ class SingleProject extends React.Component {
             <div style={{ flex: "1 1", width: "90%" }}>
                 <h2>{project.name}</h2>
                 <Link to="/projects">Back</Link>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <button onClick={this.delete} className="btn btn-warning" type="button">
                     Delete
                 </button>
-                <br/><br/><br/>
+                <br /><br /><br />
                 {
                     this.state.playlist && (
                         <div className="btn-group" role="group" aria-label="Basic example">

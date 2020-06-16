@@ -9,10 +9,10 @@ export default function MusicianAccount() {
 
     useEffect(() => {
         fetch("http://localhost:5000/users/currentUser", {
-                headers: {
-                    'x-auth': token,
-                },
-            })
+            headers: {
+                'x-auth': token,
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setMusicianData(data.user)
