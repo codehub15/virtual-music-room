@@ -12,14 +12,14 @@ export default function Projects(props) {
                 'x-auth': token,
             },
         })
-        .then(res => res.json())
-        .then(data => {
-            setProjects(data.projects)
-        });
+            .then(res => res.json())
+            .then(data => {
+                setProjects(data.projects)
+            });
     }
-    
+
     useEffect(() => {
-       fetchProjects();
+        fetchProjects();
     }, [token]);
 
     if (!isLoggedIn) {
@@ -46,15 +46,15 @@ export default function Projects(props) {
         <div>
             <h2>All Projects</h2>
             <ul>
-            {
-                projects.map((project) => (
-                    <li key={project._id}>
-                        <Link to={"/projects/" + project._id}>
-                            {project.name}
-                        </Link>
-                    </li>
-                ))
-            }
+                {
+                    projects.map((project) => (
+                        <li key={project._id}>
+                            <Link to={"/projects/" + project._id}>
+                                {project.name}
+                            </Link>
+                        </li>
+                    ))
+                }
             </ul>
             <form onSubmit={handleSubmit} >
                 <input
