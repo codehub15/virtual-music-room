@@ -22,6 +22,10 @@ const schema = new Schema({
     },
     likes: {
         type: Number
+    },
+    owner: {
+        type: Types.ObjectId,
+        ref: 'Musician'
     }
 })
 module.exports = model('Track', schema)

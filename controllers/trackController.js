@@ -2,7 +2,7 @@ const httpError = require("http-errors")
 const Track = require("../models/trackSchema")
 
 // get all Tracks
-exports.getTracks = async (req, res, next) => {
+exports.getTracks = async(req, res, next) => {
     try {
         const tracks = await Track.find()
         res.json({
@@ -15,7 +15,7 @@ exports.getTracks = async (req, res, next) => {
 }
 
 // get single track
-exports.getTrack = async (req, res, next) => {
+exports.getTrack = async(req, res, next) => {
     const {
         id
     } = req.params
@@ -32,9 +32,12 @@ exports.getTrack = async (req, res, next) => {
 }
 
 // add new track
-exports.postTrack = async (req, res, next) => {
+exports.postTrack = async(req, res, next) => {
+    const token = req.header("x-auth")
+    const user = await User.findByToken(token)
     try {
         const track = new Track(req.body)
+        project.owner = user._id
         await track.save()
         console.log("server track:", track)
         res.json({
@@ -48,8 +51,10 @@ exports.postTrack = async (req, res, next) => {
 }
 
 
+
+
 // update a track
-exports.putTrack = async (req, res, next) => {
+exports.putTrack = async(req, res, next) => {
     const {
         id
     } = req.params
@@ -69,7 +74,7 @@ exports.putTrack = async (req, res, next) => {
 }
 
 // delete a track
-exports.deleteTrack = async (req, res, next) => {
+exports.deleteTrack = async(req, res, next) => {
     const {
         id
     } = req.params

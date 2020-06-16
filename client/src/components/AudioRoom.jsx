@@ -7,11 +7,16 @@ import AudioSpectrum from 'react-audio-spectrum'
 // import bass from '../assets/pick-bass.wav'
 // import piano from '../assets/piano-quartet.wav'
 // guitarCannon song
-import drums from '../assets/GuitarCannonDrums.mp3'
-import guitars from '../assets/guitarCannonGuitars.mp3'
-import keybass from '../assets/guitarCannonBasskeys.mp3'
-import hammond from '../assets/guitarCannonHammond.mp3'
+// import drums from '../assets/GuitarCannonDrums.mp3'
+// import guitars from '../assets/guitarCannonGuitars.mp3'
+// import keybass from '../assets/guitarCannonBasskeys.mp3'
+// import hammond from '../assets/guitarCannonHammond.mp3'
 
+
+import keybass from '../assets/BASS 2 PSICO.mp3'
+import drums from '../assets/BATERA 2  PSICO.mp3'
+import guitars from '../assets/GUITARS 2 PSICO.mp3'
+import hammond from '../assets/VOCES TECLAS 2 PSICO.mp3'
 
 
 class AudioRoom extends React.Component {
