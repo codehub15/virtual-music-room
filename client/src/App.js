@@ -24,6 +24,7 @@ function App() {
     const [userId, setUserId] = useState(null)
     const [name, setName] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
+    const [userCountry, setUserCountry] = useState("")
     const [isAdmin, setIsAdmin] = useState(false)
     const [userData, setUserData] = useState({})
 
@@ -39,33 +40,27 @@ function App() {
         saveToken(value);
     };
 
-    return ( 
-        <AuthContext.Provider value = {
+    return (
+        <AuthContext.Provider value={
             {
-                token,
-                setToken,
-                isLoggedIn,
-                setIsLoggedIn,
-                userId,
-                setUserId,
-                name,
-                setName,
-                userEmail,
-                setUserEmail,
-                userData,
-                setUserData,
-                isAdmin,
-                setIsAdmin
+                token, setToken,
+                isLoggedIn, setIsLoggedIn,
+                userId, setUserId,
+                name, setName,
+                userEmail, setUserEmail,
+                userCountry, setUserCountry,
+                userData, setUserData,
+                isAdmin, setIsAdmin
             }
         } >
-        <BrowserRouter >
-        <div className = "App" >
-        <Navbar />
-        <div className = "app-container" >
-        <Routes />
-        </div> </div>
-         </BrowserRouter> 
-         </AuthContext.Provider >
+            <BrowserRouter >
+                <div className="App" >
+                    <Navbar />
+                    <div className="app-container" >
+                        <Routes />
+                    </div> </div>
+            </BrowserRouter>
+        </AuthContext.Provider >
     );
 }
 

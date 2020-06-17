@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
 import ProfileImg from './ProfileImg'
+import Flags from 'country-flag-icons/react/3x2'
+
 
 export default function MusicianAccount() {
-    const { isLoggedIn, token } = useContext(AuthContext)
+    const { isLoggedIn, token, userCountry, setUserCountry } = useContext(AuthContext)
     const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
@@ -23,6 +25,13 @@ export default function MusicianAccount() {
         return "loading"
     }
 
+    console.log("musicianData:", musicianData)
+    setUserCountry(musicianData.country)
+    console.log("userCountry:", userCountry)
+
+    let flag = musicianData.country.toString();
+    console.log("flag:", typeof flag)
+
     return (
         <div className="musician-container-account">
             {isLoggedIn ? (<div className="musician-account-container">
@@ -34,6 +43,7 @@ export default function MusicianAccount() {
                         {<p>Email: {musicianData.email}</p>}
                         {<p>Level: {musicianData.level}</p>}
                         {<p>{}</p>}
+                        <Flags.DE title="United States" className="country-flag" />
                     </div>
                 </div>
                 <div className="account-manager">

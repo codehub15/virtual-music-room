@@ -317,9 +317,30 @@ nav {
         color: #fff;
     }
 
+    .country-selection-div{
+        h4{
+           color: rgb(221, 218, 218);
+           text-align: center;
+        }
+        .country-selection{
+            margin-top: -2.2rem;
+            
+            input{
+                color: #000;
+            }
+            .flag-select__option__label{
+                color: #000;
+            }
+            .flag-select__btn{
+            color: #000 !important;
+            background-color: rgb(241, 238, 238);
+        }
+        }
+    }
     button {
         margin-top: 2rem;
     }
+
 }
 
 // musician container
@@ -415,6 +436,12 @@ nav {
         //     margin-left: 1rem;
         // }
     }
+}
+
+// country-flag
+.country-flag{
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 // projects

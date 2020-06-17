@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { Redirect } from 'react-router-dom';
 import AuthContext from '../context/authContext'
+import ReactFlagsSelect from 'react-flags-select';
+import 'react-flags-select/scss/react-flags-select.scss';
 
 
 export default function Register(props) {
@@ -13,6 +15,7 @@ export default function Register(props) {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null)
     const [role, setRole] = useState(null)
+    const [country, setCountry] = useState(null);
 
 
     const signUpHandler = async (e) => {
@@ -23,7 +26,8 @@ export default function Register(props) {
             email,
             password,
             level,
-            role
+            role,
+            country
         };
         const options = {
             method: 'POST',
@@ -52,8 +56,12 @@ export default function Register(props) {
         }
     }
 
-    console.log("level:", level)
-    console.log("role:", role)
+    console.log("setCountry:", country)
+
+    const onSelectFlag = (countryCode) => {
+        console.log(countryCode)
+        setCountry(countryCode)
+    }
 
     return (
         <div className="form-container">
@@ -66,6 +74,17 @@ export default function Register(props) {
                             <input type="text" name="name" placeholder="* Enter Your First name or Nickname" required minLength="2" maxLength="25" onChange={(e) => { setName(e.target.value) }} />
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
                             <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
+
+                            {/** location */}
+                            <div className="country-selection-div">
+                                <h4>Your Country</h4>
+                                <ReactFlagsSelect
+                                    defaultCountry="DE"
+                                    searchable={true}
+                                    className="country-selection"
+                                    onSelect={onSelectFlag}
+                                />
+                            </div>
 
                             <div className="radio-btns">
                                 {/** skills */}

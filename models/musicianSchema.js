@@ -17,12 +17,13 @@ const MusicianSchema = new Schema({
     tracks: [{ type: Types.ObjectId, ref: 'Track' }],
     role: { type: String, enum: ["Admin", "User", "Musician", "Producer", "Sound Engineer"], required: true },
     accountCreatedOn: { type: Date, default: Date.now },
+    country: { type: String },
     tokens: [{ token: { type: String, required: true } }]
 })
 
 
 
-MusicianSchema.methods.generateAuthToken = function() {
+MusicianSchema.methods.generateAuthToken = function () {
     const user = this;
     const token = jwt.sign({ _id: user._id }, env.jwt_key).toString()
     user.tokens.push({ token })
@@ -30,7 +31,7 @@ MusicianSchema.methods.generateAuthToken = function() {
 }
 
 
-MusicianSchema.methods.getPublicFields = function() {
+MusicianSchema.methods.getPublicFields = function () {
     let returnObject = {
         name: this.name,
         level: this.level,
@@ -43,19 +44,19 @@ MusicianSchema.methods.getPublicFields = function() {
 }
 
 
-MusicianSchema.pre("save", async function(next) {
+MusicianSchema.pre("save", async function (next) {
     this.password = await encrypt(this.password)
     next()
 })
 
 
-MusicianSchema.methods.checkPassword = async function(password) {
+MusicianSchema.methods.checkPassword = async function (password) {
     const user = this;
     return await compare(password, user.password)
 }
 
 
-MusicianSchema.statics.findByToken = function(token) {
+MusicianSchema.statics.findByToken = function (token) {
     const User = this;
     let decoded;
     try {
