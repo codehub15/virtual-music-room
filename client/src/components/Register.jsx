@@ -44,7 +44,7 @@ export default function Register(props) {
 
         // show message with the register status to the user
         if (data.success) {
-            alert("Your account was created successful.")
+            alert("your account has been successfully created.")
             setToken(data.user.tokens.pop().token)
             // store user id
             let musicianId = data.user._id;
@@ -52,7 +52,7 @@ export default function Register(props) {
             setIsLoggedIn(true)
         }
         else {
-            alert("Your account can not be created. Please check if all input data is correct.")
+            alert("Your account cannot be created. Please check if all input data is correct.")
         }
     }
 
