@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { Redirect } from 'react-router-dom';
 import AuthContext from '../context/authContext'
+import ReactFlagsSelect from 'react-flags-select';
+import 'react-flags-select/scss/react-flags-select.scss';
 
 
 export default function Register(props) {
@@ -13,6 +15,7 @@ export default function Register(props) {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null)
     const [role, setRole] = useState(null)
+    const [country, setCountry] = useState(null);
 
 
     const signUpHandler = async (e) => {
@@ -23,7 +26,8 @@ export default function Register(props) {
             email,
             password,
             level,
-            role
+            role,
+            country
         };
         const options = {
             method: 'POST',
@@ -52,8 +56,12 @@ export default function Register(props) {
         }
     }
 
-    console.log("level:", level)
-    console.log("role:", role)
+    console.log("setCountry:", country)
+
+    const onSelectFlag = (countryCode) => {
+        console.log(countryCode)
+        setCountry(countryCode)
+    }
 
     return (
         <div className="form-container">
@@ -67,51 +75,66 @@ export default function Register(props) {
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
                             <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
 
-                            <h4>Your Skills:</h4>
-                            <label>
-                                <input type="radio" name="level" value="Beginner"
-                                    onChange={(e) => setLevel(e.target.value)}
+                            {/** location */}
+                            <div className="country-selection-div">
+                                <h4>Your Country</h4>
+                                <ReactFlagsSelect
+                                    defaultCountry="DE"
+                                    searchable={true}
+                                    className="country-selection"
+                                    onSelect={onSelectFlag}
                                 />
-                                <span>Beginner</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Skilled"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Skilled</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Specialist"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Specialist</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Expert"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Expert</span>
-                            </label>
+                            </div>
 
-                            <h4>Your Expertise / Role:</h4>
-                            <label>
-                                <input type="radio" name="role" value="Musician"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Musician</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="role" value="Producer"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Producer</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="role" value="Sound Engineer"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Sound Engineer</span>
-                            </label>
+                            <div className="radio-btns">
+                                {/** skills */}
+                                <div className="inp-radio-btn skills">
+                                    <h4>Your Skills:</h4>
+                                    <input type="radio" name="level" value="Beginner" id="beginner"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="beginner">Beginner</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Skilled" id="skilled"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="skilled">Skilled</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Specialist" id="specialist"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="specialist">Specialist</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Expert" id="expert"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="expert">Expert</label>
+                                </div>
+                                {/** role */}
+                                <div className="inp-radio-btn role">
+                                    <h4>Your Expertise / Role:</h4>
+                                    <label>
+                                        <input type="radio" name="role" value="Musician"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Musician</span>
+                                    </label>
+                                    <br />
+                                    <label>
+                                        <input type="radio" name="role" value="Producer"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Producer</span>
+                                    </label>
+                                    <br />
+                                    <label>
+                                        <input type="radio" name="role" value="Sound Engineer"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Sound Engineer</span>
+                                    </label>
+                                </div>
+                            </div>
 
                             <button type="submit">Sign up</button>
                         </form>
