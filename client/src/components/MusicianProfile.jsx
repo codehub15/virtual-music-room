@@ -8,10 +8,10 @@ export default function MusicianProfile(props) {
 
     useEffect(() => {
         fetch("http://localhost:5000/users/" + props.match.params.id, {
-                headers: {
-                    'x-auth': token,
-                },
-            })
+            headers: {
+                'x-auth': token,
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setUser(data.user)
