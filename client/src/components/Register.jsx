@@ -67,51 +67,55 @@ export default function Register(props) {
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
                             <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
 
-                            <h4>Your Skills:</h4>
-                            <label>
-                                <input type="radio" name="level" value="Beginner"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Beginner</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Skilled"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Skilled</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Specialist"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Specialist</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="level" value="Expert"
-                                    onChange={(e) => setLevel(e.target.value)}
-                                />
-                                <span>Expert</span>
-                            </label>
-
-                            <h4>Your Expertise / Role:</h4>
-                            <label>
-                                <input type="radio" name="role" value="Musician"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Musician</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="role" value="Producer"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Producer</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="role" value="Sound Engineer"
-                                    onChange={(e) => setRole(e.target.value)}
-                                />
-                                <span>Sound Engineer</span>
-                            </label>
+                            <div className="radio-btns">
+                                {/** skills */}
+                                <div className="inp-radio-btn skills">
+                                    <h4>Your Skills:</h4>
+                                    <input type="radio" name="level" value="Beginner" id="beginner"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="beginner">Beginner</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Skilled" id="skilled"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="skilled">Skilled</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Specialist" id="specialist"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="specialist">Specialist</label>
+                                    <br />
+                                    <input type="radio" name="level" value="Expert" id="expert"
+                                        onChange={(e) => setLevel(e.target.value)}
+                                    />
+                                    <label htmlFor="expert">Expert</label>
+                                </div>
+                                {/** role */}
+                                <div className="inp-radio-btn role">
+                                    <h4>Your Expertise / Role:</h4>
+                                    <label>
+                                        <input type="radio" name="role" value="Musician"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Musician</span>
+                                    </label>
+                                    <br />
+                                    <label>
+                                        <input type="radio" name="role" value="Producer"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Producer</span>
+                                    </label>
+                                    <br />
+                                    <label>
+                                        <input type="radio" name="role" value="Sound Engineer"
+                                            onChange={(e) => setRole(e.target.value)}
+                                        />
+                                        <span>Sound Engineer</span>
+                                    </label>
+                                </div>
+                            </div>
 
                             <button type="submit">Sign up</button>
                         </form>

@@ -108,7 +108,7 @@ class SingleProject extends React.Component {
         return (
             <div style={{ flex: "1 1", width: "90%" }}>
                 <div className="project-title">
-                    Project: <h2>{project.name} </h2>
+                    <p>Project:</p> <h2>{project.name} </h2>
                     <h3> by {project.owner.name}</h3>
                 </div>
                 <Link to="/projects">Back</Link>

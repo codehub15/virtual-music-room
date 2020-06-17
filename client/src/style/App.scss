@@ -271,7 +271,7 @@ nav {
         align-items: center;
         padding: 1rem;
         background-color: rgba(22, 22, 22, 0.7);
-        // border-top: 1px solid color(primary);
+
         input {
             margin: 0.5rem;
         }
@@ -279,15 +279,49 @@ nav {
             text-align: right;
             color: rgb(221, 217, 217);
         }
+
+        .inp-div{
+            
+            input[type='radio']{
+                text-align: right;
+            }
+        }
+
+        .inp-label{
+            text-align: left;
+            // margin-right: 1rem;
+        }
     }
     h2 {
         text-align: center;
     }
 }
 
+
 // register form
-// .register-form {
-// }
+.register-form {
+    .radio-btns {
+        display: flex;
+    }
+    .inp-radio-btn{
+        h4{
+            text-align: center;
+            color: rgb(221, 218, 218);
+        }
+    }
+    .inp-radio-btn:first-child{
+        margin-right: 5rem;
+    }
+
+    label {
+        color: #fff;
+    }
+
+    button {
+        margin-top: 2rem;
+    }
+}
+
 // musician container
 .musician-container {
     width: 90vw;
@@ -387,7 +421,10 @@ nav {
 .project-title {
     margin: 2rem 0rem;
 
-    h2, h3 {
+    p {
+        font-weight: 900;
+    }
+    h2, h3, p{
         display: inline;
     }
 
