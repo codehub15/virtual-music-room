@@ -2,6 +2,7 @@ import React from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
 import gifLogo from '../assets/gifLogo.gif'
+import SearchUser from './SearchUser'
 
 
 function Homepage() {
@@ -15,6 +16,7 @@ function Homepage() {
                     <h1>The Musicians Community</h1>
                 </div>
                 <div className="particles-map">
+                    <SearchUser />
                     <TextParticles />
                 </div>
                 <div></div>

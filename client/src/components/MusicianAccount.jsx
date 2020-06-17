@@ -29,17 +29,19 @@ export default function MusicianAccount() {
     setUserCountry(musicianData.country)
     console.log("userCountry:", userCountry)
 
-    let flag = musicianData.country.toString();
-    console.log("flag:", typeof flag)
+    //let flag = musicianData.country.toString();
+    //console.log("flag:", typeof flag)
 
     return (
-        <div className="musician-container-account">
+        <div className="musician-container-account-outer">
+            <h2>My Account</h2>
             {isLoggedIn ? (<div className="musician-account-container">
                 <div className="account">
-                    <h2>My Account</h2>
+                    
                     <div className="musician-account">
-                        {<img src={musicianData.profileImage} alt="Profile" width="150" height="150" />}
                         {<h3>{musicianData.name}</h3>}
+                        {<img src={musicianData.profileImage} alt="Profile" width="150" height="150" />}
+                        
                         {<p>Email: {musicianData.email}</p>}
                         {<p>Level: {musicianData.level}</p>}
                         {<p>{}</p>}

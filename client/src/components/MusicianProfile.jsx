@@ -22,15 +22,21 @@ export default function MusicianProfile(props) {
         return "Loading";
     }
 
+    console.log("user data:", user);
+
     return (
         <div className="musician-container">
             <h2>Musician Profile</h2>
 
             <div className="musician">
-                {<img src={user.profileImage} alt="Profile" width="100" height="100" />}
                 <h3>{user.name}</h3>
+                {<img src={user.profileImage} alt="Profile" width="100" height="100" />}
+                <p>Expertise/Role:  {user.role}</p>
+                <p>Level: {user.level}</p>
 
                 <p>{isLoggedIn ? "Online" : "Offline"} </p>
+
+                <a href={"mailto:" + user.email} className="mailto">send me a message</a>
             </div>
         </div>
     )
