@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { Link, Redirect } from 'react-router-dom'
 import TrackUpload from "./TrackUpload"
 import AuthContext from '../context/authContext'
+import '../style/Project.scss'
 
 class SingleProject extends React.Component {
     constructor(props) {
@@ -103,32 +104,36 @@ class SingleProject extends React.Component {
         }
 
         console.log("project:", project);
+        console.log("props:", this.props)
 
 
         return (
-            <div style={{ flex: "1 1", width: "90%" }}>
+            <div className="single-project-container" style={{ flex: "1 1", width: "90%" }}>
                 <div className="project-title">
                     <p>Project:</p> <h2>{project.name} </h2>
                     <h3> by {project.owner.name}</h3>
                 </div>
-                <Link to="/projects">Back</Link>
+                <Link to="/projects" className="back-btn">Back to all projects</Link>
                 <br />
                 <br />
-                <button onClick={this.delete} className="btn btn-warning" type="button">
+                <button onClick={this.delete} className="btn btn-warning btn-delete-project" type="button">
                     Delete
                 </button>
                 <br /><br /><br />
-                {
-                    this.state.playlist && (
-                        <div className="btn-group" role="group" aria-label="Basic example">
-                            <button onClick={this.play} type="button" className="btn btn-info">Play</button>
-                            <button onClick={this.pause} type="button" className="btn btn-secondary">Pause</button>
-                            <button onClick={this.stop} type="button" className="btn btn-danger">Stop</button>
-                        </div>
-                    )
-                }
-                <div ref={this.playlist}></div>
-                <TrackUpload projectId={project._id} />
+
+                <div className="track">
+                    {
+                        this.state.playlist && (
+                            <div className="btn-group" role="group" aria-label="Basic example">
+                                <button onClick={this.play} type="button" className="btn btn-info play">Play</button>
+                                <button onClick={this.pause} type="button" className="btn btn-secondary pause">Pause</button>
+                                <button onClick={this.stop} type="button" className="btn btn-danger stop">Stop</button>
+                            </div>
+                        )
+                    }
+                    <div ref={this.playlist}></div>
+                    <TrackUpload projectId={project._id} />
+                </div>
             </div>
         )
     }
