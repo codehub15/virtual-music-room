@@ -90,6 +90,8 @@ class AudioRoom extends React.Component {
         const { vol1, vol2, vol3, vol4, isPlaying } = this.state;
 
         return (
+            <div className="audio-room-section">
+                <div className="audio-room-inner-section">
             <div className="audioRoom-control" >
                 <Draggable
                     bounds={{ top: -100, left: -100, right: 100, bottom: 100 }}
@@ -138,8 +140,8 @@ class AudioRoom extends React.Component {
                     meterCount={512}
                     meterColor={[
                         { stop: 0, color: 'red' },
-                        { stop: 0.5, color: 'gray' },
-                        { stop: 1, color: 'blue' }
+                        { stop: 0.5, color: 'darkred' },
+                        { stop: 1, color: 'black' }
                     ]}
                     gap={4}
                 />
@@ -202,6 +204,8 @@ class AudioRoom extends React.Component {
                 <div style={{ transform: `scale(${vol2 + 0.5}, ${vol2 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--2" />
                 <div style={{ transform: `scale(${vol3 + 0.5}, ${vol3 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--3" />
                 <div style={{ transform: `scale(${vol4 + 0.5}, ${vol4 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--4" />
+            </div>
+            </div>
             </div>
         );
     }
