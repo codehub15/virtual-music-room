@@ -43,8 +43,9 @@ export default function Projects(props) {
     }
 
     return (
-        <div>
+        <div className="projects-container">
             <h2>All Projects</h2>
+            <div className="projects-container-inner">
             <ul>
                 {
                     projects.map((project) => (
@@ -66,6 +67,7 @@ export default function Projects(props) {
                 />
                 <button type="submit">Create project</button>
             </form>
+            </div>
         </div>
     )
 }
