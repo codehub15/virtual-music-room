@@ -29,8 +29,8 @@ export default function MusicianAccount() {
     setUserCountry(musicianData.country)
     console.log("userCountry:", userCountry)
 
-    //let flag = musicianData.country.toString();
-    //console.log("flag:", typeof flag)
+    // let flag = musicianData.country.toString();
+    // console.log("flag:", typeof flag)
 
     return (
         <div className="musician-container-account-outer">
