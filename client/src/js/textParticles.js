@@ -36,7 +36,7 @@ export default (canvas) => {
                 ctx.fillStyle = this.particleColor;
                 ctx.fill();
             }
-            ctx.font = `${this.textSize}px Arial`;
+            ctx.font = `${this.textSize}px Orbitron`;
             ctx.fillStyle = this.textColor;
             this.halfTextWidth = ctx.measureText(this.name).width / 2;
             ctx.fillText(this.name, this.pointX, this.pointY);
@@ -60,7 +60,7 @@ export default (canvas) => {
         options.particleSize = opt.particleSize || 0; // number: particle size, default=0 (not shown)
         options.textColor = opt.textColor || "#dddddd"; // string
         options.textList = (opt.textList || "Marty: Keyboard, Natashka: Drums, Thomas: Cello, Juan: Piano, Alex: Bass, Nicholas: Guitar, Mary: Violin").split(', '); // string: list of strings separated with a comma and a space
-        options.textSize = opt.textSize || 24; // number: positive
+        options.textSize = opt.textSize || 20; // number: positive
         reset(options);
         window.requestAnimationFrame(animateFrameLoop);
     }
