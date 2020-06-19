@@ -48,7 +48,7 @@ export default function Login(props) {
                             <input type="text" name="email" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)} required />
                             <input type="password" name="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)} required />
 
-                            <button type="submit">Login</button>
+                            <button type="submit" className="btn-style">Login</button>
                         </form>
                     </div>
                 )

@@ -10,7 +10,7 @@ export default function Navbar() {
         <nav>
             <ul>
                 <li className="link-background">
-                    <NavLink className="main-nav-link middle" to="/" exact activeClassName="active">Home</NavLink>
+                    <NavLink className="main-nav-link middle" to="/" exact activeClassName="active">VMR Home</NavLink>
                 </li>
                 {
                     isLoggedIn && (
@@ -25,7 +25,7 @@ export default function Navbar() {
                     )
                 }
                 {!isLoggedIn ? (
-                    <div className="nav-li-div">
+                    <div className="nav-li-div nav-item-left">
                         <li className="link-background">
                             <NavLink className="main-nav-link middle" to="/signup" exact activeClassName="active">Sign up</NavLink>
                         </li>
@@ -39,7 +39,7 @@ export default function Navbar() {
                                 <NavLink className="main-nav-link middle" to="/musicianAccount" exact activeClassName="active">My Account</NavLink>
                             </li>
 
-                            <li className="link-background">
+                            <li className="link-background nav-item-left">
                                 <NavLink className="main-nav-link middle" to="/logout" exact activeClassName="active">Logout</NavLink>
                             </li>
                         </div>

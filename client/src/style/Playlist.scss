@@ -11,11 +11,11 @@
 }
 
 .playlist .channel {
-    background: grey;
+    background: #928db3;
 }
 
 .playlist .channel-progress {
-    background: orange;
+    background: #2f2b4d;
 }
 
 .playlist .cursor {
@@ -63,8 +63,9 @@
 .playlist .controls header {
     overflow: hidden;
     color: white;
-    background-color: blueviolet;
+    background-color: #1d0b45;
     margin-bottom: 1em;
+    padding: 0.2rem 0rem;
     height: 20px;
 }
 
