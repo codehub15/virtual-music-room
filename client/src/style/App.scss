@@ -46,6 +46,11 @@ nav {
     .nav-li-div {
         display: flex;
     }
+     .nav-item-left{
+            position: absolute;
+            right: 2.5rem;
+        }
+
     // link hover effect
     a.middle {
         position: relative;
