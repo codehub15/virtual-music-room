@@ -3,7 +3,6 @@ import WaveformPlaylist from 'waveform-playlist'
 import { withRouter } from 'react-router';
 import { Link, Redirect } from 'react-router-dom'
 import TrackUpload from "./TrackUpload"
-import AuthContext from '../context/authContext'
 import '../style/Project.scss'
 
 class SingleProject extends React.Component {
