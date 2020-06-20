@@ -36,7 +36,7 @@ export default function MusicianProfile(props) {
 
                 <p>{isLoggedIn ? "Online" : "Offline"} </p>
 
-                <a href={"mailto:" + user.email} className="mailto">send me a message</a>
+                <a href={"mailto:" + user.email} className="btn-link">send me a message</a>
             </div>
         </div>
     )

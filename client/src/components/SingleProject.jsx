@@ -109,16 +109,16 @@ class SingleProject extends React.Component {
         return (
             <div className="single-project-container-outer">
                 <div className="single-project-container" style={{ flex: "1 1", width: "90%" }}>
+                    <Link to="/projects" className="back-btn">Back to all projects</Link>
                     <div className="project-title">
-                        <p>Project:</p> <h2>{project.name} </h2>
+                        <h3></h3>
+                        {/**  <p>Project:</p> */}
+                        <h2>{project.name} </h2>
                         <h3> by {project.owner.name}</h3>
                     </div>
-                    <Link to="/projects" className="back-btn">Back to all projects</Link>
-                    <br />
-                    <br />
                     <button onClick={this.delete} className="btn btn-warning btn-delete-project" type="button">
                         Delete
-                </button>
+                    </button>
                     <br /><br /><br />
 
                     <div className="track">
