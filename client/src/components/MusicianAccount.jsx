@@ -37,11 +37,11 @@ export default function MusicianAccount() {
             <h2>My Account</h2>
             {isLoggedIn ? (<div className="musician-account-container">
                 <div className="account">
-                    
+
                     <div className="musician-account">
                         {<h3>{musicianData.name}</h3>}
                         {<img src={musicianData.profileImage} alt="Profile" width="150" height="150" />}
-                        
+
                         {<p>Email: {musicianData.email}</p>}
                         {<p>Level: {musicianData.level}</p>}
                         {<p>{}</p>}
@@ -51,6 +51,7 @@ export default function MusicianAccount() {
                 <div className="account-manager">
                     <h2>Account Manager</h2>
                     <Link to="/delete-account"><i className="fas fa-user-times"></i> delete account</Link>
+                    <br />
                     <br />
                     <Link to="/edit-account"><i className="fas fa-user-edit"></i> edit account</Link>
 

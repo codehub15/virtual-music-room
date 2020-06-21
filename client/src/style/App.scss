@@ -6,6 +6,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    // background-color: rgb(228, 226, 226);
 }
 
 .body-background {
@@ -17,10 +18,15 @@ body {
 
 // navbar
 nav {
+    width: 100vw;
+    position: fixed;
+    top: 0;
     padding: 0.5rem 0.3rem;
     background-color: #050505;
-    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
+    // box-shadow: 0px 10px 15px -1px rgba(7, 7, 7, 0.8);
     z-index: 1;
+    
     ul {
         display: flex;
         flex-direction: row;
@@ -40,7 +46,7 @@ nav {
             }
         }
         .active {
-            color: rgb(70, 149, 172);
+            color: #4695ac;
         }
     }
     .nav-li-div {
@@ -48,7 +54,7 @@ nav {
     }
      .nav-item-left{
             position: absolute;
-            right: 2.5rem;
+            right: 4.5rem;
         }
 
     // link hover effect
@@ -75,18 +81,26 @@ nav {
 
 .app-container {
     min-height: 90vh;
+    margin-top: 4.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(241, 236, 236, 0.5);
+    // background-color: rgba(241, 236, 236, 0.5);
+//     background: rgb(111,134,173);
+// background: radial-gradient(circle, rgba(111,134,173,0.9724089464887518) 0%, rgba(3,4,29,1) 83%);
+// background: rgb(70,149,172);
+// background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(3,4,29,1) 83%);
+background: rgb(70,149,172);
+background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(1,1,13,1) 87%);
 }
 
 // home components
 .home-component {
     .slogan {
         padding: 0.1rem;
-        background-color: rgb(38, 37, 59);
+        // background-color: rgb(38, 37, 59);
+        background-color: rgb(6, 5, 14);
         // box-shadow: inset 1px 200px 35px -195px rgba(2, 9, 27, 0.75);
         box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
         h1 {
@@ -110,7 +124,7 @@ nav {
     .particles-map {
         width: 100vw;
         height: 100vh;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.3rem;
         background-image: url(../img/world-map2.jpg);
         background-repeat: no-repeat;
         background-position: center;
@@ -140,7 +154,7 @@ nav {
         justify-content: center;
         align-items: center;
         padding: 0.5rem;
-        //padding-top: 0.8rem;
+        background-color: rgb(228, 226, 226);
     }
     // audioRoom-control 
     .audio-room-section {
@@ -311,19 +325,31 @@ nav {
 
 // form style for login and register
 .form-container {
-    width: 30rem;
+    width: 32rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
     padding: 1rem 0rem;
-    background-color: rgba(233, 233, 235, 0.5);
+    background-color: rgba(243, 243, 245, 0.8);
     box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.09em;
     form {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         padding: 1rem;
-        background-color: rgba(22, 22, 22, 0.7);
+        background-color: rgba(12, 11, 11, 0.9);
+        border-top: 3px solid #4695ac;
+        border-bottom: 3px solid rgb(122, 90, 141);
+
         input {
             margin: 0.5rem;
+            // padding: 0.2rem 3rem;
+            letter-spacing: 0.05em;
+        }
+        input[type='text'], input[type='email'],input[type='password'] {
+            width: 15rem;
         }
         span {
             text-align: right;
@@ -345,83 +371,103 @@ nav {
 }
 
 // register form
-.register-form {
-    .radio-btns {
-        display: flex;
-    }
-    .inp-radio-btn {
-        h4 {
-            text-align: center;
-            color: rgb(221, 218, 218);
+.register-form-container{
+
+    .register-form {
+        .radio-btns {
+            display: flex;
         }
-    }
-    .inp-radio-btn:first-child {
-        margin-right: 5rem;
-    }
-    label {
-        color: #fff;
-    }
-    .country-selection-div {
-        h4 {
-            color: rgb(221, 218, 218);
-            text-align: center;
-        }
-        .country-selection {
-            margin-top: -2.2rem;
-            input {
-                color: #000;
-            }
-            .flag-select__option__label {
-                color: #000;
-            }
-            .flag-select__btn {
-                color: #000 !important;
-                background-color: rgb(241, 238, 238);
+        .inp-radio-btn {
+            h4 {
+                text-align: center;
+                color: rgb(221, 218, 218);
             }
         }
-    }
-    button {
-        margin-top: 2rem;
+        .inp-radio-btn:first-child {
+            margin-right: 5rem;
+        }
+        label {
+            color: #fff;
+        }
+        .country-selection-div {
+            h4 {
+                color: rgb(221, 218, 218);
+                text-align: center;
+            }
+            .country-selection {
+                margin-top: -2.2rem;
+                input {
+                    color: #000;
+                }
+                .flag-select__option__label {
+                    color: #000;
+                }
+                .flag-select__btn {
+                    color: #000 !important;
+                    background-color: rgb(241, 238, 238);
+                }
+            }
+        }
+        button {
+            margin-top: 2rem;
+        }
     }
 }
 
 // musician container
 .musician-container {
-    width: 100vw;
+    // width: 100vw;
     margin-top: 2rem;
     padding: 2rem 2rem 3rem 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/collage.jpg);
+    // background-image: url(../img/collage.jpg);
     h2 {
-        color: #fff;
+        font-size: 2rem;
+        font-family: 'Staatliches', cursive;
+        letter-spacing: 0.1em;
+        color: rgb(241, 240, 240);
+        text-shadow: 0 0 5px black;
+        // text-shadow: 
+        //     -1px -1px 1px rgb(43, 44, 44), 
+        //     1px 1px 1px rgb(3, 1, 12);
+
+        // width: 89vw;
+        // text-align: center;
+        // padding: 0.3rem 0.5rem;
+        // background-color: rgba(255, 255, 255, 0.459);
     }
     .musician-profile {
         width: 90vw;
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .musician {
-        width: 20rem;
-        margin: 0.5rem;
-        padding: 1rem 1rem 1.5rem 1rem;
+        width: 19rem;
+        margin: 1rem;
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #fff;
-        box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
         border-radius: 8px;
-        background-color: rgba(231, 222, 235, 0.9);
-        box-shadow: inset 4px -2px 41px -5px rgba(0, 0, 0, 0.75);
+        background-color: rgba(206, 202, 202, 0.8);
+        // box-shadow: inset 4px -2px 41px -5px rgba(0, 0, 0, 0.75);
+        // box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
+        box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         h3 {
             font-size: 1.35em;
         }
         img {
             width: 110px;
-            box-shadow: 0px 2px 8px 0px rgba(1, 9, 26, 1);
+            // box-shadow: 0px 1px 15px 0px rgb(18, 28, 48);
+            // border-radius: 50%;
+            border-radius: 10px;
         }
         a {
             color: rgb(70, 149, 172);
@@ -430,17 +476,39 @@ nav {
                 color: #000;
             }
         }
-        .mailto {
-            color: #000;
-            text-decoration: none;
-            border: 1px solid #000;
-            border-radius: 5px;
-            padding: 0.2rem 0.5rem;
-            &:hover {
-                color: #7a5a8d;
-            }
+
+        .view {
+            margin-top: 1rem;
         }
     }
+
+    .musician:hover {
+        transform: scale(1.1, 1.1);
+    }
+
+    .musician-profile-container {
+        width: 20rem;
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color: rgba(206, 202, 202, 0.8);
+        // box-shadow: inset 4px -2px 41px -5px rgba(0, 0, 0, 0.75);
+        // box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
+        box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
+        h3 {
+            font-size: 1.35em;
+        }
+        img {
+            width: 110px;
+            // box-shadow: 0px 1px 15px 0px rgb(18, 28, 48);
+            // border-radius: 50%;
+            border-radius: 10px;
+        }
+    }
+
 }
 
 // account
@@ -466,7 +534,7 @@ nav {
         flex-direction: row;
         align-self: flex-end;
         margin-right: 3.5rem;
-        background-color: rgba(187, 185, 185, 0.7);
+        background-color: rgba(187, 185, 185, 0.8);
         box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         border-radius: 10px;
         h2 {
@@ -498,8 +566,15 @@ nav {
                 color: #000;
                 line-height: 1.3em;
                 &:hover {
-                    color: rgb(70, 149, 172);
+                   color:#234a5f;
                 }
+            }
+            a:nth-child(2){
+                padding-bottom: 0.5rem;
+            }
+            
+            i {
+                margin-right: 0.5rem;
             }
         }
         .profile-img-container {
@@ -516,9 +591,13 @@ nav {
         text-align: center;
     }
     form {
+        width: 30rem;
         margin: 2rem 0rem;
+        padding: 2rem 0.5rem;
         display: flex;
         flex-direction: column;
+        background-color: rgba(230, 225, 225, 0.5);
+        box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         label {
             display: flex;
             flex-direction: row;
@@ -532,14 +611,8 @@ nav {
             height: 20px;
             flex: 0 0 200px;
             margin-left: 10px;
+            background-color: rgba(252, 252, 252, 0.5);
         }
-        // .edit-data{
-        //    align-self: flex-start;
-        // }
-        // input{
-        //     margin: 0.3rem;
-        //     margin-left: 1rem;
-        // }
     }
 }
 
@@ -547,6 +620,22 @@ nav {
 .country-flag {
     width: 3.5rem;
     height: 3.5rem;
+}
+
+
+// form general
+form {
+    input{
+        border-radius: 5px;
+        border: 1px solid rgb(48, 48, 48);
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+// 
+.msg-container {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 // buttons
@@ -559,15 +648,62 @@ nav {
     &:hover{
         // background-color:rgba(122, 90, 141,0.5);
         background-color: rgba(70, 149, 172,0.8);
-        // border: 1px solid rgb(78, 103, 173);
     }
 }
 
-form {
-    input{
-        border-radius: 5px;
-        border: 1px solid rgb(48, 48, 48);
-        padding: 0.3rem 0.5rem;
+.btn-edit {
+    align-self: center;
+    width: 10rem;
+}
+
+.btn-delete {
+    // font-family: 'Staatliches', cursive;
+    letter-spacing: 0.05em;
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: rgb(95, 25, 25);
+    color: rgb(170, 169, 169);
+    padding: 0.2rem 1rem;
+    // border: 1px solid rgb(104, 103, 103);
+    border: 1px solid rgba(36, 36, 36, 0.5);
+    border-radius: 5px;
+    &:hover {
+        background-color: rgba(90, 3, 3,0.5);
     }
 }
 
+.btn-visit {
+    margin-top: 1rem;
+    padding: 0.3rem 1rem;
+    text-decoration: none;
+    color: #000 !important;
+    border: 1px solid #000;
+    border-radius: 5px;
+    &:hover{
+        background-color: rgba(70, 149, 172,0.8);
+    }
+}
+
+//
+.btn-link-mailto {
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.05em;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000 !important;
+    border-radius: 5px !important;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(243, 237, 237, 0.7);
+    &:hover {
+        background-color: rgba(70, 149, 172,0.8);
+    }
+}
+
+// 
+.heading{
+    font-size: 2rem;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.1em;
+    color: rgb(241, 240, 240);
+    text-shadow: 0 0 5px black;
+}

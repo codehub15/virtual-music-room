@@ -68,7 +68,7 @@ export default function Register(props) {
             {props.isLoggedIn ? (
                 <Redirect to="/musicianAccount" userId={userId} />
             ) : (
-                    <div>
+                    <div className="register-form-container">
                         <h2>Sign up</h2>
                         <form onSubmit={signUpHandler} className="register-form">
                             <input type="text" name="name" placeholder="* Enter Your First name or Nickname" required minLength="2" maxLength="25" onChange={(e) => { setName(e.target.value) }} />

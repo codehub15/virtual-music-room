@@ -19,7 +19,6 @@ function Homepage() {
                     <SearchUser />
                     <TextParticles />
                 </div>
-                <div></div>
                 <AudioRoom />
             </div>
         </div>
