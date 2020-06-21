@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import AuthContext from '../context/authContext'
 
+
 export default function EditAccount() {
     const { isLoggedIn, token } = useContext(AuthContext)
     const [user, setUser] = useState()
@@ -10,10 +11,10 @@ export default function EditAccount() {
 
     useEffect(() => {
         fetch("http://localhost:5000/users/currentUser", {
-                headers: {
-                    'x-auth': token,
-                },
-            })
+            headers: {
+                'x-auth': token,
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setUser(data.user)
@@ -34,12 +35,10 @@ export default function EditAccount() {
         const data = await response.json();
 
         if (data.success) {
-            // alert("Your account data was edit successful.")
             setMsg("Your account data was edit successful.")
             setIsEdit(true)
         }
         else {
-            // alert("Your account date was not updated. Please check if all input data is correct.")
             setMsg("Your account date was not updated. Please check if all input data is correct.")
             setIsEdit(false)
         }
@@ -59,7 +58,7 @@ export default function EditAccount() {
         <div className="edit-account-container">
             {isLoggedIn ?
                 (<div className="edit-account">
-                    <h2>Edit Profile Data</h2>
+                    <h2 className="heading">Edit Profile Data</h2>
                     {!isEdit ?
                         (<form onSubmit={submitHandler}>
                             <label>
@@ -83,7 +82,17 @@ export default function EditAccount() {
                                     onChange={(e) => setUserField({ email: e.target.value })}
                                 />
                             </label>
-                            <button type="submit">Edit</button>
+                            <label>
+                                <span className="edit-data">Level:</span>
+                                <input type="text"
+                                    name="level"
+                                    placeholder="Level"
+                                    value={user.level}
+                                    onChange={(e) => setUserField({ level: e.target.value })}
+                                />
+                            </label>
+
+                            <button type="submit" className="btn-style btn-edit">save changes</button>
                         </form>)
                         : (<div className="msg"><p>{msg}</p></div>)
                     }

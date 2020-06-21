@@ -32,12 +32,13 @@ export default function MusicianAccount(props) {
     const allMusiciansData = allMusicians && allMusicians.map((musician, i) => {
         return (
             <div key={i} className="musician">
+                {<img src={musician.profileImage} alt="Profile" width="150" height="100" />}
                 <h3>{musician.name}</h3>
                 {/**  <p>{musician.email} </p> */}
                 <p>Level: {musician.level} </p>
                 <p>Role: {musician.role} </p>
 
-                <Link to={"/profile/" + musician._id} className="btn-link view">view</Link>
+                <Link to={"/profile/" + musician._id} className="btn-visit">view</Link>
             </div>
         )
     })

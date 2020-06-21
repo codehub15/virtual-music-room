@@ -21,6 +21,7 @@
         "react-draggable": "^4.2.0",
         "react-filepond": "^7.0.1",
         "react-flags-select": "^1.1.12",
+        "react-particle-effect-button": "^1.0.1",
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.1",
         "react-wavesurfer": "^0.8.6",

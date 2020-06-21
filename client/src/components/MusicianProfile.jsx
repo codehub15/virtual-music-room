@@ -28,7 +28,7 @@ export default function MusicianProfile(props) {
         <div className="musician-container">
             <h2>Musician Profile</h2>
 
-            <div className="musician">
+            <div className="musician-profile-container">
                 <h3>{user.name}</h3>
                 {<img src={user.profileImage} alt="Profile" width="100" height="100" />}
                 <p>Expertise/Role:  {user.role}</p>
@@ -36,7 +36,7 @@ export default function MusicianProfile(props) {
 
                 <p>{isLoggedIn ? "Online" : "Offline"} </p>
 
-                <a href={"mailto:" + user.email} className="btn-link">send me a message</a>
+                <a href={"mailto:" + user.email} className="btn-link-mailto">send me a message</a>
             </div>
         </div>
     )

@@ -56,7 +56,7 @@ export default function Projects(props) {
                     {
                         projects.map((project) => (
                             <li key={project._id}>
-                                <Link to={"/projects/" + project._id}>
+                                <Link to={"/projects/" + project._id} className="middle">
                                     {project.name}
                                 </Link>
                             </li>
