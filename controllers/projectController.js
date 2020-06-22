@@ -4,11 +4,11 @@ const Track = require("../models/trackSchema")
 const User = require("../models/musicianSchema")
 
 // get all
-exports.getProjects = async (req, res, next) => {
+exports.getProjects = async(req, res, next) => {
 
     try {
         const projects = await Project.find()
-        // const projects = await Project.find().populate("track").populate("owner").execPopulate()
+            // const projects = await Project.find().populate("track").populate("owner").execPopulate()
         res.json({ success: true, projects: projects })
     } catch (err) {
         next(err)
@@ -16,7 +16,7 @@ exports.getProjects = async (req, res, next) => {
 }
 
 // get single projects
-exports.getProject = async (req, res, next) => {
+exports.getProject = async(req, res, next) => {
     const { id } = req.params
     try {
         const project = await (await Project.findById(id).populate("tracks").populate("owner")).execPopulate()
@@ -29,7 +29,7 @@ exports.getProject = async (req, res, next) => {
 }
 
 // add new project
-exports.postProject = async (req, res, next) => {
+exports.postProject = async(req, res, next) => {
     const token = req.header("x-auth")
     const user = await User.findByToken(token)
     try {
@@ -44,7 +44,7 @@ exports.postProject = async (req, res, next) => {
 }
 
 // update a project
-exports.putProject = async (req, res, next) => {
+exports.putProject = async(req, res, next) => {
     const { id } = req.params
     const project = req.body
     try {
@@ -57,7 +57,7 @@ exports.putProject = async (req, res, next) => {
 }
 
 // delete a project
-exports.deleteProject = async (req, res, next) => {
+exports.deleteProject = async(req, res, next) => {
     const { id } = req.params
     try {
         const project = await Project.findByIdAndDelete(id)
@@ -69,17 +69,28 @@ exports.deleteProject = async (req, res, next) => {
     }
 }
 
-exports.postTrack = async (req, res, next) => {
+exports.postTrack = async(req, res, next) => {
     console.log(req.file);
-
+    const user = await User.findByToken(req.header("x-auth"))
     const track = new Track({
         trackName: req.file.originalname,
         path: req.file.filename,
         mimetype: req.file.mimetype,
+        owner: user._id
+
     });
 
     await track.save()
-
+    await User.findByIdAndUpdate(
+        user._id, {
+            $push: {
+                tracks: track._id
+            }
+        }, {
+            new: true,
+            useFindAndModify: false
+        }
+    );
     await Project.findByIdAndUpdate(
         req.params.id, { $push: { tracks: track._id } }, { new: true, useFindAndModify: false }
     );

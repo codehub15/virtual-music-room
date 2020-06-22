@@ -17,7 +17,10 @@ export default function TrackUpload(props) {
                 onupdatefiles={setFile}
                 server={{
                     url: "http://localhost:5000/projects/" + props.projectId + "/upload",
-                    token: token,
+                    process: {
+                        headers: {
+                            'x-auth': token
+                        }}
                 }}
                 maxFiles={1}
                 className="filepath"
