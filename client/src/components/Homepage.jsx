@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
 import gifLogo from '../assets/gifLogo.gif'
