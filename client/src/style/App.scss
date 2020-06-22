@@ -97,9 +97,7 @@ nav {
 .home-component {
     .slogan {
         padding: 0.1rem;
-        // background-color: rgb(38, 37, 59);
         background-color: rgb(6, 5, 14);
-        // box-shadow: inset 1px 200px 35px -195px rgba(2, 9, 27, 0.75);
         box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
         h1 {
             font-family: 'Orbitron', sans-serif;
@@ -428,13 +426,6 @@ nav {
         letter-spacing: 0.1em;
         color: rgb(241, 240, 240);
         text-shadow: 0 0 5px black;
-        // text-shadow: 
-        //     -1px -1px 1px rgb(43, 44, 44), 
-        //     1px 1px 1px rgb(3, 1, 12);
-        // width: 89vw;
-        // text-align: center;
-        // padding: 0.3rem 0.5rem;
-        // background-color: rgba(255, 255, 255, 0.459);
     }
     .musician-profile {
         width: 90vw;
@@ -454,16 +445,12 @@ nav {
         align-items: center;
         border-radius: 8px;
         background-color: rgba(206, 202, 202, 0.8);
-        // box-shadow: inset 4px -2px 41px -5px rgba(0, 0, 0, 0.75);
-        // box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
         box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         h3 {
             font-size: 1.35em;
         }
         img {
             width: 110px;
-            // box-shadow: 0px 1px 15px 0px rgb(18, 28, 48);
-            // border-radius: 50%;
             border-radius: 10px;
         }
         a {
@@ -489,16 +476,12 @@ nav {
         align-items: center;
         border-radius: 8px;
         background-color: rgba(206, 202, 202, 0.8);
-        // box-shadow: inset 4px -2px 41px -5px rgba(0, 0, 0, 0.75);
-        // box-shadow: 0px 1px 5px 0px rgb(112, 112, 114);
         box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         h3 {
             font-size: 1.35em;
         }
         img {
             width: 110px;
-            // box-shadow: 0px 1px 15px 0px rgb(18, 28, 48);
-            // border-radius: 50%;
             border-radius: 10px;
         }
     }
@@ -527,8 +510,8 @@ nav {
         flex-direction: row;
         align-self: flex-end;
         margin-right: 3.5rem;
-        background-color: rgba(98, 98, 100, 0.7);
-        // box-shadow: 0px 2px 12px 0px rgb(179, 179, 187);
+        background-color: rgba(98, 98, 100, 0.8);
+        box-shadow: inset 4px -2px 45px -5px rgba(10, 10, 10, 0.7);
         border-radius: 10px;
         h2 {
             color: #000;
@@ -577,7 +560,6 @@ nav {
 // edit account
 .edit-account {
     padding: 1.5rem;
-    // box-shadow: 1px 2px 10px 1px rgb(68, 68, 68);
     h2 {
         text-align: center;
     }
@@ -635,7 +617,6 @@ form {
     margin-top: 1rem;
     padding: 0.3rem 0.7rem;
     &:hover {
-        // background-color:rgba(122, 90, 141,0.5);
         background-color: rgba(70, 149, 172, 0.8);
     }
 }
@@ -646,14 +627,12 @@ form {
 }
 
 .btn-delete {
-    // font-family: 'Staatliches', cursive;
     letter-spacing: 0.05em;
     font-size: 0.8em;
     font-weight: bold;
     background-color: rgb(95, 25, 25);
     color: rgb(170, 169, 169);
     padding: 0.2rem 1rem;
-    // border: 1px solid rgb(104, 103, 103);
     border: 1px solid rgba(36, 36, 36, 0.5);
     border-radius: 5px;
     &:hover {
@@ -703,4 +682,36 @@ form {
     border-radius: 8px;
     background-color: rgba(206, 202, 202, 0.8);
     box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
+}
+
+//names musicians instruments in the room
+.instruments-name {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 2px 2px 2px rgba(68, 54, 133, 0.3);
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+}
+
+.drummer-name {
+    position: relative;
+    top: -17rem;
+    right: 4.5rem;
+}
+
+.guitar-name {
+    position: relative;
+    top: -17rem;
+    left: 20.5rem;
+}
+
+.bass-name {
+    position: relative;
+    top: 17rem;
+    left: 14.5rem;
+}
+
+.keyboard-name {
+    position: relative;
+    top: 17rem;
+    right: 22rem;
 }
