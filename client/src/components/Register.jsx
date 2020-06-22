@@ -73,7 +73,7 @@ export default function Register(props) {
                         <form onSubmit={signUpHandler} className="register-form">
                             <input type="text" name="name" placeholder="* Enter Your First name or Nickname" required minLength="2" maxLength="25" onChange={(e) => { setName(e.target.value) }} />
                             <input type="email" name="email" placeholder="* Enter Email" required onChange={(e) => setEmail(e.target.value)} />
-                            <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
+
 
                             {/** location */}
                             <div className="country-selection-div">
@@ -135,6 +135,10 @@ export default function Register(props) {
                                     </label>
                                 </div>
                             </div>
+
+
+                            <input type="password" name="password" placeholder="* Enter Password" required minLength="6" maxLength="20" onChange={(e) => { setPassword(e.target.value) }} />
+
 
                             <button type="submit" className="btn-style">Sign up</button>
                         </form>

@@ -6,10 +6,10 @@ function SearchUser() {
     const { isLoggedIn, token } = useContext(AuthContext)
 
     const [searchValue, setSearchValue] = useState("")
-    console.log("search:", searchValue)
-    const [searchResult, setSearchResult] = React.useState("")
+    const [searchResult, setSearchResult] = React.useState(null)
     const [allMusicians, setAllMusicians] = useState([])
     const [isFound, setIsFound] = useState(false)
+    const [showDiv, setShowDiv] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:5000/users", {
@@ -26,11 +26,20 @@ function SearchUser() {
 
     console.log("allMusicians:", allMusicians);
 
-    const userData = allMusicians && allMusicians.map((musician, i) => {
+    // const findUser = () => {
+
+    let userData = allMusicians && allMusicians.map((musician, i) => {
         if (musician.name.toLowerCase() === searchValue.toLowerCase()) {
             // if (musician.name.toLowerCase().indexOf(searchValue.toLowerCase() !== -1) {
+            // setIsFound(true)
             return (
                 <div key={i} className="musician">
+                    <span onClick={() => setShowDiv(false)}
+                        className="close-user"
+                    >
+                        X
+                    </span>
+                    {<img src={musician.profileImage} alt="Profile" width="100" height="100" />}
                     <h3>{musician.name}</h3>
                     <p>Level: {musician.level} </p>
                     <p>Role: {musician.role} </p>
@@ -38,16 +47,13 @@ function SearchUser() {
             )
         }
         else {
+            // setIsFound(false)
             console.log("user not found")
         }
     })
+    // }
 
-    console.log("userData:", userData)
-
-    // const filterUser = userData.filter(user => {
-    //     console.log("filter user:", user)
-    //     // return user.name.toLowerCase().indexOf(searchValue.toLowerCase() !== -1)
-    // })
+    // console.log("userData:", userData)
 
 
     return (
@@ -58,15 +64,20 @@ function SearchUser() {
                         <input type="search" name="search-user"
                             placeholder="search for a user..."
                             onChange={(e) => { setSearchValue(e.target.value) }}
+                            onClick={() => setShowDiv(true)}
                         />
                     </form>
 
-                    <div className="user-found">
+
+                    {showDiv && <div className="user-found">
                         {userData}
                     </div>
+                    }
+
+                    {/**    {isFound ? (  ) : null}  */}
+
                 </div>
-            ) : null
-            }
+            ) : null}
         </div>
     )
 }
