@@ -91,7 +91,13 @@ class AudioRoom extends React.Component {
 
         return (
             <div className="audio-room-section">
+             
                 <div className="audio-room-inner-section">
+                    <p className="instruments-name drummer-name">drummer</p>
+                    <p className="instruments-name guitar-name">guitar player</p>
+                    <p className="instruments-name bass-name">bass player</p>
+                    <p className="instruments-name keyboard-name">keyboards/vocals</p>
+
             <div className="audioRoom-control" >
                 <Draggable
                     bounds={{ top: -100, left: -100, right: 100, bottom: 100 }}
@@ -127,6 +133,7 @@ class AudioRoom extends React.Component {
 
 
                 {/** spectrum */}
+
 
                 <AudioSpectrum
                     id="audio-canvas"
@@ -200,10 +207,12 @@ class AudioRoom extends React.Component {
                     ]}
                     gap={4}
                 />
+
                 <div style={{ transform: `scale(${vol1 + 0.5}, ${vol1 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--1" />
                 <div style={{ transform: `scale(${vol2 + 0.5}, ${vol2 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--2" />
                 <div style={{ transform: `scale(${vol3 + 0.5}, ${vol3 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--3" />
                 <div style={{ transform: `scale(${vol4 + 0.5}, ${vol4 + 0.5})` }} className="audioRoom-control__avatar audioRoom-control__avatar--4" />
+           
             </div>
             </div>
             </div>

@@ -35,11 +35,11 @@ export default function EditAccount() {
         const data = await response.json();
 
         if (data.success) {
-            setMsg("Your account data was edit successful.")
+            setMsg("Your account has been successfully updated.")
             setIsEdit(true)
         }
         else {
-            setMsg("Your account date was not updated. Please check if all input data is correct.")
+            setMsg("Your account was not updated. Please check your input data.")
             setIsEdit(false)
         }
     }
