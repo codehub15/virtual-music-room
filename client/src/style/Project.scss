@@ -17,7 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     .projects-container-inner {
         position: relative;
         width: 50vw;
@@ -30,26 +29,21 @@
         border-radius: 8px;
         background-color: rgba(167, 169, 172, 0.7);
         box-shadow: inset 4px -2px 45px -5px rgba(10, 10, 10, 0.9);
-        box-shadow: 1px 2px 10px 2px rgba(235, 236, 240, 0.6);
-
         form {
             margin-top: 3rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
             button {
                 width: 10rem;
                 margin-top: 1.0rem;
-
-                &:hover{
-                    background-color:rgba(122, 90, 141,0.5);
+                &:hover {
+                    background-color: rgba(122, 90, 141, 0.5);
                 }
             }
         }
     }
-
     ul {
         width: 20rem;
         margin-right: 2rem;
@@ -59,7 +53,6 @@
         align-items: center;
         list-style: none;
         text-align: center;
-
         li {
             margin-top: 0.5rem;
             a {
@@ -68,9 +61,8 @@
                 text-decoration: none;
                 color: #000;
                 padding: 0rem 0.3rem;
-                
-                &:hover{
-                    color:#1a2e5a;
+                &:hover {
+                    color: #1a2e5a;
                 }
             }
             // link hover effect
@@ -94,8 +86,7 @@
                 transform: scaleX(1);
             }
         }
-        
-        li:nth-child(odd){
+        li:nth-child(odd) {
             background-color: rgba(152, 152, 156, 0.7);
         }
     }
@@ -116,7 +107,7 @@
 }
 
 // single project
-.single-project-container-outer{
+.single-project-container-outer {
     width: 100vw;
     // background-image: url(../img/collage.jpg);
     display: flex;
@@ -125,13 +116,11 @@
     align-items: center;
     margin-top: 2rem;
     padding: 1rem;
-
-    .single-project-container{
+    .single-project-container {
         display: flex;
         flex-direction: column;
         padding: 1rem;
-
-        .project-title{
+        .project-title {
             width: 35rem;
             margin-top: -2.5rem;
             padding: 0.5rem;
@@ -139,20 +128,18 @@
             color: #fff;
             padding: 1rem;
         }
-
-        .btn-group{
+        .btn-group {
             box-shadow: 0px 2px 8px 0px rgba(1, 9, 26, 0.5);
             border-radius: 5px;
             margin: 0 auto;
             color: #000;
             font-weight: 900;
-
             .play {
                 background-color: rgb(85, 118, 145);
                 color: #000;
                 border: 1px solid #fff;
                 letter-spacing: 0.1em;
-                &:hover{
+                &:hover {
                     color: #fff;
                 }
             }
@@ -161,7 +148,7 @@
                 color: #000;
                 border: 1px solid #fff;
                 letter-spacing: 0.1em;
-                &:hover{
+                &:hover {
                     color: #fff;
                 }
             }
@@ -170,70 +157,69 @@
                 color: #000;
                 border: 1px solid #fff;
                 letter-spacing: 0.1em;
-                &:hover{
+                &:hover {
                     color: #fff;
                 }
+            }
+        }
+        .back-btn {
+            width: 8.9rem;
+            align-self: flex-end;
+            font-family: 'Staatliches', cursive;
+            letter-spacing: 0.05em;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 0.2rem 0.5rem;
+            background-color: rgba(224, 221, 221, 0.8);
+            border: 1px solid #fff;
+            &:hover {
+                color: #fff;
+                background-color: rgba(122, 90, 141, 0.7);
+            }
+        }
+        .track {
+            margin-top: -1.5rem;
+            // border: 1px solid #000;
+            padding: 1rem 2rem;
+            background-color: rgba(238, 237, 237, 0.7);
+            box-shadow: 0px 2px 15px 0px rgba(1, 9, 26, 1);
+            font-family: 'Staatliches', cursive;
+            letter-spacing: 0.08em
+        }
+        .btn-delete-project {
+            align-self: flex-end;
+            font-family: 'Staatliches', cursive;
+            letter-spacing: 0.08em;
+            background-color: rgb(90, 3, 3);
+            // border: 1px solid rgb(104, 103, 103);
+            border: 1px solid rgba(202, 200, 200, 0.5);
+            &:hover {
+                background-color: rgba(90, 3, 3, 0.5);
+            }
         }
     }
-
-    .back-btn {
-        width: 8.9rem;
-        align-self: flex-end;
-        font-family: 'Staatliches', cursive;
-        letter-spacing: 0.05em;
-        color: #000;
-        text-decoration: none;
-        border: 1px solid #000;
-        border-radius: 5px;
-        padding: 0.2rem 0.5rem;
-        background-color: rgba(224, 221, 221, 0.8);
-        border: 1px solid #fff;
-        &:hover {
-            color: #fff;
-            background-color: rgba(122, 90, 141,0.7);
-        }
-    }
-
-    .track {
-        margin-top: -1.5rem;
-        // border: 1px solid #000;
-        padding: 1rem 2rem;
-        background-color: rgba(238, 237, 237, 0.7);
-        box-shadow: 0px 2px 15px 0px rgba(1, 9, 26, 1);
-        font-family: 'Staatliches', cursive;
-        letter-spacing: 0.08em
-    }
-    .btn-delete-project {
-        align-self: flex-end;
-        font-family: 'Staatliches', cursive;
-        letter-spacing: 0.08em;
-        background-color: rgb(90, 3, 3);
-        // border: 1px solid rgb(104, 103, 103);
-        border: 1px solid rgba(202, 200, 200,0.5);
-        &:hover {
-            background-color: rgba(90, 3, 3,0.5);
-        }
-    }
-}
 }
 
 // monkey images
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0.3;
     }
 }
+
 .img-deco {
     width: 150px;
     position: absolute;
     // top: 15rem;
     animation: fadeIn 1.7s infinite alternate;
-
 }
+
 .img-deco-one {
-   left: 2.4rem;
-
+    left: 2.4rem;
 }
+
 .img-deco-two {
-    left: 29.3rem;
+    left: 29rem;
 }
