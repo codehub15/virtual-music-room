@@ -5,6 +5,7 @@ import AuthContext from '../context/authContext'
 export default function MusicianProfile(props) {
     const { isLoggedIn, token } = useContext(AuthContext)
     const [user, setUser] = useState()
+    console.log("checking user:",user);
 
     useEffect(() => {
         fetch("http://localhost:5000/users/" + props.match.params.id, {
@@ -33,7 +34,9 @@ export default function MusicianProfile(props) {
                 {<img src={user.profileImage} alt="Profile" width="100" height="100" />}
                 <p>Expertise/Role:  {user.role}</p>
                 <p>Level: {user.level}</p>
-
+                
+                
+                <p>{user.tracks[0].trackName} </p>
                 <p>{isLoggedIn ? "Online" : "Offline"} </p>
 
                 <a href={"mailto:" + user.email} className="btn-link-mailto">send me a message</a>
