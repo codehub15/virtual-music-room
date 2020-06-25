@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import TextParticles from './TextParticles'
 import AudioRoom from './AudioRoom'
-import gifLogo from '../assets/gifLogo.gif'
+// import gifLogo from '../assets/gifLogo.gif'
+import gifLogo from '../img/vmr.gif'
 import SearchUser from './SearchUser'
 
 
@@ -9,11 +10,11 @@ function Homepage() {
     return (
         <div className="home-component">
             <div className="gif-logo-div">
-                <img src={gifLogo} alt="Title Logo" className="gif-logo" width="600" height="55" />
+                <img src={gifLogo} alt="Title Logo" className="gif-logo" width="450" height="50" />
             </div>
             <div className="body-background">
                 <div className="slogan">
-                    <h1>The Musicians Community</h1>
+                    <h1>- Virtual Music Room -</h1>
                 </div>
                 <div className="particles-map">
                     <SearchUser />

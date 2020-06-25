@@ -13,6 +13,8 @@ import MusicianAccount from './components/MusicianAccount'
 import MusicianProfile from './components/MusicianProfile'
 import DeleteAccount from './components/DeleteAccount'
 import EditAccount from './components/EditAccount'
+import Services from './components/Services'
+import Support from './components/Support'
 
 
 export default function Routes() {
@@ -43,6 +45,10 @@ export default function Routes() {
             <Route exact path="/musicians" component={Musicians} />
 
             <Route exact path="/projects" component={Projects} />
+
+            <Route exact path="/service" component={Services} />
+
+            <Route exact path="/support" component={Support} />
 
             <Route
                 path="/projects/:id"
