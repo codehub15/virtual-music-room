@@ -44,7 +44,7 @@ function SearchUser() {
                     <h3>{musician.name}</h3>
                     <p>Level: {musician.level} </p>
                     <p>Role: {musician.role} </p>
-                    <p>Collaborations/Tracks uploaded</p>
+                    <p>Collaborations/Tracks Uploaded</p>
                     <img src={imageWaves} alt="" width="230"/>
                 
                 </div>
