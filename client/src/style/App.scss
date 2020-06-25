@@ -128,17 +128,14 @@ nav {
         box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
         // search container
         .search-container {
-            .txt-test{
-                color: green;
-            }
-            .search-overlay{
+            .search-overlay {
                 width: 100vw;
                 height: 100vh;
                 background-color: rgba(20, 20, 20, 0.8);
             }
             // user found by searching
             .user-found {
-                width: 18rem;
+                width: 21rem;
                 position: absolute;
                 top: 20rem;
                 left: 30rem;
@@ -147,15 +144,17 @@ nav {
                 border-radius: 8px;
                 background-color: rgba(231, 226, 226, 0.8);
                 box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
-
                 .close-user {
+                    padding: 2px;
                     position: absolute;
                     top: 1rem;
                     right: 2rem;
                     font-weight: bold;
+                    color: rgb(87, 14, 14);
+                    border: 1px solid black;
+                    cursor: pointer;
                 }
             }
-        
             form {
                 position: absolute;
                 top: 13.5rem;
@@ -375,6 +374,7 @@ nav {
         input[type='email'],
         input[type='password'] {
             width: 15rem;
+            font-family: Arial, Helvetica, sans-serif;
         }
         span {
             text-align: right;

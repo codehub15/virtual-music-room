@@ -35,8 +35,11 @@ export default function MusicianProfile(props) {
                 <p>Expertise/Role:  {user.role}</p>
                 <p>Level: {user.level}</p>
                 
+                {user.tracks[0]?
+                    <p>{user.tracks[0].trackName} </p>
+                    :null
+                }
                 
-                <p>{user.tracks[0].trackName} </p>
                 <p>{isLoggedIn ? "Online" : "Offline"} </p>
 
                 <a href={"mailto:" + user.email} className="btn-link-mailto">send me a message</a>
