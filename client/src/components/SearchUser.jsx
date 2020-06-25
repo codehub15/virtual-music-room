@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import AuthContext from '../context/authContext'
+import imageWaves from "../img/waves.png"
 
 
 function SearchUser() {
@@ -43,6 +44,9 @@ function SearchUser() {
                     <h3>{musician.name}</h3>
                     <p>Level: {musician.level} </p>
                     <p>Role: {musician.role} </p>
+                    <p>Collaborations/Tracks uploaded</p>
+                    <img src={imageWaves} alt="" width="230"/>
+                
                 </div>
             )
         }
