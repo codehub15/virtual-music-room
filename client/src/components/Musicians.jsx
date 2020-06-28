@@ -47,7 +47,7 @@ export default function MusicianAccount(props) {
     return (
         <div>
             <div className="musician-container">
-                <h2>All Musicians</h2>
+                <h2>- All Musicians -</h2>
                 <div className="musician-profile">
                     {allMusiciansData}
                 </div>

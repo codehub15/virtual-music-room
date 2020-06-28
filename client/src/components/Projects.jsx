@@ -48,7 +48,7 @@ export default function Projects(props) {
 
     return (
         <div className="projects-container">
-            <h2>All Projects</h2>
+            <h2>- All Projects -</h2>
             <div className="projects-container-inner">
 
 
