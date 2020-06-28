@@ -8,7 +8,8 @@ const {
     putUser,
     deleteUser,
     login,
-    uploadProfileImg
+    uploadProfileImg,
+    sendSupportEmail
 } = require("../controllers/musicianController")
 const { validateInputs } = require("../middleware/validator")
 const auth = require("../middleware/authenticator")
@@ -21,5 +22,6 @@ Route.get("/", auth, getUsers)
 Route.post("/", validateInputs(), postUser)
 Route.put("/:id", auth, putUser)
 Route.delete("/:id", auth, deleteUser)
+Route.post("/support", sendSupportEmail)
 
 module.exports = Route
