@@ -58,7 +58,7 @@ export default (canvas) => {
         options.minSpeed = -opt.speed || -2; // number: negative speed
         options.particleColor = opt.particleColor || "orange"; //string
         options.particleSize = opt.particleSize || 0; // number: particle size, default=0 (not shown)
-        options.textColor = opt.textColor || "#dddddd"; // string
+        options.textColor = opt.textColor || "gray"; // string
         options.textList = (opt.textList || "Marty: Keyboard, Natashka: Drums, Thomas: Cello, Juan: Piano, Alex: Bass, Nicholas: Guitar, Mary: Violin").split(', '); // string: list of strings separated with a comma and a space
         options.textSize = opt.textSize || 20; // number: positive
         reset(options);
