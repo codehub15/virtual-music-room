@@ -557,7 +557,8 @@ nav {
                 margin-top: 0.4rem;
             }
             img {
-                box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
+                box-shadow: 0px 5px 12px 5px rgba(1, 9, 26, 1);
+                border-radius: 70px;
             }
         }
         .account-manager {
@@ -738,7 +739,7 @@ form {
 }
 
 // services
-.service-container{
+.service-container {
     p {
         margin-top: -1rem;
         color: #fff;
@@ -754,22 +755,18 @@ form {
         background-color: rgba(230, 225, 225, 0.5);
         box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         border-radius: 5px;
-
-         p {
+        p {
             color: #000;
         }
-
         .services {
             width: 20rem;
             a {
                 font-size: 1.3em;
                 color: rgb(37, 37, 37);
-
-                &:hover{
+                &:hover {
                     color: rgb(255, 254, 254);
                 }
             }
-
             i {
                 padding-right: 0.5rem;
                 text-decoration: underline;
@@ -786,11 +783,9 @@ form {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
     p {
         color: #fff;
     }
-
     form {
         display: flex;
         flex-direction: column;
@@ -801,14 +796,12 @@ form {
         background-color: rgba(230, 225, 225, 0.5);
         box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
         border-radius: 5px;
-
         input {
             margin: 0.5rem;
         }
-
-        textarea{
+        textarea {
             border-radius: 5px;
-            resize: none; 
+            resize: none;
         }
     }
 }

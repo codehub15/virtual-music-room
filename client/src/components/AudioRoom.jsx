@@ -1,11 +1,13 @@
 import React from 'react';
 import Draggable from 'react-draggable'
 import AudioSpectrum from 'react-audio-spectrum'
+
 // Piano Oscuro song
 // import violin from '../assets/Violin-pizzicatto.wav'
 // import longDrum from '../assets/LongDrum.wav'
 // import bass from '../assets/pick-bass.wav'
 // import piano from '../assets/piano-quartet.wav'
+
 // guitarCannon song
 // import drums from '../assets/GuitarCannonDrums.mp3'
 // import guitars from '../assets/guitarCannonGuitars.mp3'
