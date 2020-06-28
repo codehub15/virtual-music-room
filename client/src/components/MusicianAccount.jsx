@@ -6,7 +6,7 @@ import Flags from 'country-flag-icons/react/3x2'
 
 
 export default function MusicianAccount() {
-    const { isLoggedIn, token, userCountry, setUserCountry } = useContext(AuthContext)
+    const { isLoggedIn, token, userCountry, setUserCountry, setUserEmail } = useContext(AuthContext)
     const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
@@ -28,6 +28,9 @@ export default function MusicianAccount() {
     console.log("musicianData:", musicianData)
     setUserCountry(musicianData.country)
     console.log("userCountry:", userCountry)
+
+    let userEmailStored = musicianData.email;
+    setUserEmail(userEmailStored)
 
     // let flag = musicianData.country.toString();
     // console.log("flag:", typeof flag)
