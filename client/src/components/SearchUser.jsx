@@ -13,7 +13,7 @@ function SearchUser() {
     const [showDiv, setShowDiv] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:5000/users", {
+        fetch("/users", {
             headers: {
                 'x-auth': token,
             }

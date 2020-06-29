@@ -8,7 +8,7 @@ export default function MusicianAccount(props) {
     const [allMusicians, setAllMusicians] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/users", {
+        fetch("/users", {
             headers: {
                 'x-auth': token,
             }

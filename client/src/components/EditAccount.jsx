@@ -10,7 +10,7 @@ export default function EditAccount() {
     const [msg, setMsg] = useState("")
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/currentUser", {
+        fetch("/users/currentUser", {
             headers: {
                 'x-auth': token,
             },
@@ -31,7 +31,7 @@ export default function EditAccount() {
             },
             body: JSON.stringify(user)
         };
-        const response = await fetch('http://localhost:5000/users/' + user._id, options);
+        const response = await fetch('/users/' + user._id, options);
         const data = await response.json();
 
         if (data.success) {

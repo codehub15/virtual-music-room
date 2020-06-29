@@ -11,7 +11,9 @@ const {
     uploadProfileImg,
     sendSupportEmail
 } = require("../controllers/musicianController")
-const { validateInputs } = require("../middleware/validator")
+const {
+    validateInputs
+} = require("../middleware/validator")
 const auth = require("../middleware/authenticator")
 
 Route.post("/:id/upload/", imgMulter, uploadProfileImg)

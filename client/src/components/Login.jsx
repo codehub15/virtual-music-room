@@ -22,7 +22,7 @@ export default function Login(props) {
             },
             body: JSON.stringify(userData)
         };
-        const response = await fetch('http://localhost:5000/users/login', options);
+        const response = await fetch('/users/login', options);
         const data = await response.json();
 
         if (data.success) {

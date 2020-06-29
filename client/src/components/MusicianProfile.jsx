@@ -8,7 +8,7 @@ export default function MusicianProfile(props) {
     console.log("checking user:",user);
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/" + props.match.params.id, {
+        fetch("/users/" + props.match.params.id, {
             headers: {
                 'x-auth': token,
             },

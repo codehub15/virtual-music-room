@@ -10,7 +10,7 @@ export default function MusicianAccount() {
     const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
-        fetch("http://localhost:5000/users/currentUser", {
+        fetch("/users/currentUser", {
             headers: {
                 'x-auth': token,
             },
