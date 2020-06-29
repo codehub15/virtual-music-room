@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import TextParticles from './TextParticles'
-import AudioRoom from './AudioRoom'
+import React from 'react'
+import TextParticles from './private/TextParticles'
+import AudioRoom from './private/AudioRoom'
 import gifLogo from '../img/vmr.gif'
 import SearchUser from './SearchUser'
 
