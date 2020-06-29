@@ -15,6 +15,7 @@ app.use(express.json({
 }))
 
 app.use(setCors)
+app.use(express.static("client/build"))
 
 // mongoDB
 mongoose.connect(env.db, {
