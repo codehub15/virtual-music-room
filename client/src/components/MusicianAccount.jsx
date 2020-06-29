@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import AuthContext from '../context/authContext'
-import ProfileImg from './ProfileImg'
+import ProfileImg from './private/ProfileImg'
 import Flags from 'country-flag-icons/react/3x2'
 
 

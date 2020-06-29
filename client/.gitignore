@@ -24,13 +24,6 @@ yarn-error.log*
 
 /public/uploads
 
-/src/App.js
-/src/Routes.js
-/src/components/TextParticles.jsx
-/src/components/SingleProject.jsx
-/src/components/AudioRoom.jsx
-/src/components/TrackUpload.jsx
-/src/components/ProfileImg.jsx
-/src/components/Navbar.jsx
-/src/js/textParticles.js
-/src/js/titleCanvas.js
+/src/private
+/src/components/private
+/src/js/private
