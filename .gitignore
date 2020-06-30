@@ -3,7 +3,7 @@
 .env
 .now
 
-
+client/public/uploads
 client/node_modules
 client/package-lock.json
 client/.env
