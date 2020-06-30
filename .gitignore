@@ -3,13 +3,9 @@
 .env
 .now
 
-
+client/public/uploads
 client/node_modules
 client/package-lock.json
 client/.env
-client/src/private
 client/src/components/private
 client/js/private
-
-
-
