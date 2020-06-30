@@ -21,6 +21,5 @@ yarn-error.log*
 
 /public/uploads
 
-/src/private
 /src/components/private
 /src/js/private
