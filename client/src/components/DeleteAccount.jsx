@@ -14,7 +14,7 @@ export default function DeleteAccount() {
         if (confirmation) {
             setMsg(`Your account has been deleted. \nThank you for have been part of our community and you are welcome back any time!`)
 
-            fetch("http://localhost:5000/users/" + userId, {
+            fetch("/users/" + userId, {
                 headers: {
                     'x-auth': token,
                 },

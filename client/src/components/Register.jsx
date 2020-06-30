@@ -36,7 +36,7 @@ export default function Register(props) {
             },
             body: JSON.stringify(userData)
         };
-        const response = await fetch('http://localhost:5000/users', options);
+        const response = await fetch('/users', options);
         console.log("response data from register:", response)
         const data = await response.json();
         // console.log(response.headers.get("x-auth"))

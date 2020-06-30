@@ -1,0 +1,309 @@
+.projects-container {
+  width: 100vw;
+  height: 90vh;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projects-container h2 {
+  margin: -3rem 0rem 3rem 0rem;
+  font-size: 2rem;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
+  color: #f1f0f0;
+  text-shadow: 0 0 5px black;
+}
+
+.projects-container .projects-container-inner {
+  position: relative;
+  width: 50vw;
+  padding: 1rem 0rem 2rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  background-color: rgba(68, 65, 82, 0.7);
+  -webkit-box-shadow: inset 4px -2px 45px -5px rgba(121, 118, 118, 0.9);
+          box-shadow: inset 4px -2px 45px -5px rgba(121, 118, 118, 0.9);
+}
+
+.projects-container .projects-container-inner form {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projects-container .projects-container-inner form button {
+  width: 10rem;
+  margin-top: 1.0rem;
+}
+
+.projects-container .projects-container-inner form button:hover {
+  background-color: rgba(122, 90, 141, 0.5);
+}
+
+.projects-container ul {
+  width: 20rem;
+  margin-right: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.projects-container ul li {
+  margin-top: 0.5rem;
+}
+
+.projects-container ul li a {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #000;
+  padding: 0rem 0.3rem;
+}
+
+.projects-container ul li a:hover {
+  color: #071a42;
+}
+
+.projects-container ul li a.middle {
+  position: relative;
+}
+
+.projects-container ul li a.middle:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1a2e5a;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.projects-container ul li a.middle:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.projects-container ul li:nth-child(odd) {
+  background-color: rgba(152, 152, 156, 0.2);
+}
+
+.project-title {
+  margin: 0.5rem 0rem 2rem 0rem;
+}
+
+.project-title p {
+  font-weight: 900;
+}
+
+.project-title h2,
+.project-title h3,
+.project-title p {
+  display: inline;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
+}
+
+.single-project-container-outer {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.single-project-container-outer .single-project-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+}
+
+.single-project-container-outer .single-project-container .project-title {
+  width: 35rem;
+  margin-top: -2.5rem;
+  padding: 0.5rem;
+  color: #fff;
+  padding: 1rem;
+}
+
+.single-project-container-outer .single-project-container .btn-group {
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(1, 9, 26, 0.5);
+          box-shadow: 0px 2px 8px 0px rgba(1, 9, 26, 0.5);
+  border-radius: 5px;
+  margin: 0 auto;
+  color: #000;
+  font-weight: 900;
+}
+
+.single-project-container-outer .single-project-container .btn-group .play {
+  background-color: #557691;
+  color: #000;
+  border: 1px solid #fff;
+  letter-spacing: 0.1em;
+}
+
+.single-project-container-outer .single-project-container .btn-group .play:hover {
+  color: #fff;
+}
+
+.single-project-container-outer .single-project-container .btn-group .pause {
+  background-color: #8a8e99;
+  color: #000;
+  border: 1px solid #fff;
+  letter-spacing: 0.1em;
+}
+
+.single-project-container-outer .single-project-container .btn-group .pause:hover {
+  color: #fff;
+}
+
+.single-project-container-outer .single-project-container .btn-group .stop {
+  background-color: #646a83;
+  color: #000;
+  border: 1px solid #fff;
+  letter-spacing: 0.1em;
+}
+
+.single-project-container-outer .single-project-container .btn-group .stop:hover {
+  color: #fff;
+}
+
+.single-project-container-outer .single-project-container .back-btn {
+  width: 8.9rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.05em;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(224, 221, 221, 0.8);
+  border: 1px solid #fff;
+}
+
+.single-project-container-outer .single-project-container .back-btn:hover {
+  color: #fff;
+  background-color: rgba(122, 90, 141, 0.7);
+}
+
+.single-project-container-outer .single-project-container .track {
+  margin-top: -1.5rem;
+  padding: 1rem 2rem;
+  background-color: rgba(238, 237, 237, 0.7);
+  -webkit-box-shadow: 0px 2px 15px 0px #01091a;
+          box-shadow: 0px 2px 15px 0px #01091a;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.08em;
+}
+
+.single-project-container-outer .single-project-container .btn-delete-project {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.08em;
+  background-color: #5a0303;
+  border: 1px solid rgba(202, 200, 200, 0.5);
+}
+
+.single-project-container-outer .single-project-container .btn-delete-project:hover {
+  background-color: rgba(90, 3, 3, 0.5);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.3;
+  }
+}
+
+.img-deco {
+  width: 150px;
+  position: absolute;
+  -webkit-animation: fadeIn 1.7s infinite alternate;
+          animation: fadeIn 1.7s infinite alternate;
+}
+
+.img-deco-one {
+  left: 2.4rem;
+}
+
+.img-deco-two {
+  left: 29rem;
+}
+/*# sourceMappingURL=Project.css.map */

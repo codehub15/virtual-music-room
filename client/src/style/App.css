@@ -1,0 +1,1035 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.body-background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  padding: 0.5rem 0.3rem;
+  background-color: #050505;
+  -webkit-box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0rem 0.5rem;
+}
+
+nav ul a {
+  text-decoration: none;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.08em;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+nav ul a:hover {
+  color: #7a5a8d;
+}
+
+nav ul .active {
+  color: #4695ac;
+}
+
+nav .nav-li-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .nav-item-left {
+  position: absolute;
+  right: 4.5rem;
+}
+
+nav a.middle {
+  position: relative;
+}
+
+nav a.middle:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #7a5a8d;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+nav a.middle:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.app-container {
+  min-height: 90vh;
+  margin-top: 4.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #4695ac;
+  background: radial-gradient(circle, #4695ac 0%, #01010d 87%);
+}
+
+.home-component .slogan {
+  padding: 0.1rem;
+  background-color: #06050e;
+  -webkit-box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
+          box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
+}
+
+.home-component .slogan h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3em;
+  letter-spacing: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  color: #5a5a5a;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.home-component .slogan h2 {
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #cfcccc;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.home-component .particles-map {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 0.3rem;
+  background-image: url(../img/world-map2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
+          box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
+          box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
+}
+
+.home-component .particles-map .search-container .search-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(20, 20, 20, 0.8);
+}
+
+.home-component .particles-map .search-container .user-found {
+  width: 21rem;
+  position: absolute;
+  top: 20rem;
+  left: 30rem;
+  text-align: center;
+  padding: 1rem 0.5rem 1.5rem 0.5rem;
+  border-radius: 8px;
+  background-color: rgba(231, 226, 226, 0.8);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+}
+
+.home-component .particles-map .search-container .user-found .close-user {
+  padding: 2px;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-weight: bold;
+  color: #570e0e;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.home-component .particles-map .search-container form {
+  position: absolute;
+  top: 13.5rem;
+  right: 2rem;
+}
+
+.home-component .particles-map .search-container form input {
+  color: black;
+  padding: 0.3rem 0.5rem;
+  border-radius: 7px;
+  background-color: rgba(188, 179, 201, 0.8);
+  border: black solid 1px;
+}
+
+.home-component .particles-map .search-container form input::-webkit-input-placeholder {
+  color: black;
+}
+
+.home-component .particles-map .search-container form input:-ms-input-placeholder {
+  color: black;
+}
+
+.home-component .particles-map .search-container form input::-ms-input-placeholder {
+  color: black;
+}
+
+.home-component .particles-map .search-container form input::placeholder {
+  color: black;
+}
+
+.home-component .gif-logo-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+  background-color: #e4e2e2;
+}
+
+.home-component .audio-room-section {
+  height: 100vh;
+  width: 100vw;
+  padding: 5rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url(../img/collage.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-component .audio-room-inner-section {
+  height: 65vh;
+  width: 35vw;
+  margin: 3rem 0rem;
+  padding: 5rem;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(203, 203, 230, 0.7);
+}
+
+.home-component .audioRoom-control {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: black;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
+.home-component .audioRoom-control__knob {
+  width: 30px;
+  height: 30px;
+  background: #484ea1;
+  z-index: 1;
+  border-radius: 15px;
+  padding: 0.2rem;
+}
+
+.home-component .audioRoom-control__avatar {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 5px solid black;
+}
+
+.home-component .audioRoom-control__avatar--1 {
+  right: 100%;
+  bottom: 100%;
+  background-image: url(../img/drums.jpg);
+}
+
+.home-component .audioRoom-control__avatar--1:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid black;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home-component .audioRoom-control__avatar--2 {
+  left: 100%;
+  bottom: 100%;
+  background-image: url(../img/guitar.jpg);
+}
+
+.home-component .audioRoom-control__avatar--2:after {
+  content: '';
+  width: 0;
+  height: 0;
+  margin-left: 1.4rem;
+  margin-top: 0.45rem;
+  border-style: solid;
+  border-width: 13px 13px 0 13px;
+  border-color: black transparent transparent transparent;
+  position: absolute;
+  top: 100%;
+  bottom: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home-component .audioRoom-control__avatar--3 {
+  left: 100%;
+  top: 100%;
+  background-image: url(../img/bass.jpg);
+}
+
+.home-component .audioRoom-control__avatar--3:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid black;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home-component .audioRoom-control__avatar--4 {
+  right: 100%;
+  top: 100%;
+  background-image: url(../img/pianoJuanRoom.png);
+}
+
+.home-component .audioRoom-control__avatar--4:after {
+  content: '';
+  width: 0;
+  height: 0;
+  margin-left: 1.65rem;
+  margin-top: -2.7rem;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent black transparent;
+  position: absolute;
+  top: 50%;
+  bottom: 100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home-component #audio-canvas {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+}
+
+.home-component #audio-canvas2 {
+  position: absolute;
+  left: 100%;
+  bottom: 100%;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.home-component #audio-canvas3 {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.home-component #audio-canvas4 {
+  position: absolute;
+  bottom: 100%;
+  right: 100%;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.home-component .audio-icon {
+  font-size: 1.8rem;
+  padding-top: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.home-component .title-container {
+  text-align: center;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.form-container {
+  width: 32rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0rem;
+  background-color: rgba(243, 243, 245, 0.8);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.09em;
+}
+
+.form-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  background-color: rgba(12, 11, 11, 0.9);
+  border-top: 3px solid #4695ac;
+  border-bottom: 3px solid #7a5a8d;
+}
+
+.form-container form input {
+  margin: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.form-container form input[type='text'],
+.form-container form input[type='email'],
+.form-container form input[type='password'] {
+  width: 15rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-container form span {
+  text-align: right;
+  color: #ddd9d9;
+}
+
+.form-container form .inp-div input[type='radio'] {
+  text-align: right;
+}
+
+.form-container form .inp-label {
+  text-align: left;
+}
+
+.form-container h2 {
+  text-align: center;
+}
+
+.register-form-container .register-form .radio-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.register-form-container .register-form .inp-radio-btn h4 {
+  text-align: center;
+  color: #dddada;
+}
+
+.register-form-container .register-form .inp-radio-btn:first-child {
+  margin-right: 5rem;
+}
+
+.register-form-container .register-form label {
+  color: #fff;
+}
+
+.register-form-container .register-form .country-selection-div h4 {
+  color: #dddada;
+  text-align: center;
+}
+
+.register-form-container .register-form .country-selection-div .country-selection {
+  margin-top: -2.2rem;
+}
+
+.register-form-container .register-form .country-selection-div .country-selection input {
+  color: #000;
+}
+
+.register-form-container .register-form .country-selection-div .country-selection .flag-select__option__label {
+  color: #000;
+}
+
+.register-form-container .register-form .country-selection-div .country-selection .flag-select__btn {
+  color: #000 !important;
+  background-color: #f1eeee;
+}
+
+.register-form-container .register-form button {
+  margin-top: 2rem;
+}
+
+.musician-container {
+  margin-top: 2rem;
+  padding: 2rem 2rem 3rem 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.musician-container h2 {
+  font-size: 2rem;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
+  color: #f1f0f0;
+  text-shadow: 0 0 5px black;
+}
+
+.musician-container .musician-profile {
+  width: 90vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.musician-container .musician {
+  width: 19rem;
+  margin: 1rem;
+  padding: 1rem 0.5rem 1.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  background-color: rgba(206, 202, 202, 0.8);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+}
+
+.musician-container .musician h3 {
+  font-size: 1.35em;
+}
+
+.musician-container .musician img {
+  width: 110px;
+  border-radius: 10px;
+}
+
+.musician-container .musician a {
+  color: #4695ac;
+  font-weight: bold;
+}
+
+.musician-container .musician a:hover {
+  color: #000;
+}
+
+.musician-container .musician .view {
+  margin-top: 1rem;
+}
+
+.musician-container .musician:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+.musician-container .musician-profile-container {
+  width: 20rem;
+  padding: 1rem 0.5rem 1.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  background-color: rgba(206, 202, 202, 0.8);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+}
+
+.musician-container .musician-profile-container h3 {
+  font-size: 1.35em;
+}
+
+.musician-container .musician-profile-container img {
+  width: 110px;
+  border-radius: 10px;
+}
+
+.musician-container-account-outer {
+  width: 100vw;
+  padding: 3rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #433f50;
+  background-image: url(../img/monkey-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.musician-container-account-outer h2 {
+  color: #fff;
+}
+
+.musician-container-account-outer .musician-account-container {
+  padding: 1rem;
+  width: 47.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 3.5rem;
+  background-color: rgba(98, 98, 100, 0.8);
+  -webkit-box-shadow: inset 4px -2px 45px -5px rgba(10, 10, 10, 0.7);
+          box-shadow: inset 4px -2px 45px -5px rgba(10, 10, 10, 0.7);
+  border-radius: 10px;
+}
+
+.musician-container-account-outer .musician-account-container h2 {
+  color: #000;
+}
+
+.musician-container-account-outer .musician-account-container .account {
+  width: 19vw;
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+
+.musician-container-account-outer .musician-account-container .account h2 {
+  font-size: 1.7rem;
+}
+
+.musician-container-account-outer .musician-account-container .account h3 {
+  font-size: 1.5em;
+  margin-top: 0.4rem;
+}
+
+.musician-container-account-outer .musician-account-container .account img {
+  -webkit-box-shadow: 0px 5px 12px 5px #01091a;
+          box-shadow: 0px 5px 12px 5px #01091a;
+  border-radius: 70px;
+}
+
+.musician-container-account-outer .musician-account-container .account-manager {
+  width: 20vw;
+  padding-left: 1.5rem;
+  border-left: 1px solid #b6b3b3;
+}
+
+.musician-container-account-outer .musician-account-container .account-manager a {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.3em;
+}
+
+.musician-container-account-outer .musician-account-container .account-manager a:hover {
+  color: #ccc5c5;
+}
+
+.musician-container-account-outer .musician-account-container .account-manager a:nth-child(2) {
+  padding-bottom: 0.5rem;
+}
+
+.musician-container-account-outer .musician-account-container .account-manager i {
+  margin-right: 0.5rem;
+}
+
+.musician-container-account-outer .musician-account-container .profile-img-container {
+  margin-top: 2rem;
+}
+
+.edit-account {
+  padding: 1.5rem;
+}
+
+.edit-account h2 {
+  text-align: center;
+}
+
+.edit-account form {
+  width: 30rem;
+  margin: 2rem 0rem;
+  padding: 2rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(230, 225, 225, 0.5);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+}
+
+.edit-account form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.edit-account form input {
+  height: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  margin-left: 10px;
+  background-color: rgba(252, 252, 252, 0.5);
+}
+
+.country-flag {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+form input {
+  border-radius: 5px;
+  border: 1px solid #303030;
+  padding: 0.3rem 0.5rem;
+}
+
+.msg-container {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.btn-style {
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-top: 1rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.btn-style:hover {
+  background-color: rgba(70, 149, 172, 0.8);
+}
+
+.btn-edit {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 10rem;
+}
+
+.btn-delete {
+  letter-spacing: 0.05em;
+  font-size: 0.8em;
+  font-weight: bold;
+  background-color: #5f1919;
+  color: #aaa9a9;
+  padding: 0.2rem 1rem;
+  border: 1px solid rgba(36, 36, 36, 0.5);
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  background-color: rgba(90, 3, 3, 0.5);
+}
+
+.btn-visit {
+  margin-top: 1rem;
+  padding: 0.3rem 1rem;
+  text-decoration: none;
+  color: #000 !important;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.btn-visit:hover {
+  background-color: rgba(70, 149, 172, 0.8);
+}
+
+.btn-link-mailto {
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.05em;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #000 !important;
+  border-radius: 5px !important;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(243, 237, 237, 0.7);
+}
+
+.btn-link-mailto:hover {
+  background-color: rgba(70, 149, 172, 0.8);
+}
+
+.heading {
+  font-size: 2rem;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.1em;
+  color: #f1f0f0;
+  text-shadow: 0 0 5px black;
+}
+
+.instruments-name {
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 2px 2px 2px rgba(68, 54, 133, 0.3);
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+
+.drummer-name {
+  position: relative;
+  top: -17rem;
+  right: 4.5rem;
+}
+
+.guitar-name {
+  position: relative;
+  top: -17rem;
+  left: 20.5rem;
+}
+
+.bass-name {
+  position: relative;
+  top: 17rem;
+  left: 14.5rem;
+}
+
+.keyboard-name {
+  position: relative;
+  top: 17rem;
+  right: 22rem;
+}
+
+.service-container p {
+  margin-top: -1rem;
+  color: #fff;
+}
+
+.service-container .service-offer {
+  width: 50rem;
+  margin: 2rem 0rem;
+  padding: 3rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(230, 225, 225, 0.5);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+  border-radius: 5px;
+}
+
+.service-container .service-offer p {
+  color: #000;
+}
+
+.service-container .service-offer .services {
+  width: 20rem;
+}
+
+.service-container .service-offer .services a {
+  font-size: 1.3em;
+  color: #252525;
+}
+
+.service-container .service-offer .services a:hover {
+  color: #fffefe;
+}
+
+.service-container .service-offer .services i {
+  padding-right: 0.5rem;
+  text-decoration: underline;
+}
+
+.support-container {
+  width: 50rem;
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.support-container p {
+  color: #fff;
+}
+
+.support-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1.5rem 0rem 1rem 0rem;
+  padding: 1rem 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(230, 225, 225, 0.5);
+  -webkit-box-shadow: 0px 2px 12px 0px #01091a;
+          box-shadow: 0px 2px 12px 0px #01091a;
+  border-radius: 5px;
+}
+
+.support-container form input {
+  margin: 0.5rem;
+}
+
+.support-container form textarea {
+  border-radius: 5px;
+  resize: none;
+}
+/*# sourceMappingURL=App.css.map */

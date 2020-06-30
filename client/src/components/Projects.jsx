@@ -11,7 +11,7 @@ export default function Projects(props) {
     const [name, setName] = useState("");
     const [projects, setProjects] = useState([]);
     const fetchProjects = () => {
-        fetch("http://localhost:5000/projects", {
+        fetch("/projects", {
             headers: {
                 'x-auth': token,
             },
@@ -33,7 +33,7 @@ export default function Projects(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        await fetch('http://localhost:5000/projects', {
+        await fetch('/projects', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

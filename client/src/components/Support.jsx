@@ -23,7 +23,7 @@ export default function Support() {
             },
             body: JSON.stringify(userData)
         };
-        const response = await fetch('http://localhost:5000/users/support', options);
+        const response = await fetch('/support', options);
         const data = await response.json();
         console.log("support data:", data)
 
