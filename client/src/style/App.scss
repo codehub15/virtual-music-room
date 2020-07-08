@@ -18,7 +18,7 @@ body {
 
 // navbar
 nav {
-    width: 100vw;
+    width: 100%;
     position: fixed;
     top: 0;
     padding: 0.5rem 0.3rem;
@@ -91,6 +91,10 @@ nav {
     // background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(3,4,29,1) 83%);
     background: rgb(70, 149, 172);
     background: radial-gradient(circle, rgba(70, 149, 172, 1) 0%, rgba(1, 1, 13, 1) 87%);
+
+    @media screen and (max-width: 500px) {
+        margin-top: -3rem;
+    }
 }
 
 // home components
@@ -107,6 +111,32 @@ nav {
             text-align: center;
             color: rgb(90, 90, 90);
             text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+       
+            &::before {
+                    content: "-";
+                }
+                &::after {
+                    content: "-";
+                }
+
+            @media screen and (max-width: 475px) {
+                font-size: 1em;
+                letter-spacing: 1em;
+                padding: 0rem 0.3rem;
+
+                &::before {
+                    content: "";
+                }
+                &::after {
+                    content: "";
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                font-size: 1em;
+                letter-spacing: 1em;
+                padding: 0rem 0.3rem;
+            }
         }
         h2 {
             font-family: 'Staatliches', cursive;
@@ -119,7 +149,7 @@ nav {
     }
     // particles text
     .particles-map {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         margin-bottom: 0.3rem;
         background-image: url(../img/world-map2.jpg);
@@ -127,6 +157,15 @@ nav {
         background-position: center;
         box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
+
+        @media screen and (max-width: 700px) {
+            height: 30rem;
+
+            canvas {
+                height: 30rem;
+            }
+        }
+
         // search container
         .search-container {
             .search-overlay {
@@ -179,11 +218,17 @@ nav {
         align-items: center;
         padding: 0.5rem;
         background-color: rgb(228, 226, 226);
+
+        @media screen and (max-width: 700px) {
+            img {
+                width: 20rem;
+            }
+        }
     }
     // audioRoom-control 
     .audio-room-section {
         height: 100vh;
-        width: 100vw;
+        // width: 100vw;
         padding: 5rem 0rem;
         display: flex;
         align-items: center;
@@ -192,6 +237,10 @@ nav {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
+        @media screen and (max-width: 700px) {
+            height: 30rem;
+        }
     }
     .audio-room-inner-section {
         ///position: absolute;
@@ -204,6 +253,10 @@ nav {
         justify-content: center;
         align-items: center;
         background-color: rgba(203, 203, 230, 0.7);
+
+        @media screen and (max-width: 700px) {
+            height: 15rem;
+        }
     }
     .audioRoom-control {
         //height: 30vh;
@@ -357,6 +410,13 @@ nav {
     box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
     font-family: 'Staatliches', cursive;
     letter-spacing: 0.09em;
+
+    @media screen and (max-width: 550px) {
+        width: 23rem;
+        margin-top: -3rem;
+        margin-bottom: 0rem;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -718,24 +778,44 @@ form {
     position: relative;
     top: -17rem;
     right: 4.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: -11rem;
+        right: -3rem;
+    }
 }
 
 .guitar-name {
     position: relative;
     top: -17rem;
     left: 20.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: -11rem;
+        left: 8rem;
+    }
 }
 
 .bass-name {
     position: relative;
     top: 17rem;
     left: 14.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: 10rem;
+        left: 5rem;
+    }
 }
 
 .keyboard-name {
     position: relative;
     top: 17rem;
     right: 22rem;
+
+    @media screen and (max-width: 700px) {
+        top: 10rem;
+        right: 8rem;
+    }
 }
 
 // services
