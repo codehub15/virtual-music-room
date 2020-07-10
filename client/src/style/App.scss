@@ -341,6 +341,21 @@ nav {
     .title-container {
         text-align: center;
     }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    .text-room {
+        animation: fadeIn 1s infinite alternate;
+    }
+    .text-room {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-family: 'Staatliches', cursive;
+        word-spacing: 0.2rem;
+    }
 }
 
 .title-container {
@@ -557,7 +572,7 @@ nav {
                 margin-top: 0.4rem;
             }
             img {
-                box-shadow: 0px 5px 12px 5px rgba(1, 9, 26, 1);
+                box-shadow: 3px 3px 3px 3px rgb(5, 15, 37);
                 border-radius: 70px;
             }
         }
