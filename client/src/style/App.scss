@@ -26,13 +26,22 @@ nav {
     box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
     // box-shadow: 0px 10px 15px -1px rgba(7, 7, 7, 0.8);
     z-index: 1;
+
     ul {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         list-style: none;
+
         li {
             margin: 0rem 0.5rem;
         }
+        li:first-child {
+            @media screen and (max-width: 700px){
+                margin-left: -0.5rem;
+            }
+        }
+         
         a {
             text-decoration: none;
             font-family: 'Staatliches', cursive;
@@ -43,6 +52,10 @@ nav {
             &:hover {
                 color: rgb(122, 90, 141);
             }
+
+            @media screen and (max-width: 700px){
+                font-size: 0.9em;
+            }
         }
         .active {
             color: #4695ac;
@@ -50,10 +63,19 @@ nav {
     }
     .nav-li-div {
         display: flex;
+         li:first-child {
+            @media screen and (max-width: 700px){
+                margin-left: 0.3rem;
+            }
+        }
     }
     .nav-item-left {
         position: absolute;
         right: 4.5rem;
+
+        @media screen and (max-width: 700px){
+        right: 1.5rem;
+    }
     }
     // link hover effect
     a.middle {
@@ -85,20 +107,17 @@ nav {
     justify-content: center;
     align-items: center;
     // background-color: rgba(241, 236, 236, 0.5);
-    //     background: rgb(111,134,173);
+    // background: rgb(111,134,173);
     // background: radial-gradient(circle, rgba(111,134,173,0.9724089464887518) 0%, rgba(3,4,29,1) 83%);
     // background: rgb(70,149,172);
     // background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(3,4,29,1) 83%);
     background: rgb(70, 149, 172);
     background: radial-gradient(circle, rgba(70, 149, 172, 1) 0%, rgba(1, 1, 13, 1) 87%);
-
-    @media screen and (max-width: 500px) {
-        margin-top: -3rem;
-    }
 }
 
 // home components
 .home-component {
+    width: 100vw;
     .slogan {
         padding: 0.1rem;
         background-color: rgb(6, 5, 14);
@@ -159,10 +178,11 @@ nav {
         box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
 
         @media screen and (max-width: 700px) {
-            height: 30rem;
+            height: 20rem;
+            background-size: auto 25rem;
 
             canvas {
-                height: 30rem;
+                height: 20rem;
             }
         }
 
@@ -193,6 +213,17 @@ nav {
                     color: rgb(87, 14, 14);
                     border: 1px solid black;
                     cursor: pointer;
+                }
+
+                @media screen and (max-width: 899px) {
+                    width: 15rem;
+                    left: 20%;
+                }
+                // @media screen and (min-width: 900px) {
+                //     left: 50%;
+                // }
+                @media screen and (min-width: 900px) {
+                    left: 38%;
                 }
             }
             form {
@@ -413,8 +444,12 @@ nav {
 
     @media screen and (max-width: 550px) {
         width: 23rem;
-        margin-top: -3rem;
+        margin-top: -5rem;
         margin-bottom: 0rem;
+    }
+
+    @media screen and (max-width: 700px) {
+        margin-top: -10rem;
     }
 
     form {
