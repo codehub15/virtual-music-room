@@ -18,7 +18,8 @@ body {
 
 // navbar
 nav {
-    width: 100vw;
+    width: 100%;
+    height: 3rem;
     position: fixed;
     top: 0;
     padding: 0.5rem 0.3rem;
@@ -26,13 +27,26 @@ nav {
     box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
     // box-shadow: 0px 10px 15px -1px rgba(7, 7, 7, 0.8);
     z-index: 1;
+
+    @media screen and (max-width: 700px){
+        height: 2rem;
+    }
+
     ul {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         list-style: none;
+
         li {
             margin: 0rem 0.5rem;
         }
+        li:first-child {
+            @media screen and (max-width: 700px){
+                margin-left: -0.5rem;
+            }
+        }
+         
         a {
             text-decoration: none;
             font-family: 'Staatliches', cursive;
@@ -43,6 +57,10 @@ nav {
             &:hover {
                 color: rgb(122, 90, 141);
             }
+
+            @media screen and (max-width: 700px){
+                font-size: 0.9em;
+            }
         }
         .active {
             color: #4695ac;
@@ -50,11 +68,26 @@ nav {
     }
     .nav-li-div {
         display: flex;
+         li:first-child {
+            @media screen and (max-width: 700px){
+                margin-left: 0.3rem;
+            }
+        }
     }
     .nav-item-left {
         position: absolute;
-        right: 4.5rem;
+        top: 1.3rem;
+        right: 2.8rem;
+
+        @media screen and (max-width: 700px){
+            right: 1.5rem;
+        }
     }
+
+    // .nav-item-auth {
+    //     margin-top: -0.5rem;
+    // }
+
     // link hover effect
     a.middle {
         position: relative;
@@ -77,24 +110,112 @@ nav {
     }
 }
 
+// responsive navbar
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.main-nav-link,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Staatliches', cursive;
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+// navbar hamburger icon
+.navbar-toggle-icon {
+    position: absolute;
+    top: 17px;
+    right: 29px;
+    cursor: pointer;
+    color: rgba(236, 235, 235, 0.8);
+    font-size: 24px;
+
+     @media screen and (min-width: 800px){
+        display: none;
+    }
+}
+
+.toggle {
+    display: block;
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        display: flex;
+        padding-bottom: 0;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        // height: 5rem;
+        // background-color: rgba(0, 0, 0,0.8);
+    }
+
+    .main-nav li {
+        margin: 0;
+    }
+
+    .main-nav-link {
+        margin-left: 30px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .main-nav-link:hover {
+        color: rgb(241, 237, 237);
+    }
+}
+
+// ========================================
+
 .app-container {
     min-height: 90vh;
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     // background-color: rgba(241, 236, 236, 0.5);
-    //     background: rgb(111,134,173);
+    // background: rgb(111,134,173);
     // background: radial-gradient(circle, rgba(111,134,173,0.9724089464887518) 0%, rgba(3,4,29,1) 83%);
     // background: rgb(70,149,172);
     // background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(3,4,29,1) 83%);
     background: rgb(70, 149, 172);
     background: radial-gradient(circle, rgba(70, 149, 172, 1) 0%, rgba(1, 1, 13, 1) 87%);
+
+    @media screen and (max-width: 800px) {
+        margin-top: 3.0rem;
+    }
 }
 
 // home components
 .home-component {
+    width: 100vw;
     .slogan {
         padding: 0.1rem;
         background-color: rgb(6, 5, 14);
@@ -107,6 +228,32 @@ nav {
             text-align: center;
             color: rgb(90, 90, 90);
             text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+       
+            &::before {
+                    content: "-";
+                }
+                &::after {
+                    content: "-";
+                }
+
+            @media screen and (max-width: 475px) {
+                font-size: 1em;
+                letter-spacing: 1em;
+                padding: 0rem 0.3rem;
+
+                &::before {
+                    content: "";
+                }
+                &::after {
+                    content: "";
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                font-size: 1em;
+                letter-spacing: 1em;
+                padding: 0rem 0.3rem;
+            }
         }
         h2 {
             font-family: 'Staatliches', cursive;
@@ -119,7 +266,7 @@ nav {
     }
     // particles text
     .particles-map {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         margin-bottom: 0.3rem;
         background-image: url(../img/world-map2.jpg);
@@ -127,6 +274,16 @@ nav {
         background-position: center;
         box-shadow: 1px -1px 11px -1px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 10px 15px -5px rgba(15, 15, 15, 0.75);
+
+        @media screen and (max-width: 700px) {
+            height: 20rem;
+            background-size: auto 25rem;
+
+            canvas {
+                height: 20rem;
+            }
+        }
+
         // search container
         .search-container {
             .search-overlay {
@@ -155,6 +312,17 @@ nav {
                     border: 1px solid black;
                     cursor: pointer;
                 }
+
+                @media screen and (max-width: 899px) {
+                    width: 15rem;
+                    left: 20%;
+                }
+                // @media screen and (min-width: 900px) {
+                //     left: 50%;
+                // }
+                @media screen and (min-width: 900px) {
+                    left: 38%;
+                }
             }
             form {
                 position: absolute;
@@ -179,11 +347,17 @@ nav {
         align-items: center;
         padding: 0.5rem;
         background-color: rgb(228, 226, 226);
+
+        @media screen and (max-width: 700px) {
+            img {
+                width: 20rem;
+            }
+        }
     }
     // audioRoom-control 
     .audio-room-section {
         height: 100vh;
-        width: 100vw;
+        // width: 100vw;
         padding: 5rem 0rem;
         display: flex;
         align-items: center;
@@ -192,6 +366,10 @@ nav {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
+        @media screen and (max-width: 700px) {
+            height: 30rem;
+        }
     }
     .audio-room-inner-section {
         ///position: absolute;
@@ -204,6 +382,10 @@ nav {
         justify-content: center;
         align-items: center;
         background-color: rgba(203, 203, 230, 0.7);
+
+        @media screen and (max-width: 700px) {
+            height: 15rem;
+        }
     }
     .audioRoom-control {
         //height: 30vh;
@@ -357,6 +539,17 @@ nav {
     box-shadow: 0px 2px 12px 0px rgba(1, 9, 26, 1);
     font-family: 'Staatliches', cursive;
     letter-spacing: 0.09em;
+
+    @media screen and (max-width: 550px) {
+        width: 23rem;
+        margin-top: -5rem;
+        margin-bottom: 0rem;
+    }
+
+    @media screen and (max-width: 700px) {
+        margin-top: -10rem;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -718,24 +911,44 @@ form {
     position: relative;
     top: -17rem;
     right: 4.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: -11rem;
+        right: -3rem;
+    }
 }
 
 .guitar-name {
     position: relative;
     top: -17rem;
     left: 20.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: -11rem;
+        left: 8rem;
+    }
 }
 
 .bass-name {
     position: relative;
     top: 17rem;
     left: 14.5rem;
+
+    @media screen and (max-width: 700px) {
+        top: 10rem;
+        left: 5rem;
+    }
 }
 
 .keyboard-name {
     position: relative;
     top: 17rem;
     right: 22rem;
+
+    @media screen and (max-width: 700px) {
+        top: 10rem;
+        right: 8rem;
+    }
 }
 
 // services

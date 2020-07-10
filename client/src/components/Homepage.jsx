@@ -13,7 +13,7 @@ function Homepage() {
             </div>
             <div className="body-background">
                 <div className="slogan">
-                    <h1>- Virtual Music Room -</h1>
+                    <h1>Virtual Music Room</h1>
                 </div>
                 <div className="particles-map">
                     <SearchUser />
