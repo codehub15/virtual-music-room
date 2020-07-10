@@ -19,6 +19,7 @@ body {
 // navbar
 nav {
     width: 100%;
+    height: 3rem;
     position: fixed;
     top: 0;
     padding: 0.5rem 0.3rem;
@@ -26,6 +27,10 @@ nav {
     box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
     // box-shadow: 0px 10px 15px -1px rgba(7, 7, 7, 0.8);
     z-index: 1;
+
+    @media screen and (max-width: 700px){
+        height: 2rem;
+    }
 
     ul {
         display: flex;
@@ -71,12 +76,18 @@ nav {
     }
     .nav-item-left {
         position: absolute;
+        top: 1.3rem;
         right: 2.8rem;
 
         @media screen and (max-width: 700px){
             right: 1.5rem;
         }
     }
+
+    // .nav-item-auth {
+    //     margin-top: -0.5rem;
+    // }
+
     // link hover effect
     a.middle {
         position: relative;
@@ -154,6 +165,8 @@ nav {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
+        // height: 5rem;
+        // background-color: rgba(0, 0, 0,0.8);
     }
 
     .main-nav li {
@@ -182,7 +195,7 @@ nav {
 
 .app-container {
     min-height: 90vh;
-    margin-top: 4.0rem;
+    margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -196,7 +209,7 @@ nav {
     background: radial-gradient(circle, rgba(70, 149, 172, 1) 0%, rgba(1, 1, 13, 1) 87%);
 
     @media screen and (max-width: 800px) {
-        margin-top: 3.2rem;
+        margin-top: 3.0rem;
     }
 }
 
