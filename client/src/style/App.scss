@@ -71,11 +71,11 @@ nav {
     }
     .nav-item-left {
         position: absolute;
-        right: 4.5rem;
+        right: 2.8rem;
 
         @media screen and (max-width: 700px){
-        right: 1.5rem;
-    }
+            right: 1.5rem;
+        }
     }
     // link hover effect
     a.middle {
@@ -99,9 +99,90 @@ nav {
     }
 }
 
+// responsive navbar
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.main-nav-link,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Staatliches', cursive;
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+// navbar hamburger icon
+.navbar-toggle-icon {
+    position: absolute;
+    top: 17px;
+    right: 29px;
+    cursor: pointer;
+    color: rgba(236, 235, 235, 0.8);
+    font-size: 24px;
+
+     @media screen and (min-width: 800px){
+        display: none;
+    }
+}
+
+.toggle {
+    display: block;
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        display: flex;
+        padding-bottom: 0;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .main-nav li {
+        margin: 0;
+    }
+
+    .main-nav-link {
+        margin-left: 30px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .main-nav-link:hover {
+        color: rgb(241, 237, 237);
+    }
+}
+
+// ========================================
+
 .app-container {
     min-height: 90vh;
-    margin-top: 4.5rem;
+    margin-top: 4.0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,6 +194,10 @@ nav {
     // background: radial-gradient(circle, rgba(70,149,172,1) 0%, rgba(3,4,29,1) 83%);
     background: rgb(70, 149, 172);
     background: radial-gradient(circle, rgba(70, 149, 172, 1) 0%, rgba(1, 1, 13, 1) 87%);
+
+    @media screen and (max-width: 800px) {
+        margin-top: 3.2rem;
+    }
 }
 
 // home components
