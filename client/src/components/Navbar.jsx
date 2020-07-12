@@ -39,7 +39,7 @@ export default function Navbar() {
                         <li className="link-background nav-item-auth">
                             <NavLink className="main-nav-link middle" to="/signup" exact activeClassName="active">Sign up</NavLink>
                         </li>
-                        <li className="link-background nav-item-auth">
+                        <li className="link-background nav-item-auth login">
                             <NavLink className="main-nav-link middle" to="/login" exact activeClassName="active">Login</NavLink>
                         </li>
                     </div>

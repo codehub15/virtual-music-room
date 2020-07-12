@@ -19,6 +19,11 @@ function Homepage() {
                     <SearchUser />
                     <TextParticles />
                 </div>
+                <div className="text-room">
+                    <i class="fa fa-arrow-circle-down first-icon" aria-hidden="true"></i>
+                    <p>Drag the play button and position yourself in the room </p>
+                    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                </div>
                 <AudioRoom />
             </div>
         </div>
