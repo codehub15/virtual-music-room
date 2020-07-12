@@ -188,10 +188,10 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url(../img/collage.jpg);
+        background-image: url(../img/MICScollage.jpg);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
     }
     .audio-room-inner-section {
         ///position: absolute;
