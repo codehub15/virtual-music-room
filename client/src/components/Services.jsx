@@ -10,7 +10,7 @@ export default function Services() {
 
             <div className="service-offer">
                 <div className="services">
-                    <p>Technical support to help you upload your tracks in the better way possible.</p>
+                    <p>Technical support to help you upload your tracks in the best way possible.</p>
                     <Link to="/support"><i class="fas fa-headset"></i> Support</Link>
                 </div>
 

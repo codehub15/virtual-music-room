@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    deployment:
+        name: Deployment
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Checkout"
+              uses: actions/checkout@master
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "8.16.0"
+                  registry-url: https://npm.pkg.github.com/
+            - name: "Install dependencies"
+              run: npm i --verbose
+            - name: "Deploy to the internal server"
+              uses: burnett01/rsync-deployments@4.0
+              with:
+                switches: -avzr --delete
+                path: build/
+                remote_path: /var/workspace/vmr/ssh-vmr
+                remote_host: root
+                remote_user: 161.35.217.162
+                remote_key: ${{ secrets.SSH_PRIVATE_KEY }}

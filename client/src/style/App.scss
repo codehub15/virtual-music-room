@@ -374,7 +374,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url(../img/collage.jpg);
+        background-image: url(../img/MICScollage.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -540,6 +540,7 @@ nav {
             opacity: 0;
         }
     }
+
     .text-room {
         display: flex;
         align-items: center;
@@ -777,7 +778,7 @@ nav {
                 margin-top: 0.4rem;
             }
             img {
-                box-shadow: 0px 5px 12px 5px rgba(1, 9, 26, 1);
+                box-shadow: 3px 3px 3px 3px rgb(5, 15, 37);
                 border-radius: 70px;
             }
         }
