@@ -377,7 +377,7 @@ nav {
         background-image: url(../img/MICScollage.jpg);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
 
         @media screen and (max-width: 700px) {
             height: 30rem;
