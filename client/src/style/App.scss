@@ -374,10 +374,10 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url(../img/collage.jpg);
+        background-image: url(../img/MICScollage.jpg);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
 
         @media screen and (max-width: 700px) {
             height: 30rem;
@@ -540,6 +540,7 @@ nav {
             opacity: 0;
         }
     }
+
     .text-room {
         display: flex;
         align-items: center;
@@ -744,7 +745,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(67, 63, 80);
+    // background-color: rgb(67, 63, 80);
     background-image: url(../img/monkey-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -777,7 +778,7 @@ nav {
                 margin-top: 0.4rem;
             }
             img {
-                box-shadow: 0px 5px 12px 5px rgba(1, 9, 26, 1);
+                box-shadow: 3px 3px 3px 3px rgb(5, 15, 37);
                 border-radius: 70px;
             }
         }
@@ -1045,3 +1046,35 @@ form {
         }
     }
 }
+
+// responsive
+@media screen and (max-width: 450px) {
+     .musician-account-container {
+         width: 18rem;
+     }
+}
+
+@media screen and (max-width: 700px) {
+    .musician-container-account-outer {
+        background-image: none;
+        
+        .musician-account-container {
+            align-self: center;
+            width: 23rem;
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 0rem;
+            background-color: rgba(255, 255, 255,0.5);
+            
+            .musician-account {
+                width: 13.5rem;
+            }
+            .account-manager {
+                width: auto;
+                border-left: none;
+            }
+        }
+    }
+}
+
+
