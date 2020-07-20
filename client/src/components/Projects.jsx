@@ -7,7 +7,7 @@ import imgDeco2 from '../img/monkey-1.png'
 
 
 export default function Projects(props) {
-    const { isLoggedIn, token } = useContext(AuthContext)
+    const { isLoggedIn, token, userId } = useContext(AuthContext)
     const [name, setName] = useState("");
     const [projects, setProjects] = useState([]);
     const fetchProjects = () => {
@@ -50,8 +50,6 @@ export default function Projects(props) {
         <div className="projects-container">
             <h2>- All Projects -</h2>
             <div className="projects-container-inner">
-
-
                 <ul>
                     {
                         projects.map((project) => (
@@ -63,8 +61,6 @@ export default function Projects(props) {
                         ))
                     }
                 </ul>
-
-
 
                 <form onSubmit={handleSubmit} >
                     <img src={imgDeco1} alt="img" className="img-deco img-deco-one" />

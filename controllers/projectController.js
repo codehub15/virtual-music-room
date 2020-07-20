@@ -8,6 +8,7 @@ exports.getProjects = async (req, res, next) => {
 
     try {
         const projects = await Project.find()
+        // const projects = await Project.find().populate("owner")
         // const projects = await Project.find().populate("track").populate("owner").execPopulate()
         res.json({ success: true, projects: projects })
     } catch (err) {

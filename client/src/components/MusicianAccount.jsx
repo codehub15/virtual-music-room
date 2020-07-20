@@ -6,7 +6,7 @@ import Flags from 'country-flag-icons/react/3x2'
 
 
 export default function MusicianAccount() {
-    const { isLoggedIn, token, userCountry, setUserCountry, setUserEmail } = useContext(AuthContext)
+    const { isLoggedIn, token, userCountry, setUserCountry, setUserEmail, userId } = useContext(AuthContext)
     const [musicianData, setMusicianData] = useState()
 
     useEffect(() => {
