@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 
 
 // get all users
-exports.getUsers = async(req, res, next) => {
+exports.getUsers = async (req, res, next) => {
     try {
         const users = await User.find()
         res.json({
@@ -17,7 +17,7 @@ exports.getUsers = async(req, res, next) => {
 }
 
 // get single user
-exports.getUser = async(req, res, next) => {
+exports.getUser = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -34,7 +34,7 @@ exports.getUser = async(req, res, next) => {
     }
 }
 
-exports.getCurrentUser = async(req, res, next) => {
+exports.getCurrentUser = async (req, res, next) => {
     try {
         const user = await User.findByToken(req.header("x-auth"))
 
@@ -49,13 +49,13 @@ exports.getCurrentUser = async(req, res, next) => {
 }
 
 // add new user
-exports.postUser = async(req, res, next) => {
+exports.postUser = async (req, res, next) => {
     try {
         const user = new User(req.body)
         const token = user.generateAuthToken()
         await user.save()
         const data = user.getPublicFields()
-            // response
+        // response
         res.header("x-auth", token).json({
             success: true,
             user: data
@@ -67,7 +67,7 @@ exports.postUser = async(req, res, next) => {
 
 
 // update an user
-exports.putUser = async(req, res, next) => {
+exports.putUser = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -88,7 +88,7 @@ exports.putUser = async(req, res, next) => {
 
 
 // upload profile image
-exports.uploadProfileImg = async(req, res, next) => {
+exports.uploadProfileImg = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -114,7 +114,7 @@ exports.uploadProfileImg = async(req, res, next) => {
 
 
 // delete a user
-exports.deleteUser = async(req, res, next) => {
+exports.deleteUser = async (req, res, next) => {
     const {
         id
     } = req.params
@@ -133,7 +133,7 @@ exports.deleteUser = async(req, res, next) => {
 
 
 // login
-exports.login = async(req, res, next) => {
+exports.login = async (req, res, next) => {
     const {
         email,
         password
@@ -160,7 +160,7 @@ exports.login = async(req, res, next) => {
 
 
 // send support email
-exports.sendSupportEmail = async(req, res, next) => {
+exports.sendSupportEmail = async (req, res, next) => {
     const data = req.body
 
     let transporter = nodemailer.createTransport({
@@ -183,7 +183,7 @@ exports.sendSupportEmail = async(req, res, next) => {
         text: data.emailTxt
     };
 
-    await transporter.sendMail(mailOptions, function(error, info) {
+    await transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
         } else {
